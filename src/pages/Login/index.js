@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { useHistory } from 'react-router-dom'
 import { Wrapper, Separator, Button } from '../../components'
 import { LoginContainer, LoginInput } from './styles'
 
@@ -6,20 +7,21 @@ import { LoginContainer, LoginInput } from './styles'
 function Container() {
    const [username, setUserName] = useState('')
    const [password, setPassword] = useState('')
+   const history = useHistory()
+   console.log(history)
 
    function logged() {
       if(username === 'eu' && password === 'entra') {
-         window.alert(username + ' => ' + password)
-         document.getElementById('txt').value=''
-         document.getElementById('pas').value=''         
+         history.push('/list')      
       } else {
          window.alert('errroooooou')
-         document.getElementById('txt').value=''
-         document.getElementById('pas').value=''
+         setUserName('')
+         setPassword('')
       } 
    } 
-   
+
    return (
+      <>
       <LoginContainer>
          <Wrapper>
             <LoginInput 
@@ -27,6 +29,7 @@ function Container() {
                id='txt' 
                placeholder='Nome de Usuário' 
                onChange={(e) => setUserName(e.target.value)}
+               value={username}
             />
             <Separator height={45}/>
             <LoginInput 
@@ -34,11 +37,15 @@ function Container() {
                id='pas' 
                placeholder='Senha' 
                onChange={(ev) => setPassword(ev.target.value)}
+               value={password}
             />
             <Separator height={25}/>
          </Wrapper>
-         <Button prop={logged}/>       
+         <Button onClick={logged}>
+            Avançar
+         </Button>       
       </LoginContainer>
+      </>
    )
 }
 

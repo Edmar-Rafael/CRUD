@@ -1,11 +1,9 @@
 import React from 'react'
 import { ButtonContainer } from './styles'
 
-function Button({prop}) {
+function Button(props) {
    return (
-      <ButtonContainer onClick={prop}>
-         Avançar
-      </ButtonContainer>
+      <ButtonContainer {...props}/>
    )
 }
 
