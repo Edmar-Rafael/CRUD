@@ -1,9 +1,8 @@
 import styled from 'styled-components'
 
 const Separator = styled.div`
-   width: ${({width}) => width || 10}px;
-   height: ${({height}) => height || 10}px;
-   background-color: ${({color}) => color};
+   width: ${({x}) => x || 10}px;
+   height: ${({y}) => y || 10}px;
 `
 
 export default Separator

@@ -1,11 +1,24 @@
 import React, { useEffect, useState } from 'react'
-import { Container, Header, DateContainer, DragonName, DragonsContainer, Type } from './styles'
-import { getDragons } from '../../services/dragon'
-import { Separator, Row, Button } from '../../components'
+import { deleteDragon, getDragons } from '../../services/dragon'
+import { useAuth } from '../../hooks/useAuth'
+import { useHistory } from 'react-router'
+import { Separator, Button } from '../../components'
 import dayjs from 'dayjs'
+import {
+    Container, 
+    Header, 
+    DateContainer, 
+    DragonName, 
+    DragonsContainer, 
+    Type } from './styles'
+
 
 function DragonsList() {
    const [dragons, setDragons] = useState()
+   const [isClicked, setIsClicked] = useState(false)
+   const history = useHistory()
+
+   const { logOut } = useAuth()
 
    useEffect(() => {
       async function fetchDragons() {
@@ -14,20 +27,26 @@ function DragonsList() {
       }
       fetchDragons()
    },
-   )
+   [isClicked])
+
+   async function handleDelete(id) {
+      await deleteDragon(id)
+      setIsClicked(!isClicked)
+   }
 
    return (
       <Container>
-         <Separator height={6}/>
+         <Separator y={12}/>
          <Header>
-            <Button width={125}>
-               CRIAR DRAGÃO
-            </Button>
-            <Button>
-               SAIR
-            </Button>
+            <Button 
+               text={'CRIAR DRAGÃO'} 
+               x={118} 
+               custom 
+               onClick={() => history.push('/create')}
+            />
+            <Button text={'SAIR'} custom onClick={logOut}/>               
          </Header>
-         <Separator height={30}/>
+         <Separator y={20}/>
          {dragons && dragons.map(dragon =>
          <>
             <DragonsContainer>
@@ -40,8 +59,20 @@ function DragonsList() {
                <Type>
                   {dragon.type}
                </Type>
+               <Button 
+                  text={'editar'} 
+                  x={45}
+                  bordrad={20} 
+               />
+               <Separator />
+               <Button 
+                  text={'deletar'} 
+                  x={45} 
+                  bordrad={40}
+                  onClick={()=> handleDelete(dragon.id)} 
+               />    
             </DragonsContainer>
-            <Separator height={9} color={'red'}/>
+            <Separator y={9}/>
          </>
          )}
       </Container>
