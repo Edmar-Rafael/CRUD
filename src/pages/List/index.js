@@ -27,7 +27,7 @@ function DragonsList() {
       }
       fetchDragons()
    },
-   [isClicked])
+   [isClicked, dragons])
 
    async function handleDelete(id) {
       await deleteDragon(id)

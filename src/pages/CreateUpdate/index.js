@@ -12,11 +12,12 @@ function CreateUpdate() {
    const {logOut} = useAuth()
 
 
-   async function createNewDragon() {
-      await createDragon({
+   function createNewDragon() {
+      createDragon({
          name: `${dragonName}`,
          type: `${dragonType}`
       }) 
+      history.goBack()
    }
 
 
