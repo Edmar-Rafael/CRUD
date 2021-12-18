@@ -1,21 +1,26 @@
 import React, { useEffect, useState } from 'react'
-import { deleteDragon, getDragons } from '../../services/dragon'
+import { deleteDragon, getDragons, updateDragon } from '../../services/dragon'
 import { useAuth } from '../../hooks/useAuth'
 import { useHistory } from 'react-router'
-import { Separator, Button } from '../../components'
+import { Separator, Button, Input } from '../../components'
 import dayjs from 'dayjs'
 import {
     Container, 
     Header, 
     DateContainer, 
-    DragonName, 
     DragonsContainer, 
-    Type } from './styles'
+    NameContainer,
+    TypeContainer,
+    Recipe,
+    ButtonBox} from './styles'
 
 
 function DragonsList() {
    const [dragons, setDragons] = useState()
-   const [isClicked, setIsClicked] = useState(false)
+   const [isUpdate, setIsUpdate] = useState(true)
+   const [isClicked, setIsclicked] = useState()
+   const [updatedName, setUpdatedName] = useState('')
+   const [updatedType, setUpdatedType] = useState('')
    const history = useHistory()
 
    const { logOut } = useAuth()
@@ -27,12 +32,24 @@ function DragonsList() {
       }
       fetchDragons()
    },
-   [isClicked, dragons])
+   [isClicked, isUpdate])
+
+
+   async function handleUpdate(id) {
+      await updateDragon(id,{
+         name: `${updatedName}`,
+         type: `${updatedType}`
+      })
+      setIsUpdate(!isUpdate)
+      setUpdatedName('')
+      setUpdatedType('')
+   }
 
    async function handleDelete(id) {
       await deleteDragon(id)
-      setIsClicked(!isClicked)
+      setIsclicked(!isClicked)
    }
+
 
    return (
       <Container>
@@ -53,24 +70,54 @@ function DragonsList() {
                <DateContainer>
                   {dayjs(dragon.createdAt).format('DD/MM/YYYY')}
                </DateContainer>
-               <DragonName>
-                  {dragon.name}
-               </DragonName>
-               <Type>
-                  {dragon.type}
-               </Type>
-               <Button 
-                  text={'editar'} 
-                  x={45}
-                  bordrad={20} 
-               />
-               <Separator />
-               <Button 
-                  text={'deletar'} 
-                  x={45} 
-                  bordrad={40}
-                  onClick={()=> handleDelete(dragon.id)} 
-               />    
+               <NameContainer>
+               {isUpdate ? (
+                  <Recipe>
+                     {dragon.name}
+                  </Recipe>
+                  ) : (
+                  <Input
+                     onChange={(e) => setUpdatedName(e.target.value)}
+                     id={dragon.id}
+                     type='text'
+                     placeholder={dragon.name}
+                     value={updatedName} 
+                  />
+               )}
+               </NameContainer>
+               <TypeContainer>
+               {isUpdate ? (
+                  <Recipe>
+                     {dragon.type}
+                  </Recipe> 
+                  ) : (
+                  <Input 
+                     onChange={(e) => setUpdatedType(e.target.value)}
+                     id={dragon.id}
+                     type='text'
+                     placeholder={dragon.type}
+                     value={updatedType}
+                  />
+               )}
+               </TypeContainer>
+               <ButtonBox>
+               {isUpdate ? (
+                  <Button
+                     onClick={() => setIsUpdate(!isUpdate)}
+                     text={'editar'}
+                     x={45}
+                     bordrad={20}
+                  />
+                  ) : (
+                  <Button onClick={() => handleUpdate(dragon.id)} text={'finalizar'}/>
+               )}
+                  <Button 
+                     text={'deletar'}
+                     x={45}
+                     bordrad={40}
+                     onClick={()=> handleDelete(dragon.id)}
+                  />
+               </ButtonBox>    
             </DragonsContainer>
             <Separator y={9}/>
          </>

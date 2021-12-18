@@ -11,7 +11,6 @@ function CreateUpdate() {
    const history = useHistory()
    const {logOut} = useAuth()
 
-
    function createNewDragon() {
       createDragon({
          name: `${dragonName}`,
@@ -25,15 +24,25 @@ function CreateUpdate() {
       <Container>
          <Separator />
          <Header> 
-            <Button custom text={'VOLTAR'} onClick={() => history.push('/')}/>
-            <Button custom text={'SAIR'} onClick={logOut}/>
+            <Button onClick={() => history.push('/')} custom text={'VOLTAR'} />
+            <Button onClick={logOut} custom text={'SAIR'} />
          </Header>
          <Separator y={150}/>
-         <Input placeholder='Nome*' value={dragonName} onChange={(e) => setDragonName(e.target.value)}/>
+         <Input 
+            onChange={(e) => setDragonName(e.target.value)} 
+            type='text'
+            placeholder='Nome*' 
+            value={dragonName}
+         />
          <Separator />
-         <Input placeholder='Tipo*' value={dragonType} onChange={(e) => setDragonType(e.target.value)}/>
+         <Input 
+            onChange={(e) => setDragonType(e.target.value)} 
+            type='text'
+            placeholder='Tipo*' 
+            value={dragonType} 
+         />
          <Separator />
-         <Button custom text={'CADASTRAR'} x={308} onClick={createNewDragon} />
+         <Button custom text={'CADASTRAR'} x={308} onClick={createNewDragon}/>
       </Container>
    )
 }

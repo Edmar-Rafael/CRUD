@@ -24,6 +24,7 @@ export const DragonsContainer = styled.div`
    display: flex;
    flex-direction: row;
    align-items: center;
+   justify-content: space-between;
    padding: 5px;
    width: 90%;
    height: 40px;
@@ -35,24 +36,32 @@ export const DateContainer = styled.div`
    padding: 0 5px;
    display: flex;
    align-items: center;
-   width: 50%;
+   width: 25%;
    font-size: 20px;
    color: white;
 `  
 
-export const DragonName = styled.div`
+export const NameContainer = styled.div`
    display: flex;
    align-items: center;
-   width: 50%; 
+   width: 25%;
    font-size: 20px;
    color: white;
 `
 
-export const Type = styled.div`
+export const TypeContainer = styled.div`
    display: flex;
    align-items: center;
    justify-content: center;
-   width: 50%;
+   width: 25%;
    font-size: 20px;
    color: white;
+`
+
+export const Recipe = styled.div``
+
+export const ButtonBox = styled.div`
+   display: flex;
+   justify-content: space-between;
+   width: 8.5%;
 `

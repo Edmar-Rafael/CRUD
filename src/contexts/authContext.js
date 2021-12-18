@@ -30,9 +30,10 @@ export function AuthContextProvider({children}) {
     localStorage.removeItem(`${SESSION_KEY}`)
   }
 
+  const contexts = {logIn, logOut, user, isAuthenticated: !!user}
 
   return (
-    <AuthContext.Provider value={{logIn, logOut, user, isAuthenticated: !!user}}>
+    <AuthContext.Provider value={ contexts }>
       {children}
     </AuthContext.Provider>
   )
