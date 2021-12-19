@@ -19,8 +19,10 @@ function DragonsList() {
    const [dragons, setDragons] = useState()
    const [isUpdate, setIsUpdate] = useState(true)
    const [isClicked, setIsclicked] = useState()
-   const [updatedName, setUpdatedName] = useState('')
-   const [updatedType, setUpdatedType] = useState('')
+   const [updatedDragon, setUpdatedDragon] = useState({
+      newName: '',
+      newType: ''
+   })
    const history = useHistory()
 
    const { logOut } = useAuth()
@@ -37,12 +39,14 @@ function DragonsList() {
 
    async function handleUpdate(id) {
       await updateDragon(id,{
-         name: `${updatedName}`,
-         type: `${updatedType}`
+         name: `${updatedDragon.newName}`,
+         type: `${updatedDragon.newType}`
       })
       setIsUpdate(!isUpdate)
-      setUpdatedName('')
-      setUpdatedType('')
+      setUpdatedDragon({
+         newName: '',
+         newType: ''
+      })
    }
 
    async function handleDelete(id) {
@@ -50,9 +54,14 @@ function DragonsList() {
       setIsclicked(!isClicked)
    }
 
+   function handleChange(event) {
+      const {id, value} = event.target
+      setUpdatedDragon({...updatedDragon, [id]: value})
+   }
+
 
    return (
-      <Container>
+      <Container >
          <Separator y={12}/>
          <Header>
             <Button 
@@ -64,9 +73,9 @@ function DragonsList() {
             <Button text={'SAIR'} custom onClick={logOut}/>               
          </Header>
          <Separator y={20}/>
-         {dragons && dragons.map(dragon =>
+         {dragons && dragons.map((dragon)=>
          <>
-            <DragonsContainer>
+            <DragonsContainer key={dragon.id}>
                <DateContainer>
                   {dayjs(dragon.createdAt).format('DD/MM/YYYY')}
                </DateContainer>
@@ -77,11 +86,11 @@ function DragonsList() {
                   </Recipe>
                   ) : (
                   <Input
-                     onChange={(e) => setUpdatedName(e.target.value)}
-                     id={dragon.id}
+                     onChange={handleChange}
+                     id='newName'
                      type='text'
                      placeholder={dragon.name}
-                     value={updatedName} 
+                     value={updatedDragon.newName} 
                   />
                )}
                </NameContainer>
@@ -92,11 +101,11 @@ function DragonsList() {
                   </Recipe> 
                   ) : (
                   <Input 
-                     onChange={(e) => setUpdatedType(e.target.value)}
-                     id={dragon.id}
+                     onChange={handleChange}
+                     id='newType'
                      type='text'
                      placeholder={dragon.type}
-                     value={updatedType}
+                     value={updatedDragon.newType}
                   />
                )}
                </TypeContainer>
