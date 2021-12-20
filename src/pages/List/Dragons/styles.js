@@ -3,7 +3,6 @@ import Colors from "../../../resources/Colors"
 
 export const Container = styled.div`
    width: 100%;
-   height: 100vh;
    display: flex;
    flex-direction: column;
    align-items: center;
@@ -30,7 +29,8 @@ export const TypeContainer = styled.div``
 export const Recipe = styled.div`
    display: flex;
    align-items: center;
-   justify-content: center;
+   justify-content: flex-start;
+   padding-left: 10px;
    width: 25%;
    font-size: 20px;
    color: white;

@@ -1,6 +1,6 @@
 import dayjs from "dayjs";
 import React, { useState } from "react";
-import { Button, Input } from "../../../components";
+import { Button, Input, Separator } from "../../../components";
 import { deleteDragon, updateDragon } from "../../../services/dragon";
 import { 
   ButtonBox, 
@@ -41,6 +41,7 @@ function Dragons({item, isClicked, setIsClicked}) {
 
   return (
     <Container>
+      <Separator />
       <DragonsContainer>
       {isUpdate ? (      
       <>
