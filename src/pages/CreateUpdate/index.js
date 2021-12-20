@@ -11,8 +11,8 @@ function CreateUpdate() {
    const history = useHistory()
    const {logOut} = useAuth()
 
-   function createNewDragon() {
-      createDragon({
+   async function createNewDragon() {
+      await createDragon({
          name: `${dragonName}`,
          type: `${dragonType}`
       }) 

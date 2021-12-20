@@ -39,7 +39,7 @@ export const DateContainer = styled.div`
    width: 25%;
    font-size: 20px;
    color: white;
-`  
+`
 
 export const NameContainer = styled.div`
    display: flex;
