@@ -5,7 +5,8 @@ function Input({home, list, create, ...props}) {
 
   return (
     <InputContainer 
-      className={home && 'home' || list && 'list' || create && 'create'} 
+      className={
+        home ? home : '' || list ? list : '' || create ? create : ''} 
       {...props}
     />
   )
