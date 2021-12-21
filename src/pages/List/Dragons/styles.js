@@ -1,13 +1,6 @@
 import styled from "styled-components"
 import Colors from "../../../resources/Colors"
 
-export const Container = styled.div`
-   width: 100%;
-   display: flex;
-   flex-direction: column;
-   align-items: center;
-`
-
 export const DragonsContainer = styled.div`
    display: flex;
    flex-direction: row;
@@ -19,12 +12,6 @@ export const DragonsContainer = styled.div`
    border-radius: 2px;
    background-color: ${Colors.dragons};
 `
-
-export const DateContainer = styled.div``
-
-export const NameContainer = styled.div``
-
-export const TypeContainer = styled.div``
 
 export const Recipe = styled.div`
    display: flex;
@@ -41,3 +28,9 @@ export const ButtonBox = styled.div`
    justify-content: space-between;
    width: 9%;
 `
+
+export const DateContainer = styled.div``
+
+export const NameContainer = styled.div``
+
+export const TypeContainer = styled.div``

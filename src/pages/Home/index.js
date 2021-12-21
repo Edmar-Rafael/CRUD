@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 import { useAuth } from '../../hooks/useAuth'
 import { JWT } from '../../config'
-import { Wrapper, Separator, Button } from '../../components'
-import { LoginContainer, LoginInput } from './styles'
+import { Wrapper, Separator, Button, Input } from '../../components'
+import { LoginContainer } from './styles'
 
 
 function Home() {
@@ -28,7 +28,7 @@ function Home() {
    return (
       <LoginContainer onSubmit={handleSubmit}>
          <Wrapper>
-            <LoginInput 
+            <Input 
                onChange={handleChange}
                id='name'
                type='text'
@@ -36,7 +36,7 @@ function Home() {
                value={user.name}
             />
             <Separator height={45}/>
-            <LoginInput 
+            <Input 
                onChange={handleChange}
                id='password'
                type='password'

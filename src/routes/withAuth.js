@@ -1,6 +1,6 @@
 import React from "react";
 import { Route, Switch } from "react-router";
-import { CreateUpdate, List } from "../pages";
+import { Create, List } from "../pages";
 
 
 function WithAuth() {
@@ -8,7 +8,7 @@ function WithAuth() {
   return (
     <Switch>
       <Route path='/' component={List} exact/>
-      <Route path='/create' component={CreateUpdate} exact/>
+      <Route path='/create' component={Create} exact/>
     </Switch>
   )
 }

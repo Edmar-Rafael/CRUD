@@ -2,13 +2,14 @@ import React, { useEffect, useState } from 'react'
 import { getDragons } from '../../services/dragon'
 import { useAuth } from '../../hooks/useAuth'
 import { useHistory } from 'react-router'
-import { Separator, Button } from '../../components'
+import { Separator, Button, Container } from '../../components'
 import Dragons from './Dragons'
-import { Container, Header } from './styles'
+import { DragonsHeader, Header, Recipe, RecipeContainer } from './styles'
 
 
 function DragonsList() {
    const [dragons, setDragons] = useState()
+   const [isDate, setIsDate] = useState(false)
    const [isClicked, setIsClicked] = useState(false)
    
    const history = useHistory()
@@ -38,12 +39,31 @@ function DragonsList() {
             <Button text={'SAIR'} custom onClick={logOut}/>               
          </Header>
          <Separator y={20}/>
+         <DragonsHeader>
+            <RecipeContainer>
+            {isDate ? (
+               <Recipe>Modificado em/Modified at</Recipe>
+               ) : (
+               <Recipe>Data/Date</Recipe>
+            )}
+            </RecipeContainer>
+            <RecipeContainer>
+               <Recipe>Nome/Name</Recipe>
+            </RecipeContainer>
+            <RecipeContainer>
+               <Recipe>Tipo/Type</Recipe>
+            </RecipeContainer>
+         </DragonsHeader>
          {dragons && dragons.map(dragon => 
             <Dragons 
                key={dragon.id}
                isClicked={isClicked}
                setIsClicked={setIsClicked}
-               item={dragon}/>)}
+               isDate={isDate}
+               setIsDate={setIsDate}
+               item={dragon}
+            />
+         )}
       </Container>
    )
 }

@@ -4,7 +4,6 @@ import { Button, Input, Separator } from "../../../components";
 import { deleteDragon, updateDragon } from "../../../services/dragon";
 import { 
   ButtonBox, 
-  Container, 
   Recipe, 
   DragonsContainer, 
   NameContainer, 
@@ -12,11 +11,11 @@ import {
   DateContainer
 } from "./styles";
 
-function Dragons({item, isClicked, setIsClicked}) {
+function Dragons({item, isClicked, setIsClicked, isDate, setIsDate}) {
   const [isUpdate, setIsUpdate] = useState(false)
-  const [updatedDragon, setUpdatedragon] = useState({
-    newName: '',
-    newType: ''
+  const [updatedDragon, setUpdatedDragon] = useState({
+    newName: item.name,
+    newType: item.type
   })
 
   async function handleUpdate(id) {
@@ -24,9 +23,9 @@ function Dragons({item, isClicked, setIsClicked}) {
       name: `${updatedDragon.newName}`,
       type: `${updatedDragon.newType}`
     })
-
     setIsClicked(!isClicked)
     setIsUpdate(false)
+    setIsDate(!isDate)
   }
 
   async function handleDelete(id) {
@@ -36,18 +35,27 @@ function Dragons({item, isClicked, setIsClicked}) {
 
   function handleChange(event) {
     const {id, value} = event.target
-    setUpdatedragon({...updatedDragon, [id]: value})
+    setUpdatedDragon({...updatedDragon, [id]: value})
   }
 
+  function handleUpdating() {
+    setIsDate(!isDate)
+    setIsUpdate(!isUpdate)
+    setUpdatedDragon({
+      newName: item.name,
+      newType: item.type
+    })
+  }
+
+
   return (
-    <Container>
-      <Separator />
+    <>
       <DragonsContainer>
       {isUpdate ? (      
       <>
         <Recipe>
           <DateContainer>
-            {item.updatedAt}
+            {dayjs(item.updatedAt).format('DD/MM/YYYY')}
           </DateContainer>
         </Recipe>
         <Recipe>
@@ -55,6 +63,7 @@ function Dragons({item, isClicked, setIsClicked}) {
             onChange={handleChange}
             id='newName'
             type='text'
+            list
             value={updatedDragon.newName}
           />
         </Recipe>
@@ -63,6 +72,7 @@ function Dragons({item, isClicked, setIsClicked}) {
             onChange={handleChange}
             id='newType'
             type='text'
+            list
             value={updatedDragon.newType}
           />
         </Recipe>
@@ -73,7 +83,7 @@ function Dragons({item, isClicked, setIsClicked}) {
             bordrad={40}
           />
           <Button 
-            onClick={() => setIsUpdate(false)} 
+            onClick={handleUpdating} 
             text={'cancelar'} 
             bordrad={40}
           />
@@ -98,7 +108,7 @@ function Dragons({item, isClicked, setIsClicked}) {
         </Recipe>
         <ButtonBox>
           <Button 
-            onClick={() => setIsUpdate(true)} 
+            onClick={handleUpdating} 
             text={'editar'} 
             bordrad={40} 
             x={42}
@@ -113,7 +123,8 @@ function Dragons({item, isClicked, setIsClicked}) {
       </>  
       )}
       </DragonsContainer>
-    </Container>
+      <Separator />
+    </>
   )
 }
 

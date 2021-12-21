@@ -1,10 +1,10 @@
 import React from 'react'
 import { ButtonContainer } from './styles'
 
-function Button({text, custom, ...props}) {
+function Button({children, text, custom, ...props}) {
    return (
       <ButtonContainer className={custom && 'custom'} {...props}>
-         {text}
+         {text} {children}
       </ButtonContainer>
    )
 }
