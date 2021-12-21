@@ -41,20 +41,22 @@ function Home() {
                      value={user.name}
                   />
                   <FloatingLabel text={'Nome/Name'}/>
-                  <Separator height={23}/>
+                  <Separator y={25}/>
                </InputLabelContainer>
                <InputLabelContainer x={280}>
                   <Input 
                      onChange={handleChange}
                      id='password'
                      type='password'
+                     home
                      placeholder='Senha' 
                      value={user.password}
                   />
                   <FloatingLabel text={'Senha/password'}/>
-                  <Separator height={25}/>
+                  <Separator y={23}/>
                </InputLabelContainer>
-               <Button text={'Avançar'} custom/>
+               <Separator />
+               <Button text={'Avançar'} x={275} custom/>
             </LoginContainer>
          </Wrapper>
       </Container>
