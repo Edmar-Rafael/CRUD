@@ -1,9 +1,9 @@
 import React from 'react'
 import { WrapperContainer } from './styles'
 
-function Wrapper({children}) {
+function Wrapper({children, create,}) {
    return (
-      <WrapperContainer>
+      <WrapperContainer className={create && 'create'}>
          {children}
       </WrapperContainer>
    )

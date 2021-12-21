@@ -1,10 +1,12 @@
 import React from "react";
 import { InputContainer } from "./styles";
 
-function Input({list, ...props}) {
+function Input({home, list, create, ...props}) {
 
   return (
-    <InputContainer className={list && 'list'} {...props}/>
+    <InputContainer 
+      className={home && 'home' || list && 'list' || create && 'create'} 
+      {...props}/>
   )
 }
 

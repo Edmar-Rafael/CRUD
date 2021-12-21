@@ -1,8 +1,9 @@
 import React, { useState } from 'react'
 import { useAuth } from '../../hooks/useAuth'
 import { JWT } from '../../config'
-import { Wrapper, Separator, Button, Input } from '../../components'
+import { Wrapper, Separator, Button, Input, Container, InputLabelContainer } from '../../components'
 import { LoginContainer } from './styles'
+import FloatingLabel from '../../components/FloatingLabel'
 
 
 function Home() {
@@ -26,27 +27,37 @@ function Home() {
       
 
    return (
-      <LoginContainer onSubmit={handleSubmit}>
+      <Container>
+         <Separator y={150}/>
          <Wrapper>
-            <Input 
-               onChange={handleChange}
-               id='name'
-               type='text'
-               placeholder='Nome de Usuário' 
-               value={user.name}
-            />
-            <Separator height={45}/>
-            <Input 
-               onChange={handleChange}
-               id='password'
-               type='password'
-               placeholder='Senha' 
-               value={user.password}
-            />
-            <Separator height={25}/>
+            <LoginContainer onSubmit={handleSubmit}>
+               <InputLabelContainer x={280}>
+                  <Input 
+                     onChange={handleChange}
+                     id='name'
+                     type='text'
+                     home
+                     placeholder='Nome de Usuário' 
+                     value={user.name}
+                  />
+                  <FloatingLabel text={'Nome/Name'}/>
+                  <Separator height={23}/>
+               </InputLabelContainer>
+               <InputLabelContainer x={280}>
+                  <Input 
+                     onChange={handleChange}
+                     id='password'
+                     type='password'
+                     placeholder='Senha' 
+                     value={user.password}
+                  />
+                  <FloatingLabel text={'Senha/password'}/>
+                  <Separator height={25}/>
+               </InputLabelContainer>
+               <Button text={'Avançar'} custom/>
+            </LoginContainer>
          </Wrapper>
-         <Button text={'Avançar'} custom/>
-      </LoginContainer>
+      </Container>
    )
 }
 

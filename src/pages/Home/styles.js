@@ -6,10 +6,8 @@ export const LoginContainer = styled.form`
    justify-content: center;
    align-items: center;
    flex-direction: column;
-   margin: 13% auto;
-   width: 300px;
+   width: 100%;
    height: 350px;
-   border: 1px solid white;
    border-radius: 5px;
    background-color: ${Colors.background};
 `
