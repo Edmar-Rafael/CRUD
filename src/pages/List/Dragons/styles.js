@@ -6,9 +6,9 @@ export const DragonsContainer = styled.div`
    flex-direction: row;
    align-items: center;
    justify-content: space-between;
-   padding: 5px;
+   padding: 5px 10px 5px 5px;
    width: 90%;
-   height: 40px;
+   height: 55px;
    border-radius: 2px;
    background-color: ${Colors.dragons};
 `

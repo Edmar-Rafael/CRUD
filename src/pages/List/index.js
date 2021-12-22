@@ -59,7 +59,6 @@ function DragonsList() {
                key={dragon.id}
                isClicked={isClicked}
                setIsClicked={setIsClicked}
-               isDate={isDate}
                setIsDate={setIsDate}
                item={dragon}
             />

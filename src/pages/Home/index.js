@@ -37,7 +37,7 @@ function Home() {
                      id='name'
                      type='text'
                      home
-                     placeholder='Nome de Usuário' 
+                     placeholder='nome' 
                      value={user.name}
                   />
                   <FloatingLabel text={'Nome/Name'}/>
@@ -49,10 +49,11 @@ function Home() {
                      id='password'
                      type='password'
                      home
-                     placeholder='Senha' 
+                     x={115}
+                     placeholder='senha' 
                      value={user.password}
                   />
-                  <FloatingLabel text={'Senha/password'}/>
+                  <FloatingLabel text={'Senha/Password'}/>
                   <Separator y={23}/>
                </InputLabelContainer>
                <Separator />

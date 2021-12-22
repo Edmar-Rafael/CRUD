@@ -12,6 +12,7 @@ export const InputContainer = styled.input`
   border-radius: 4px;
   background-color: ${Colors.background};
   transition: all .3s;
+
   
   &:focus + label, :not(:placeholder-shown) + label {
     font-size: 16px;
@@ -26,13 +27,17 @@ export const InputContainer = styled.input`
       font-size: 16px;
       font-weight: 700;
       color: ${Colors.createInput};
-      width: 85px;
+      width: ${({x}) => x || 85}px;
       transform: translate3d(-6px, -60px, 0) scale(.82) ;
     }
     
     &:focus, :hover {
       border-color: ${Colors.homeInput};
       outline: none;
+    }
+
+    &::placeholder{
+      color: transparent;
     }
   }
 

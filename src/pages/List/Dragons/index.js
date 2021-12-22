@@ -2,6 +2,8 @@ import dayjs from "dayjs";
 import React, { useState } from "react";
 import { Button, Input, Separator } from "../../../components";
 import { deleteDragon, updateDragon } from "../../../services/dragon";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faTimesCircle, faCheck, faPencilAlt, faTrashAlt } from '@fortawesome/free-solid-svg-icons'
 import { 
   ButtonBox, 
   Recipe, 
@@ -11,7 +13,7 @@ import {
   DateContainer
 } from "./styles";
 
-function Dragons({item, isClicked, setIsClicked, isDate, setIsDate}) {
+function Dragons({item, isClicked, setIsClicked, setIsDate}) {
   const [isUpdate, setIsUpdate] = useState(false)
   const [updatedDragon, setUpdatedDragon] = useState({
     newName: item.name,
@@ -25,7 +27,7 @@ function Dragons({item, isClicked, setIsClicked, isDate, setIsDate}) {
     })
     setIsClicked(!isClicked)
     setIsUpdate(false)
-    setIsDate(!isDate)
+    setIsDate(false)
   }
 
   async function handleDelete(id) {
@@ -38,13 +40,18 @@ function Dragons({item, isClicked, setIsClicked, isDate, setIsDate}) {
     setUpdatedDragon({...updatedDragon, [id]: value})
   }
 
-  function handleUpdating() {
-    setIsDate(!isDate)
-    setIsUpdate(!isUpdate)
+  function handleEditButtom() {
+    setIsDate(true)
+    setIsUpdate(true)
     setUpdatedDragon({
       newName: item.name,
       newType: item.type
-    })
+    }) 
+  }
+
+  function handleCancelButtom() {
+    setIsDate(false)
+    setIsUpdate(false)
   }
 
 
@@ -69,7 +76,7 @@ function Dragons({item, isClicked, setIsClicked, isDate, setIsDate}) {
         </Recipe>
         <Recipe>
           <Input 
-            onChange={handleChange}
+            onChange={handleChange} 
             id='newType'
             type='text'
             list
@@ -77,16 +84,15 @@ function Dragons({item, isClicked, setIsClicked, isDate, setIsDate}) {
           />
         </Recipe>
         <ButtonBox>
+          <Button onClick={() => handleUpdate(item.id)} edit >
+            <FontAwesomeIcon icon={faCheck} size={'2x'}/> 
+          </Button>
           <Button 
-            onClick={() => handleUpdate(item.id)} 
-            text={'finalizar'} 
-            bordrad={40}
-          />
-          <Button 
-            onClick={handleUpdating} 
-            text={'cancelar'} 
-            bordrad={40}
-          />
+            onClick={handleCancelButtom} 
+            edit
+          >
+            <FontAwesomeIcon icon={faTimesCircle} size={'2x'}/>
+          </Button>
         </ButtonBox>
       </>
       ) : (
@@ -107,18 +113,12 @@ function Dragons({item, isClicked, setIsClicked, isDate, setIsDate}) {
           </TypeContainer>
         </Recipe>
         <ButtonBox>
-          <Button 
-            onClick={handleUpdating} 
-            text={'editar'} 
-            bordrad={40} 
-            x={42}
-          />
-          <Button 
-            onClick={() => handleDelete(item.id)} 
-            text={'deletar'} 
-            bordrad={40} 
-            x={46}
-          />
+          <Button onClick={handleEditButtom} edit>
+            <FontAwesomeIcon icon={faPencilAlt} size={'2x'}/>
+          </Button>
+          <Button onClick={() => handleDelete(item.id)} edit>
+            <FontAwesomeIcon icon={faTrashAlt} size={'2x'}/>
+          </Button>
         </ButtonBox>
       </>  
       )}
