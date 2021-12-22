@@ -87,10 +87,7 @@ function Dragons({item, isClicked, setIsClicked, setIsDate}) {
           <Button onClick={() => handleUpdate(item.id)} edit >
             <FontAwesomeIcon icon={faCheck} size={'2x'}/> 
           </Button>
-          <Button 
-            onClick={handleCancelButtom} 
-            edit
-          >
+          <Button onClick={handleCancelButtom} edit>
             <FontAwesomeIcon icon={faTimesCircle} size={'2x'}/>
           </Button>
         </ButtonBox>
