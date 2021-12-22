@@ -1,6 +1,6 @@
 import dayjs from "dayjs";
 import React, { useState } from "react";
-import { Button, Input, Separator } from "../../../components";
+import { Button, DeleteButtonContainer, Input, Separator } from "../../../components";
 import { deleteDragon, updateDragon } from "../../../services/dragon";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTimesCircle, faCheck, faPencilAlt, faTrashAlt } from '@fortawesome/free-solid-svg-icons'
@@ -113,9 +113,11 @@ function Dragons({item, isClicked, setIsClicked, setIsDate}) {
           <Button onClick={handleEditButtom} edit>
             <FontAwesomeIcon icon={faPencilAlt} size={'2x'}/>
           </Button>
+          <DeleteButtonContainer>
           <Button onClick={() => handleDelete(item.id)} edit>
             <FontAwesomeIcon icon={faTrashAlt} size={'2x'}/>
           </Button>
+          </DeleteButtonContainer>
         </ButtonBox>
       </>  
       )}
