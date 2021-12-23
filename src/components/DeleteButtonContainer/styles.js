@@ -12,7 +12,7 @@ export const DeleteButtonBox = styled.div`
   border: none;
   position: relative;
   overflow: hidden;
-  background: ${Colors.background};
+  background: ${Colors.delButton};
 
   &::before{
     content: '';

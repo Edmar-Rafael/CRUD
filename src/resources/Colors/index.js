@@ -3,8 +3,7 @@ const Colors = {
   header: '#393939',
   dragons: '#5555ff',
   label: 'rgba(255, 255, 255, 0.4)',
-  createInput: 'aquamarine',
-  homeInput: 'aqua'
+  delButton: '#1f1f1f'
 }
 
 export default Colors

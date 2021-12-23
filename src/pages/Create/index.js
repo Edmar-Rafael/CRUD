@@ -10,7 +10,6 @@ import {
    FloatingLabel, 
    Container
 } from '../../components'
-import { CreateContainer } from './styles'
 
 
 function CreateUpdate() {

@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { Button, DeleteButtonContainer, Input, Separator } from "../../../components";
 import { deleteDragon, updateDragon } from "../../../services/dragon";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faTimesCircle, faCheck, faPencilAlt, faTrashAlt } from '@fortawesome/free-solid-svg-icons'
+import { faTimes, faCheck, faPencilAlt, faTrashAlt } from '@fortawesome/free-solid-svg-icons'
 import { 
   ButtonBox, 
   Recipe, 
@@ -89,7 +89,7 @@ function Dragons({item, isClicked, setIsClicked, setIsDate}) {
           </Button>
           <Separator />
           <Button onClick={handleCancelButtom} edit>
-            <FontAwesomeIcon icon={faTimesCircle} size={'2x'} className="cancel"/>
+            <FontAwesomeIcon icon={faTimes} size={'2x'} className="cancel"/>
           </Button>
         </ButtonBox>
       </>
