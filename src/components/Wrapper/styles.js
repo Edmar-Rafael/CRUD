@@ -15,14 +15,10 @@ export const WrapperContainer = styled.div`
 
 
    &:hover{
-      border-color: ${Colors.homeInput};
+      border-color: ${Colors.dragons};
    }
 
    &.create{
       width: 350px;
-
-      &:hover{
-         border-color: ${Colors.createInput};
-      }
    }
 `
