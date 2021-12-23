@@ -1,10 +1,10 @@
 import React from "react";
 import { ContainerBox } from "./styles";
 
-function Container({children}) {
+function Container({children, home}) {
 
   return (
-    <ContainerBox>
+    <ContainerBox className={home && 'home'}>
       {children}
     </ContainerBox>
   )

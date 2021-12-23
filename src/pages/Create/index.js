@@ -1,16 +1,16 @@
 import React, { useState } from 'react'
 import { createDragon } from '../../services/dragon'
-import { useHistory } from 'react-router'
-import { useAuth } from '../../hooks/useAuth'
+import { useHistory } from 'react-router-dom'
 import { 
    Button, 
    Separator, 
    Input, 
    InputLabelContainer, 
    Wrapper, 
-   FloatingLabel 
+   FloatingLabel, 
+   Container
 } from '../../components'
-import { Container, Header } from './styles'
+import { CreateContainer } from './styles'
 
 
 function CreateUpdate() {
@@ -19,7 +19,7 @@ function CreateUpdate() {
       type: ''
    })
    const history = useHistory()
-   const {logOut} = useAuth()
+
 
    async function createNewDragon() {
       await createDragon({
@@ -36,52 +36,39 @@ function CreateUpdate() {
 
 
    return (
-      <Container>
-         <Separator />
-         <Header> 
-            <Button 
-               onClick={() => history.push('/')} 
-               custom 
-               text={'VOLTAR'} 
-            />
-            <Button 
-               onClick={logOut} 
-               custom 
-               text={'SAIR'} 
-            />
-         </Header>
-         <Separator y={80}/>
+      <Container home>
          <Wrapper create>
-         <InputLabelContainer x={310}>
-            <Input
-               onChange={handleNewDragon} 
-               id='name'
-               type='text'
-               placeholder='Ex: valentine*' 
-               create
-               value={newDragon.name}
+            <InputLabelContainer x={310}>
+               <Input
+                  onChange={handleNewDragon} 
+                  id='name'
+                  type='text'
+                  placeholder='Ex: valentine*' 
+                  create
+                  value={newDragon.name}
+               />
+               <FloatingLabel text={'Nome*'}/>
+               <Separator y={23}/>
+            </InputLabelContainer>
+            <InputLabelContainer x={310}>
+               <Input 
+                  onChange={handleNewDragon} 
+                  id='type'
+                  type='text'
+                  placeholder='ex: vermelho/red*' 
+                  create
+                  value={newDragon.type} 
+               />
+               <FloatingLabel text={'Tipo*'}/>
+               <Separator y={23}/>
+            </InputLabelContainer>
+            <Separator />
+            <Button 
+               onClick={createNewDragon} 
+               custom 
+               text={'CADASTRAR'} 
+               x={308} 
             />
-            <FloatingLabel text={'Nome*'}/>
-            <Separator y={23}/>
-         </InputLabelContainer>
-         <InputLabelContainer x={310}>
-            <Input 
-               onChange={handleNewDragon} 
-               id='type'
-               type='text'
-               placeholder='ex: vermelho/red*' 
-               create
-               value={newDragon.type} 
-            />
-            <FloatingLabel text={'Tipo*'}/>
-            <Separator y={23}/>
-         </InputLabelContainer>
-         <Separator />
-         <Button 
-            onClick={createNewDragon} 
-            custom 
-            text={'CADASTRAR'} 
-            x={308} />
          </Wrapper>
       </Container>
    )

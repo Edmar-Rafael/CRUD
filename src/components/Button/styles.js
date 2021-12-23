@@ -5,7 +5,6 @@ export const ButtonContainer = styled.button`
    display: flex;
    align-items: center;
    justify-content: center;
-   width: ${({x}) => x || 100}px;
    height: ${({y}) => y || 35}px;
    background: ${Colors.background};
    border-radius: ${({bordrad}) => bordrad || 5}px;
@@ -16,8 +15,13 @@ export const ButtonContainer = styled.button`
    box-shadow: 6px 8px 10px #090909;
 
    &.custom {
+      min-width: 100px;
       color: black;
       background-color: white;
+      
+      &:hover{
+         background: ${Colors.dragons};
+      }
    }
 
    &.edit{
@@ -26,10 +30,16 @@ export const ButtonContainer = styled.button`
       border-radius: 25px;
    }
 
+   &.del{
+      width: 38px;
+      height: 38px;
+      border-radius: 5px;
+   }
+
    &:hover {
       filter: brightness(0.9)
    }
 
-   transition: filter 0.2s; 
+   transition: all 0.2s; 
    cursor: pointer;
 `

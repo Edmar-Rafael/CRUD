@@ -27,7 +27,7 @@ function Home() {
       
 
    return (
-      <Container>
+      <Container home>
          <Separator y={150}/>
          <Wrapper>
             <LoginContainer onSubmit={handleSubmit}>

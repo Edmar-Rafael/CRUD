@@ -25,8 +25,8 @@ export const Recipe = styled.div`
 
 export const ButtonBox = styled.div`
    display: flex;
-   justify-content: space-between;
-   width: 9%;
+   justify-content: flex-end;
+   width: 25%;
 `
 
 export const DateContainer = styled.div``

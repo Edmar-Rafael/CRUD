@@ -85,10 +85,11 @@ function Dragons({item, isClicked, setIsClicked, setIsDate}) {
         </Recipe>
         <ButtonBox>
           <Button onClick={() => handleUpdate(item.id)} edit >
-            <FontAwesomeIcon icon={faCheck} size={'2x'}/> 
+            <FontAwesomeIcon icon={faCheck} size={'2x'} className="dragons"/> 
           </Button>
+          <Separator />
           <Button onClick={handleCancelButtom} edit>
-            <FontAwesomeIcon icon={faTimesCircle} size={'2x'}/>
+            <FontAwesomeIcon icon={faTimesCircle} size={'2x'} className="cancel"/>
           </Button>
         </ButtonBox>
       </>
@@ -111,11 +112,12 @@ function Dragons({item, isClicked, setIsClicked, setIsDate}) {
         </Recipe>
         <ButtonBox>
           <Button onClick={handleEditButtom} edit>
-            <FontAwesomeIcon icon={faPencilAlt} size={'2x'}/>
+            <FontAwesomeIcon icon={faPencilAlt} size={'2x'} className="dragons"/>
           </Button>
+          <Separator />
           <DeleteButtonContainer>
-          <Button onClick={() => handleDelete(item.id)} edit>
-            <FontAwesomeIcon icon={faTrashAlt} size={'2x'}/>
+          <Button onClick={() => handleDelete(item.id)} del>
+            <FontAwesomeIcon icon={faTrashAlt} size={'2x'} className="del"/>
           </Button>
           </DeleteButtonContainer>
         </ButtonBox>

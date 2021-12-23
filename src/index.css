@@ -3,3 +3,17 @@ body {
   background-color: #131313;
 }
 
+.dragons:hover{
+  color: green;
+  transition: all .3s;
+}
+
+.cancel:hover{
+  color: blue;
+  transition: all .3s;
+}
+
+.del:hover{
+  color: #990000;
+  transition: all .3s;
+}
