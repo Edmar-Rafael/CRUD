@@ -26,13 +26,13 @@ export const InputContainer = styled.input`
     &:focus + label, :not(:placeholder-shown) + label {
       font-size: 16px;
       font-weight: 700;
-      color: ${Colors.createInput};
+      color: ${Colors.dragons};
       width: ${({x}) => x || 85}px;
       transform: translate3d(-6px, -60px, 0) scale(.82) ;
     }
     
     &:focus, :hover {
-      border-color: ${Colors.homeInput};
+      border-color: ${Colors.dragons};
       outline: none;
     }
 

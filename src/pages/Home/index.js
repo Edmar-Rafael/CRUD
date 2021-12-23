@@ -28,7 +28,6 @@ function Home() {
 
    return (
       <Container home>
-         <Separator y={150}/>
          <Wrapper>
             <LoginContainer onSubmit={handleSubmit}>
                <InputLabelContainer x={280}>
