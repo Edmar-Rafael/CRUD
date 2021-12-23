@@ -2,8 +2,8 @@ import styled from "styled-components";
 import Colors from "../../resources/Colors";
 
 export const DeleteButtonBox = styled.div`
-  width: 50px;
-  height: 50px;
+  width: 47px;
+  height: 47px;
   display: flex;
   align-items: center;
   justify-content: center;
