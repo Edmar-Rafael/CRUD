@@ -22,7 +22,7 @@ function DragonsList() {
 
 
    return (
-      <Container home>
+      <Container list>
          <DragonsHeader>
             <RecipeContainer>
             {isDate ? (

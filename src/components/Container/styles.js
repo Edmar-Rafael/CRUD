@@ -6,9 +6,13 @@ export const ContainerBox = styled.div`
    display: flex;
    flex-direction: column;
    align-items: center;
+   overflow: hidden;
 
-   &.home{
-      justify-content: center;
-      padding: 50px 0;
+   &.list{
+      padding-top: 80px;
+   }
+
+   &.homeCreate{
+      padding-top: 150px ;
    }
 `
