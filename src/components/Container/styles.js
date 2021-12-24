@@ -13,6 +13,6 @@ export const ContainerBox = styled.div`
    }
 
    &.homeCreate{
-      padding-top: 150px ;
+      justify-content: center;
    }
 `

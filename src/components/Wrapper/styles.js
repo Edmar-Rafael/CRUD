@@ -8,7 +8,7 @@ export const WrapperContainer = styled.div`
    justify-content: center;
    width: 315px;
    height: 350px;
-   border: 2px solid white;
+   border: 2px solid ${Colors.label};
    border-radius: 5px;
    transition: all .3s;
    background-color: ${Colors.background};

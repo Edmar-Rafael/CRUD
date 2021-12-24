@@ -8,7 +8,7 @@ export const InputContainer = styled.input`
   padding: 5px 10px;
   font-size: 20px;
   color: white;
-  border: 2px solid white;
+  border: 2px solid ${Colors.label};
   border-radius: 4px;
   background-color: ${Colors.background};
   transition: all .3s;
@@ -48,7 +48,7 @@ export const InputContainer = styled.input`
     width: 70%;
 
     &:focus, :hover {
-      border-color: ${Colors.homeInput};
+      border-color: white;
       outline: none;
     }
   }
