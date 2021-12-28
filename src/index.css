@@ -9,7 +9,7 @@ body {
 }
 
 .cancel:hover{
-  color: blue;
+  color: #5555ff;
   transition: all .3s;
 }
 

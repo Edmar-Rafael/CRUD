@@ -54,7 +54,7 @@ function CreateUpdate() {
                   onChange={handleNewDragon} 
                   id='type'
                   type='text'
-                  placeholder='ex: vermelho/red*' 
+                  placeholder='Ex: vermelho/red*' 
                   create
                   value={newDragon.type} 
                />

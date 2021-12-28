@@ -1,20 +1,23 @@
 import React, { useEffect, useState } from 'react'
 import { getDragons } from '../../services/dragon'
-import { Container } from '../../components'
+import { Container, SkeletonLoading } from '../../components'
 import Dragons from './Dragons'
 import { DragonsHeader, Recipe, RecipeContainer } from './styles'
 
 
 function DragonsList() {
    const [dragons, setDragons] = useState()
-   const [isDate, setIsDate] = useState(false)
+   const [modified, setModified] = useState(false)
+   const [loading, setLoading] = useState(false)
    const [isClicked, setIsClicked] = useState(false)
    
 
    useEffect(() => {
       async function fetchDragons() {
+         setLoading(true)
          const {data} = await getDragons()
          setDragons(data)
+         setLoading(false)
       }
       fetchDragons()
    },
@@ -25,11 +28,7 @@ function DragonsList() {
       <Container list>
          <DragonsHeader>
             <RecipeContainer>
-            {isDate ? (
-               <Recipe>Modificado em/Modified at</Recipe>
-               ) : (
-               <Recipe>Data/Date</Recipe>
-            )}
+               <Recipe>{modified ? 'modificado em/Modified at' : 'Data/Date'}</Recipe>
             </RecipeContainer>
             <RecipeContainer>
                <Recipe>Nome/Name</Recipe>
@@ -38,15 +37,18 @@ function DragonsList() {
                <Recipe>Tipo/Type</Recipe>
             </RecipeContainer>
          </DragonsHeader>
-         {dragons && dragons.map(dragon => 
+         {loading ? (
+            <SkeletonLoading newSize={7}/>
+            ) : (
+            dragons && dragons.map(dragon => 
             <Dragons 
                key={dragon.id}
                isClicked={isClicked}
                setIsClicked={setIsClicked}
-               setIsDate={setIsDate}
+               setModified={setModified}
                item={dragon}
             />
-         )}
+         ))}
       </Container>
    )
 }

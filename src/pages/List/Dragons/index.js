@@ -1,7 +1,7 @@
-import dayjs from "dayjs";
 import React, { useState } from "react";
-import { Button, DeleteButtonContainer, Input, Separator } from "../../../components";
+import dayjs from "dayjs";
 import { deleteDragon, updateDragon } from "../../../services/dragon";
+import { Button, DeleteButtonContainer, Input, Separator } from "../../../components";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTimes, faCheck, faPencilAlt, faTrashAlt } from '@fortawesome/free-solid-svg-icons'
 import { 
@@ -13,21 +13,22 @@ import {
   DateContainer
 } from "./styles";
 
-function Dragons({item, isClicked, setIsClicked, setIsDate}) {
+
+function Dragons({item, isClicked, setIsClicked, setModified}) {
   const [isUpdate, setIsUpdate] = useState(false)
   const [updatedDragon, setUpdatedDragon] = useState({
     newName: item.name,
     newType: item.type
   })
 
-  async function handleUpdate(id) {
+  async function handleSubmitUpdate(id) {
     await updateDragon(id, {
       name: `${updatedDragon.newName}`,
       type: `${updatedDragon.newType}`
     })
     setIsClicked(!isClicked)
     setIsUpdate(false)
-    setIsDate(false)
+    setModified(false)
   }
 
   async function handleDelete(id) {
@@ -40,24 +41,25 @@ function Dragons({item, isClicked, setIsClicked, setIsDate}) {
     setUpdatedDragon({...updatedDragon, [id]: value})
   }
 
-  function handleEditButtom() {
-    setIsDate(true)
+  function handleEditButtom(event) {
+    event.preventDefault()
+    setModified(true)
     setIsUpdate(true)
-    setUpdatedDragon({
-      newName: item.name,
-      newType: item.type
-    }) 
   }
 
   function handleCancelButtom() {
-    setIsDate(false)
+    setModified(false)
     setIsUpdate(false)
+    setUpdatedDragon({
+      newName: item.name,
+      newType: item.type
+    })
   }
 
 
   return (
     <>
-      <DragonsContainer>
+      <DragonsContainer >
       {isUpdate ? (      
       <>
         <Recipe>
@@ -84,8 +86,8 @@ function Dragons({item, isClicked, setIsClicked, setIsDate}) {
           />
         </Recipe>
         <ButtonBox>
-          <Button onClick={() => handleUpdate(item.id)} edit >
-            <FontAwesomeIcon icon={faCheck} size={'2x'} className="dragons"/> 
+          <Button  edit >
+            <FontAwesomeIcon onClick={() => handleSubmitUpdate(item.id)} icon={faCheck} size={'2x'} className="dragons"/> 
           </Button>
           <Separator />
           <Button onClick={handleCancelButtom} edit>
@@ -94,7 +96,7 @@ function Dragons({item, isClicked, setIsClicked, setIsDate}) {
         </ButtonBox>
       </>
       ) : (
-        <>
+      <>
         <Recipe>
           <DateContainer>
             {dayjs(item.createdAt).format('DD/MM/YYYY')}
