@@ -3,17 +3,29 @@ body {
   background-color: #131313;
 }
 
-.dragons:hover{
+.edit-btn:hover{
   color: green;
   transition: all .3s;
 }
 
-.cancel:hover{
+.cancel-btn:hover{
   color: #5555ff;
   transition: all .3s;
 }
 
-.del:hover{
+.del-btn:hover{
   color: #990000;
   transition: all .3s;
+}
+
+.Toastify__toast--success {
+  color: #131313 !important;
+}
+
+.Toastify__toast--info {
+  color: #131313 !important;
+}
+
+.Toastify__toast--error {
+  color: #131313 !important;
 }

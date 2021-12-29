@@ -14,18 +14,28 @@ import {
 } from "./styles";
 
 
-function Dragons({item, isClicked, setIsClicked, setModified}) {
+function Dragons({item, isClicked, setIsClicked, setModified, notify}) {
   const [isUpdate, setIsUpdate] = useState(false)
   const [updatedDragon, setUpdatedDragon] = useState({
     newName: item.name,
     newType: item.type
   })
 
+
   async function handleSubmitUpdate(id) {
-    await updateDragon(id, {
-      name: `${updatedDragon.newName}`,
-      type: `${updatedDragon.newType}`
-    })
+    if(updatedDragon.newName === '' || updatedDragon.newType === '') {
+      notify.error()
+    } 
+    else if(updatedDragon.newName === item.nome || updatedDragon.newType === item.type) {
+      notify.info()
+    } 
+    else {
+      await updateDragon(id, {
+        name: `${updatedDragon.newName}`,
+        type: `${updatedDragon.newType}`
+      })
+      notify.success()
+    }
     setIsClicked(!isClicked)
     setIsUpdate(false)
     setModified(false)
@@ -41,8 +51,7 @@ function Dragons({item, isClicked, setIsClicked, setModified}) {
     setUpdatedDragon({...updatedDragon, [id]: value})
   }
 
-  function handleEditButtom(event) {
-    event.preventDefault()
+  function handleEditButtom() {
     setModified(true)
     setIsUpdate(true)
   }
@@ -86,12 +95,12 @@ function Dragons({item, isClicked, setIsClicked, setModified}) {
           />
         </Recipe>
         <ButtonBox>
-          <Button  edit >
-            <FontAwesomeIcon onClick={() => handleSubmitUpdate(item.id)} icon={faCheck} size={'2x'} className="dragons"/> 
+          <Button onClick={() => handleSubmitUpdate(item.id)} edit >
+            <FontAwesomeIcon icon={faCheck} size={'2x'} className="edit-btn"/> 
           </Button>
           <Separator />
           <Button onClick={handleCancelButtom} edit>
-            <FontAwesomeIcon icon={faTimes} size={'2x'} className="cancel"/>
+            <FontAwesomeIcon icon={faTimes} size={'2x'} className="cancel-btn"/>
           </Button>
         </ButtonBox>
       </>
@@ -114,12 +123,12 @@ function Dragons({item, isClicked, setIsClicked, setModified}) {
         </Recipe>
         <ButtonBox>
           <Button onClick={handleEditButtom} edit>
-            <FontAwesomeIcon icon={faPencilAlt} size={'2x'} className="dragons"/>
+            <FontAwesomeIcon icon={faPencilAlt} size={'2x'} className="edit-btn"/>
           </Button>
           <Separator />
           <DeleteButtonContainer>
           <Button onClick={() => handleDelete(item.id)} del>
-            <FontAwesomeIcon icon={faTrashAlt} size={'2x'} className="del"/>
+            <FontAwesomeIcon icon={faTrashAlt} size={'2x'} className="del-btn"/>
           </Button>
           </DeleteButtonContainer>
         </ButtonBox>

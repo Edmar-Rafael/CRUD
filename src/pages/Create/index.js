@@ -19,7 +19,6 @@ function CreateUpdate() {
    })
    const history = useHistory()
 
-
    async function createNewDragon() {
       await createDragon({
          name: `${newDragon.name}`,

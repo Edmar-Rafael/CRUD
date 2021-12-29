@@ -10,7 +10,7 @@ function SkeletonLoading({newSize}) {
     {size.map((el, index) => 
       <>
         <SkeletonContainer key={index}>
-          <SkeletonItem>--/--/----</SkeletonItem>
+          <SkeletonItem>-- / -- / ----</SkeletonItem>
           <SkeletonItem>Nome/Name</SkeletonItem>
           <SkeletonItem>Tipo/Type</SkeletonItem>
           <SkeletonBox>

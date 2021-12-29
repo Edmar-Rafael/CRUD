@@ -20,8 +20,6 @@ export function AuthContextProvider({children}) {
     if(EMAIL === userData.name && PASSWORD === userData.password) {
       setUser(userData)
       localStorage.setItem(`${SESSION_KEY}`, JSON.stringify(userData))
-    } else {
-      alert('errrou')
     }
   }
 
@@ -29,6 +27,7 @@ export function AuthContextProvider({children}) {
     setUser(null)
     localStorage.removeItem(`${SESSION_KEY}`)
   }
+
 
   const contexts = {logIn, logOut, user, isAuthenticated: !!user}
 
