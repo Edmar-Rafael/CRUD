@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { getDragons } from '../../services/dragon'
-import { toast, ToastContainer } from 'react-toastify'
+import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
 import Dragons from './Dragons'
 import { Container, SkeletonLoading } from '../../components'
@@ -26,17 +26,13 @@ function DragonsList() {
    },
    [isClicked])
 
-   const notify = {
-      success: () => toast.success('Dragão modificado com sucesso!'),
-      error: () => toast.error('Oops! Nome ou tipo não inseridos'),
-      info: () => toast.info('Sem alterações!')
-   }
+   const {notify} = useAuth()
 
 
    return (
       <Container list>
          <ToastContainer theme='colored' position='top-center' closeOnClick/>
-         <DragonsHeader>
+         <DragonsHeader >
             <RecipeContainer >
                <Recipe>{modified ? 'modificado em/Modified at' : 'Data/Date'}</Recipe>
             </RecipeContainer>

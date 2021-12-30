@@ -1,4 +1,5 @@
 import React, { createContext, useEffect, useState } from "react";
+import { toast } from "react-toastify";
 import { EMAIL, PASSWORD, SESSION_KEY } from "../config";
 
 export const AuthContext = createContext({})
@@ -28,8 +29,17 @@ export function AuthContextProvider({children}) {
     localStorage.removeItem(`${SESSION_KEY}`)
   }
 
+  const notify = {
+    created: () => toast.success('Dragão criado com sucesso!', {
+      position: 'bottom-center'
+    }),
+    success: () => toast.success('Dragão modificado com sucesso!'),
+    error: () => toast.error('Oops! Nome ou tipo não inseridos'),
+    info: () => toast.info('Nenhuma alteração realizada!')
+ }
 
-  const contexts = {logIn, logOut, user, isAuthenticated: !!user}
+
+  const contexts = {logIn, logOut, user, notify, isAuthenticated: !!user}
 
   return (
     <AuthContext.Provider value={ contexts }>

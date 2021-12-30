@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { createDragon } from '../../services/dragon'
 import { useHistory } from 'react-router-dom'
+import { useAuth } from '../../hooks/useAuth'
 import { 
    Button, 
    Separator, 
@@ -10,6 +11,8 @@ import {
    FloatingLabel, 
    Container
 } from '../../components'
+import { ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css';
 
 
 function CreateUpdate() {
@@ -19,12 +22,19 @@ function CreateUpdate() {
    })
    const history = useHistory()
 
+   const {notify} = useAuth()
+
    async function createNewDragon() {
-      await createDragon({
-         name: `${newDragon.name}`,
-         type: `${newDragon.type}`
-      }) 
-      history.goBack()
+      if(newDragon.name === '' || newDragon.type === '') {
+         notify.error()
+      }
+      else {
+         await createDragon({
+            name: `${newDragon.name}`,
+            type: `${newDragon.type}`
+         }) 
+         history.goBack()
+      }
    }
 
    function handleNewDragon(event) {
@@ -35,6 +45,7 @@ function CreateUpdate() {
 
    return (
       <Container homeCreate>
+         <ToastContainer theme='colored' position='bottom-center'/>
          <Wrapper create>
             <InputLabelContainer x={310}>
                <Input

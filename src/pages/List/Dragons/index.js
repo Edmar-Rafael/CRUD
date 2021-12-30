@@ -22,7 +22,7 @@ function Dragons({item, isClicked, setIsClicked, setModified, notify}) {
   })
 
 
-  async function handleSubmitUpdate(id) {
+  async function handleUpdate(id) {
     if(updatedDragon.newName === '' || updatedDragon.newType === '') {
       notify.error()
     } 
@@ -95,7 +95,7 @@ function Dragons({item, isClicked, setIsClicked, setModified, notify}) {
           />
         </Recipe>
         <ButtonBox>
-          <Button onClick={() => handleSubmitUpdate(item.id)} edit >
+          <Button onClick={() => handleUpdate(item.id)} edit >
             <FontAwesomeIcon icon={faCheck} size={'2x'} className="edit-btn"/> 
           </Button>
           <Separator />
