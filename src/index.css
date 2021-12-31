@@ -28,4 +28,17 @@ body {
 
 .Toastify__toast--error {
   color: #131313 !important;
+  width: 350px;
+}
+
+.Toastify__progress-bar--success {
+  background: #006600 !important;
+}
+
+.Toastify__progress-bar--error {
+  background: #990000 !important;
+}
+
+.Toastify__progress-bar--info {
+  background: #5555ff !important;
 }

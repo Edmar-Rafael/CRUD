@@ -5,7 +5,6 @@ import 'react-toastify/dist/ReactToastify.css';
 import Dragons from './Dragons'
 import { Container, SkeletonLoading } from '../../components'
 import { DragonsHeader, Recipe, RecipeContainer } from './styles'
-import { useAuth } from '../../hooks/useAuth';
 
 
 function DragonsList() {
@@ -13,7 +12,7 @@ function DragonsList() {
    const [modified, setModified] = useState(false)
    const [loading, setLoading] = useState(false)
    const [isClicked, setIsClicked] = useState(false)
-
+   const [modal, setModal] = useState(false)
    
    useEffect(() => {
       async function fetchDragons() {
@@ -26,7 +25,7 @@ function DragonsList() {
    },
    [isClicked])
 
-   const {notify} = useAuth()
+   
 
 
    return (
@@ -52,10 +51,12 @@ function DragonsList() {
                isClicked={isClicked}
                setIsClicked={setIsClicked}
                setModified={setModified}
-               notify={notify}
+               modal={modal}
+               setModal={setModal}
                item={dragon}
             />
          ))}
+         
       </Container>
    )
 }
