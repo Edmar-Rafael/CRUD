@@ -14,7 +14,7 @@ function Modal({children, modal, setModal}) {
     >
       <ModalMessage>
         <Text>Esta ação ira apagar o Dragão permanentemente!</Text>  
-        <Text>This will delete the dragon permanently</Text>
+        <Text>This will delete the Dragon permanently</Text>
       </ModalMessage>
       <DeleteButtonContainer>
         {children}

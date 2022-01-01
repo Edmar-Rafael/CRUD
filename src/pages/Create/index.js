@@ -9,13 +9,15 @@ import {
    InputLabelContainer, 
    Wrapper, 
    FloatingLabel, 
-   Container
+   Container,
+   LoaderSpinner
 } from '../../components'
 import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
 
 
 function CreateUpdate() {
+   const [isSpinner, setIsSpinner] = useState(false)
    const [newDragon, setNewDragon] = useState({
       name: '',
       type: ''
@@ -29,6 +31,7 @@ function CreateUpdate() {
          notify.error()
       }
       else {
+         setIsSpinner(true)
          await createDragon({
             name: `${newDragon.name}`,
             type: `${newDragon.type}`
@@ -45,7 +48,9 @@ function CreateUpdate() {
 
    return (
       <Container homeCreate>
-         <ToastContainer theme='colored' position='bottom-center'/>
+         {isSpinner ? (
+         <LoaderSpinner />
+         ) : (
          <Wrapper create>
             <InputLabelContainer x={310}>
                <Input
@@ -75,10 +80,12 @@ function CreateUpdate() {
             <Button 
                onClick={createNewDragon} 
                custom 
-               text={'CADASTRAR'} 
+               text={isSpinner ? '' : 'CADASTRAR'} 
                x={308} 
             />
          </Wrapper>
+         )}
+         <ToastContainer theme='colored' position='bottom-center'/>
       </Container>
    )
 }
