@@ -20,10 +20,12 @@ body {
 
 .Toastify__toast--success {
   color: #131313 !important;
+
 }
 
 .Toastify__toast--info {
   color: #131313 !important;
+  background-color: #df2397 !important;
 }
 
 .Toastify__toast--error {

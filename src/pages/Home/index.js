@@ -36,7 +36,7 @@ function Home() {
                      id='name'
                      type='text'
                      home
-                     placeholder='nome' 
+                     placeholder='test' 
                      value={user.name}
                   />
                   <FloatingLabel text={'Nome/Name'}/>
@@ -49,7 +49,7 @@ function Home() {
                      type='password'
                      home
                      x={115}
-                     placeholder='senha' 
+                     placeholder='test' 
                      value={user.password}
                   />
                   <FloatingLabel text={'Senha/Password'}/>

@@ -29,7 +29,7 @@ function Dragons({item, isClicked, setIsClicked, setModified, modal, setModal}) 
     if(updatedDragon.newName === '' || updatedDragon.newType === '') {
       notify.error()
     } 
-    else if(updatedDragon.newName === item.nome && updatedDragon.newType === item.type) {
+    else if(updatedDragon.newName === item.name && updatedDragon.newType === item.type) {
       notify.info()
     } 
     else {

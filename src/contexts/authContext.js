@@ -30,18 +30,18 @@ export function AuthContextProvider({children}) {
   }
 
   const notify = {
-    created: () => toast.success('Dragão criado com sucesso!', '\n'
-      , 'Dragon create successfull!', {
+    created: () => toast.success('Dragão criado com sucesso!\n'
+    + 'Dragon create successfull!', {
         position: 'bottom-center'
     }),
-    success: () => toast.success('Dragão modificado com sucesso!', '\n'
-      , 'Dragon modified successfull'
+    success: () => toast.success('Dragão modificado com sucesso!\n' 
+    + 'Dragon modified successfull'
     ),
-    error: () => toast.error('Oops! Nome e/ou tipo não inseridos', '\n'
-      , 'Oops! Name or type not inserted'
+    error: () => toast.error('Oops! Nome e/ou tipo não inseridos\n'
+    + 'Oops! Name or type not inserted'
     ),
-    info: () => toast.info('Nenhuma alteração realizada!', '\n'
-      , 'No changes made!')
+    info: () => toast.info('Nenhuma alteração realizada!  '
+    + 'No changes made!')
  }
 
 

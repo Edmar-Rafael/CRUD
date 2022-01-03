@@ -27,7 +27,7 @@ function CreateUpdate() {
    const {notify} = useAuth()
 
    async function createNewDragon() {
-      if(newDragon.name === '' || newDragon.type === '') {
+      if(newDragon.name === ''  || newDragon.type === '') {
          notify.error()
       }
       else {
@@ -35,8 +35,9 @@ function CreateUpdate() {
          await createDragon({
             name: `${newDragon.name}`,
             type: `${newDragon.type}`
-         }) 
+         })
          history.goBack()
+         
       }
    }
 
@@ -47,11 +48,11 @@ function CreateUpdate() {
 
 
    return (
-      <Container homeCreate>
-         {isSpinner ? (
+      <Container homeCreate >
+      {isSpinner ? (
          <LoaderSpinner />
-         ) : (
-         <Wrapper create>
+      ) : (
+         <Wrapper create >
             <InputLabelContainer x={310}>
                <Input
                   onChange={handleNewDragon} 
@@ -80,11 +81,11 @@ function CreateUpdate() {
             <Button 
                onClick={createNewDragon} 
                custom 
-               text={isSpinner ? '' : 'CADASTRAR'} 
-               x={308} 
+               text={'CADASTRAR'} 
+               x={303} 
             />
          </Wrapper>
-         )}
+      )}
          <ToastContainer theme='colored' position='bottom-center'/>
       </Container>
    )
