@@ -24,6 +24,7 @@ body {
 }
 
 .Toastify__toast--info {
+  width: 300px;
   color: #131313 !important;
 }
 

@@ -40,7 +40,7 @@ export function AuthContextProvider({children}) {
     error: () => toast.error('Oops! Nome e/ou tipo não inseridos\n'
     + 'Oops! Name or type not inserted'
     ),
-    info: () => toast.info('Nenhuma alteração realizada!  '
+    info: () => toast.info('Nenhuma alteração realizada!\n'
     + 'No changes made!')
  }
 

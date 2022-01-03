@@ -25,15 +25,13 @@ function DragonsList() {
    },
    [isClicked])
 
-   
-
 
    return (
       <Container list>
          <ToastContainer theme='colored' position='top-center' closeOnClick/>
          <DragonsHeader >
             <RecipeContainer >
-               <Recipe>{modified ? 'modificado em/Modified at' : 'Data/Date'}</Recipe>
+               <Recipe >{modified ? 'modificado em/Modified at' : 'Data/Date'}</Recipe>
             </RecipeContainer>
             <RecipeContainer>
                <Recipe>Nome/Name</Recipe>
