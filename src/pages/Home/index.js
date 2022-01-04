@@ -4,6 +4,8 @@ import { JWT } from '../../config'
 import { Wrapper, Separator, Button, Input, Container, InputLabelContainer } from '../../components'
 import { LoginContainer } from './styles'
 import FloatingLabel from '../../components/FloatingLabel'
+import { ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css';
 
 
 function Home() {
@@ -28,14 +30,15 @@ function Home() {
 
    return (
       <Container homeCreate>
+         <ToastContainer theme='colored' />
          <Wrapper>
             <LoginContainer onSubmit={handleSubmit}>
                <InputLabelContainer x={280}>
                   <Input 
                      onChange={handleChange}
+                     x={90}
                      id='name'
                      type='text'
-                     home
                      placeholder='test' 
                      value={user.name}
                   />

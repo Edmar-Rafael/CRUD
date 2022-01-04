@@ -11,6 +11,10 @@ export const DragonsContainer = styled.div`
    height: 55px;
    border-radius: 2px;
    background-color: ${Colors.dragons};
+
+   @media(max-width: 800px) {
+      height: 35px;
+   }
 `
 
 export const Recipe = styled.div`
@@ -21,6 +25,11 @@ export const Recipe = styled.div`
    width: 25%;
    font-size: 20px;
    color: white;
+
+   @media(max-width: 800px) {
+      font-size: 14px;
+      padding: 3px;
+   }
 `
 
 export const ButtonBox = styled.div`

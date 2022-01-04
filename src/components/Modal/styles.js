@@ -10,6 +10,16 @@ export const ModalContainer = styled(ReactModal)`
   border: 1px solid black;
   border-radius: 4px;
   transform: translate(60%, 150%);
+
+  @media(max-width: 500px) {
+    flex-direction: column;
+    transform: translate(20%, 50%);
+  }
+
+  @media(max-width: 800px) {
+    width: 60%;
+    transform: translate(35%, 55%);
+  }
 `
 
 export const ModalMessage = styled.div`

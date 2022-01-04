@@ -4,7 +4,9 @@ import { InputLabelBox } from "./styles";
 function InputLabelContainer({children, ...props}) {
 
   return(
-    <InputLabelBox {...props}>{children}</InputLabelBox>
+    <InputLabelBox {...props}>
+      {children}
+    </InputLabelBox>
   )
 }
 

@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import { createDragon } from '../../services/dragon'
 import { useHistory } from 'react-router-dom'
+import { ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css';
 import { useAuth } from '../../hooks/useAuth'
 import { 
    Button, 
@@ -12,8 +14,6 @@ import {
    Container,
    LoaderSpinner
 } from '../../components'
-import { ToastContainer } from 'react-toastify'
-import 'react-toastify/dist/ReactToastify.css';
 
 
 function CreateUpdate() {
@@ -37,7 +37,6 @@ function CreateUpdate() {
             type: `${newDragon.type}`
          })
          history.goBack()
-         
       }
    }
 
@@ -56,6 +55,7 @@ function CreateUpdate() {
             <InputLabelContainer x={310}>
                <Input
                   onChange={handleNewDragon} 
+                  x={55}
                   id='name'
                   type='text'
                   placeholder='Ex: valentine*' 
@@ -68,6 +68,7 @@ function CreateUpdate() {
             <InputLabelContainer x={310}>
                <Input 
                   onChange={handleNewDragon} 
+                  x={45}
                   id='type'
                   type='text'
                   placeholder='Ex: vermelho/red*' 
