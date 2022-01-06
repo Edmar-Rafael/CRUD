@@ -7,7 +7,32 @@ export const SkeletonContainer = styled.div`
   padding: 5px 10px 5px 5px;
   width: 90%;
   height: 55px;
+  border-radius: 4px;
   background-color: #777;
+  overflow: hidden;
+  position: relative;
+
+  &::before{
+    content: '';
+    background-image: conic-gradient(
+      #cccaca85 20deg,
+      #cccaca05 120deg
+    );
+    width: 200%;
+    height: 100%;
+    position: absolute;
+
+    animation: rotate 4s linear infinite;
+  }
+
+  @keyframes rotate {
+    0%{
+      transform: rotate(0deg);
+    }
+    100%{
+      transform: rotate(360deg)
+    }
+  }
 `
 
 export const SkeletonItem = styled.div`
