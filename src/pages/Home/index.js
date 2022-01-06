@@ -19,8 +19,8 @@ function Home() {
 
    function handleSubmit(event) {
       event.preventDefault()
-      logIn(user)
-   }
+         logIn(user)
+      }
    
    function handleChange(event) {
       const {id, value} = event.target

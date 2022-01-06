@@ -22,7 +22,7 @@ export function AuthContextProvider({children}) {
       setUser(userData)
       localStorage.setItem(`${SESSION_KEY}`, JSON.stringify(userData))
     }
-    else{
+    else {
       notify.loginError()
     }
   }
@@ -41,12 +41,14 @@ export function AuthContextProvider({children}) {
     + 'Dragon modified successfull'
     ),
     loginError: () => toast.error('Oops! Nome e/ou Senha incorretos!\n'
-    + 'Oops! Name and/or Password incorrect!'),
+    + 'Oops! Name and/or Password incorrect!'
+    ),
     error: () => toast.error('Oops! Nome e/ou tipo não inseridos\n'
     + 'Oops! Name or type not inserted'
     ),
     info: () => toast.info('Nenhuma alteração realizada!\n'
-    + 'No changes made!')
+    + 'No changes made!'
+    )
  }
 
 
