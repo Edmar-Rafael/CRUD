@@ -5,7 +5,6 @@ export const ButtonContainer = styled.button`
    display: flex;
    align-items: center;
    justify-content: center;
-   width: ${({x}) => x}px;
    height: ${({y}) => y || 35}px;
    background: ${Colors.background};
    border-radius: ${({bordrad}) => bordrad || 5}px;
@@ -16,10 +15,10 @@ export const ButtonContainer = styled.button`
    box-shadow: 6px 8px 10px #090909;
 
    &.custom {
-      min-width: 100px;
+      width: ${({x}) => x || 100}px;
       color: black;
       background-color: white;
-      
+
       &:hover{
          background: ${Colors.dragons};
       }

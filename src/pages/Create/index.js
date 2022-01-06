@@ -83,7 +83,7 @@ function CreateUpdate() {
                onClick={createNewDragon} 
                custom 
                text={'CADASTRAR'} 
-               x={303} 
+               x={310} 
             />
          </Wrapper>
       )}

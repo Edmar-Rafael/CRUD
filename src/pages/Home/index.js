@@ -59,7 +59,7 @@ function Home() {
                   <Separator y={23}/>
                </InputLabelContainer>
                <Separator />
-               <Button text={'Avançar'} x={275} custom/>
+               <Button text={'Avançar'} x={278} custom/>
             </LoginContainer>
          </Wrapper>
       </Container>
