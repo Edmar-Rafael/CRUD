@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import dayjs from "dayjs";
 import { deleteDragon, updateDragon } from "../../../services/dragon";
-import { Button, DeleteButtonContainer, Input, Modal, Separator } from "../../../components";
+import { Button, DeleteButtonContainer, Input, Separator } from "../../../components";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTimes, faCheck, faPencilAlt, faTrashAlt } from '@fortawesome/free-solid-svg-icons'
 import { 
@@ -15,7 +15,7 @@ import {
 import { useAuth } from "../../../hooks/useAuth";
 
 
-function Dragons({item, isClicked, setIsClicked, setModified, modal, setModal}) {
+function Dragons({item, isClicked, setIsClicked, setModified}) {
   const [isUpdate, setIsUpdate] = useState(false)
   const [updatedDragon, setUpdatedDragon] = useState({
     newName: item.name,
@@ -66,7 +66,6 @@ function Dragons({item, isClicked, setIsClicked, setModified, modal, setModal}) 
   async function handleDelete(id) {
     await deleteDragon(id)
     setIsClicked(!isClicked)
-    setModal(false)
   }
 
 
@@ -131,20 +130,13 @@ function Dragons({item, isClicked, setIsClicked, setModified, modal, setModal}) 
           </Button>
           <Separator />
           <DeleteButtonContainer>
-            <Button onClick={() => setModal(true)} del>
+            <Button onClick={() => handleDelete(item.id)} del>
               <FontAwesomeIcon icon={faTrashAlt} size={'2x'} className="del-btn"/>
             </Button>
           </DeleteButtonContainer>
         </ButtonBox>
       </>  
       )}
-        <Modal itemId={item.id} modal={modal} setModal={setModal}>
-          <DeleteButtonContainer>
-            <Button onClick={() => handleDelete(item.id)} del>
-              <FontAwesomeIcon icon={faTrashAlt} size={'2x'} className='del-btn'/>
-            </Button>
-          </DeleteButtonContainer>
-        </Modal>
       </DragonsContainer>
       <Separator />
     </>

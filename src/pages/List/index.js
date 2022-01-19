@@ -12,7 +12,6 @@ function DragonsList() {
    const [modified, setModified] = useState(false)
    const [loading, setLoading] = useState(false)
    const [isClicked, setIsClicked] = useState(false)
-   const [modal, setModal] = useState(false)
    
    useEffect(() => {
       async function fetchDragons() {
@@ -49,8 +48,6 @@ function DragonsList() {
                isClicked={isClicked}
                setIsClicked={setIsClicked}
                setModified={setModified}
-               modal={modal}
-               setModal={setModal}
                item={dragon}
             />
          ))}
