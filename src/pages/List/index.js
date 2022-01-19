@@ -51,6 +51,7 @@ function DragonsList() {
                setModified={setModified}
                modal={modal}
                setModal={setModal}
+               item={dragon}
             />
          ))}
       </Container>

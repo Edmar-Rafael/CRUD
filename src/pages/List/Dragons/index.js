@@ -138,7 +138,7 @@ function Dragons({item, isClicked, setIsClicked, setModified, modal, setModal}) 
         </ButtonBox>
       </>  
       )}
-        <Modal item={item} modal={modal} setModal={setModal}>
+        <Modal itemId={item.id} modal={modal} setModal={setModal}>
           <DeleteButtonContainer>
             <Button onClick={() => handleDelete(item.id)} del>
               <FontAwesomeIcon icon={faTrashAlt} size={'2x'} className='del-btn'/>

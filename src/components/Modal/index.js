@@ -1,7 +1,7 @@
 import React from "react";
 import { ModalButtomContainer, ModalContainer, ModalMessage, Text } from "./styles";
 
-function Modal({children, modal, setModal}) {
+function Modal({children, modal, setModal, itemId}) {
 
   return (
     <ModalContainer 
@@ -12,6 +12,7 @@ function Modal({children, modal, setModal}) {
       }}}
     >
       <ModalMessage>
+        <Text>ID: {itemId}</Text>
         <Text>Esta ação ira apagar o Dragão permanentemente!</Text>  
         <Text>This will delete the Dragon permanently!</Text>
       </ModalMessage>
