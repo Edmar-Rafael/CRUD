@@ -1,9 +1,8 @@
 import React, { useState } from 'react'
-import { createDragon } from '../../services/dragon'
 import { useHistory } from 'react-router-dom'
 import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
-import { useAuth } from '../../hooks/useAuth'
+import { createDragon } from '../../services/dragon'
 import { 
    Button, 
    Separator, 
@@ -14,29 +13,30 @@ import {
    Container,
    LoaderSpinner
 } from '../../components'
+import { useAuth } from '../../hooks/useAuth';
 
 
-function CreateUpdate() {
+function Create() {
    const [isSpinner, setIsSpinner] = useState(false)
    const [newDragon, setNewDragon] = useState({
       name: '',
       type: ''
    })
-   const history = useHistory()
 
    const {notify} = useAuth()
+   const history = useHistory()
 
    async function createNewDragon() {
-      if(newDragon.name === ''  || newDragon.type === '') {
-         notify.error()
-      }
-      else {
+      if(newDragon.name !== '' && newDragon.type !== '') {
          setIsSpinner(true)
          await createDragon({
             name: `${newDragon.name}`,
             type: `${newDragon.type}`
          })
          history.goBack()
+      }
+      else {
+         notify.error()
       }
    }
 
@@ -81,6 +81,7 @@ function CreateUpdate() {
             <Separator />
             <Button 
                onClick={createNewDragon} 
+               type= 'buttom'
                custom 
                text={'CADASTRAR'} 
                x={310} 
@@ -92,4 +93,4 @@ function CreateUpdate() {
    )
 }
 
-export default CreateUpdate
+export default Create

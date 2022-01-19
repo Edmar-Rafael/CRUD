@@ -27,8 +27,16 @@ export const ModalMessage = styled.div`
   flex-wrap: wrap;
   width: 90%;
   font-size: 22px;
-  padding: 10px;
+  padding: 5px;
   color: #770000;
 `
 
-export const Text = styled.div``
+export const Text = styled.div`
+  width: 100%;
+`
+
+export const ModalButtomContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  width: 10%;
+`

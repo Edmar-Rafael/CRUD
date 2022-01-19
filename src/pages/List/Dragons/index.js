@@ -138,11 +138,13 @@ function Dragons({item, isClicked, setIsClicked, setModified, modal, setModal}) 
         </ButtonBox>
       </>  
       )}
-      <Modal modal={modal} setModal={setModal}>
-        <Button onClick={() => handleDelete(item.id)} del>
-          <FontAwesomeIcon icon={faTrashAlt} size={'2x'} className='del-btn'/>
-        </Button>
-      </Modal>
+        <Modal item={item} modal={modal} setModal={setModal}>
+          <DeleteButtonContainer>
+            <Button onClick={() => handleDelete(item.id)} del>
+              <FontAwesomeIcon icon={faTrashAlt} size={'2x'} className='del-btn'/>
+            </Button>
+          </DeleteButtonContainer>
+        </Modal>
       </DragonsContainer>
       <Separator />
     </>

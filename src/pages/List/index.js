@@ -42,8 +42,8 @@ function DragonsList() {
          </DragonsHeader>
          {loading ? (
             <SkeletonLoading newSize={7}/>
-            ) : (
-            dragons && dragons.map(dragon => 
+         ) : (
+            dragons && dragons.map(dragon =>
             <Dragons 
                key={dragon.id}
                isClicked={isClicked}
@@ -51,10 +51,8 @@ function DragonsList() {
                setModified={setModified}
                modal={modal}
                setModal={setModal}
-               item={dragon}
             />
          ))}
-         
       </Container>
    )
 }

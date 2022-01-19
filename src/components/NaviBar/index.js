@@ -19,10 +19,18 @@ function NaviBar() {
           custom
         />
         ) : (
-          <Button onClick={() => history.push('/')} text={'VOLTAR'} custom/>
+          <Button 
+            onClick={() => history.push('/')} 
+            text={'VOLTAR'} 
+            custom
+          />
         )}
       </Box>
-      <Button onClick={logOut} text={'SAIR'} custom/>
+      <Button 
+        onClick={logOut} 
+        text={'SAIR'} 
+        custom
+      />
     </NaviBarContainer>
   )
 }

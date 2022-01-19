@@ -4,9 +4,8 @@ export const SkeletonContainer = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 5px 10px 5px 5px;
-  width: 90%;
-  height: 55px;
+  width: 91.2%;
+  height: 65px;
   border-radius: 4px;
   background-color: #777;
   overflow: hidden;
@@ -16,13 +15,21 @@ export const SkeletonContainer = styled.div`
     content: '';
     background-image: conic-gradient(
       #cccaca85 20deg,
-      #cccaca05 120deg
+      #cccaca06 120deg
     );
-    width: 200%;
+    width: 199%;
     height: 100%;
+    margin-top: -130px;
     position: absolute;
 
-    animation: rotate 4s linear infinite;
+    animation: rotate 3s linear infinite;
+
+    @media(max-width: 500px){
+      animation: rotate 1.5s linear infinite;
+    }
+    @media(max-width: 800px){
+      width: 195%;
+    }
   }
 
   @keyframes rotate {
@@ -30,7 +37,7 @@ export const SkeletonContainer = styled.div`
       transform: rotate(0deg);
     }
     100%{
-      transform: rotate(360deg)
+      transform: rotate(-360deg)
     }
   }
 `
@@ -54,7 +61,7 @@ export const SkeletonBox = styled.div`
 export const SkeletonButton = styled.div`
   width: 45px;
   height: 45px;
-  margin-left: 4px;
+  margin-right: 6px;
   border-radius: 25px;
   background-color: #aaaaaa;
 `

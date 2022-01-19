@@ -5,9 +5,9 @@ import Routes from './routes'
 function App() {
   return (
     <AuthContextProvider>
-      <BrowserRouter>
-        <Routes/>
-      </BrowserRouter>
+        <BrowserRouter>
+          <Routes/>
+        </BrowserRouter>
     </AuthContextProvider> 
   );
 }

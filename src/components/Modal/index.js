@@ -1,6 +1,5 @@
 import React from "react";
-import { DeleteButtonContainer } from "..";
-import { ModalContainer, ModalMessage, Text } from "./styles";
+import { ModalButtomContainer, ModalContainer, ModalMessage, Text } from "./styles";
 
 function Modal({children, modal, setModal}) {
 
@@ -14,11 +13,11 @@ function Modal({children, modal, setModal}) {
     >
       <ModalMessage>
         <Text>Esta ação ira apagar o Dragão permanentemente!</Text>  
-        <Text>This will delete the Dragon permanently</Text>
+        <Text>This will delete the Dragon permanently!</Text>
       </ModalMessage>
-      <DeleteButtonContainer>
+      <ModalButtomContainer>
         {children}
-      </DeleteButtonContainer>
+      </ModalButtomContainer>
     </ModalContainer>
   )
 }
