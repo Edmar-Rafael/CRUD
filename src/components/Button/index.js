@@ -1,5 +1,5 @@
 import React from 'react'
-import { ButtonContainer } from './styles'
+import { ButtonContainer, ButtonText } from './styles'
 
 function Button({children, text, custom, edit, del, ...props}) {
    return (
@@ -8,7 +8,7 @@ function Button({children, text, custom, edit, del, ...props}) {
             custom ? 'custom' : '' || edit ? 'edit' : '' || del ? 'del' : ''} 
             {...props}
       >
-         {text} 
+         <ButtonText>{text}</ButtonText> 
          {children}
       </ButtonContainer>
    )

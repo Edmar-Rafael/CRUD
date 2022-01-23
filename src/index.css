@@ -7,12 +7,10 @@ body {
   color: green;
   transition: all .3s;
 }
-
 .cancel-btn:hover{
   color: #5555ff;
   transition: all .3s;
 }
-
 .del-btn:hover{
   color: #990000;
   transition: all .3s;
@@ -21,12 +19,10 @@ body {
 .Toastify__toast--success {
   color: #131313 !important;
 }
-
 .Toastify__toast--info {
   width: 300px;
   color: #131313 !important;
 }
-
 .Toastify__toast--error {
   color: #131313 !important;
   width: 350px;
@@ -35,11 +31,23 @@ body {
 .Toastify__progress-bar--success {
   background: #006600 !important;
 }
-
 .Toastify__progress-bar--error {
   background: #990000 !important;
 }
-
 .Toastify__progress-bar--info {
   background: #5555ff !important;
+}
+
+.ReactModal__Overlay{
+  opacity: 0;
+  transform: translateX(-100px);
+  transition: all .2s;
+}
+.ReactModal__Overlay--after-open{
+  opacity: 1;
+  transform: translateX(0px);
+}
+.ReactModal__Overlay--before-close{
+  opacity: 0;
+  transform: translateX(-100px);
 }

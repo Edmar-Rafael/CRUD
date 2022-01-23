@@ -1,23 +1,27 @@
+import { faTimes } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
-import { ModalButtomContainer, ModalContainer, ModalMessage, Text } from "./styles";
+import { Button } from "..";
+import { 
+  ModalButtomContainer, 
+  ModalcloseButtom, 
+  ModalContainer, 
+  ModalMessage, 
+  Text 
+} from "./styles";
 
 function Modal({children, modal, setModal}) {
 
   return (
     <ModalContainer 
+      closeTimeoutMS={2000}
       isOpen={modal} 
       onRequestClose={() => setModal(false)}
       style={{overlay: {
-        background: '#00000022',
+        background: '#000000cc',
       }}}
     >
-      <ModalMessage>
-        <Text>Esta ação ira apagar o Dragão permanentemente!</Text>  
-        <Text>This will delete the Dragon permanently!</Text>
-      </ModalMessage>
-      <ModalButtomContainer>
-        {children}
-      </ModalButtomContainer>
+      {children}
     </ModalContainer>
   )
 }

@@ -43,3 +43,7 @@ export const ButtonContainer = styled.button`
    transition: all 0.2s; 
    cursor: pointer;
 `
+
+export const ButtonText = styled.span`
+
+`

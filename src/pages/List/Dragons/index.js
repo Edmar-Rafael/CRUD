@@ -10,7 +10,11 @@ import {
   DragonsContainer, 
   NameContainer, 
   TypeContainer, 
-  DateContainer
+  DateContainer,
+  Text,
+  ModalMessage,
+  ModalcloseButtom,
+  ModalButtomContainer
 } from "./styles";
 import { useAuth } from "../../../hooks/useAuth";
 
@@ -138,11 +142,27 @@ function Dragons({item, isClicked, setIsClicked, setModified}) {
       </>  
       )}
       <Modal modal={modal} setModal={setModal}>
-        <DeleteButtonContainer>
-          <Button onClick={() => handleDelete(item.id)}>
-            <FontAwesomeIcon icon={faTrashAlt} size={'2x'} className="del-btn"/>
-          </Button>
-        </DeleteButtonContainer>
+        <ModalMessage>
+          <Text>Esta ação ira apagar o Dragão permanentemente!</Text>  
+          <Text>This will delete the Dragon permanently!</Text>
+        </ModalMessage>
+        <ModalButtomContainer>
+          <ModalcloseButtom>
+            < Button 
+              onClick={() => setModal(false)}
+              x={17} 
+              y={17} 
+              custom
+            >
+              <FontAwesomeIcon icon={faTimes}/>
+            </Button>
+          </ModalcloseButtom>
+          <DeleteButtonContainer>
+            <Button onClick={() => handleDelete(item.id)}>
+              <FontAwesomeIcon icon={faTrashAlt} size={'2x'} className="del-btn"/>
+            </Button>
+          </DeleteButtonContainer>
+        </ModalButtomContainer>
       </Modal>
       </DragonsContainer>
       <Separator />
