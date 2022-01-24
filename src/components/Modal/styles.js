@@ -9,7 +9,6 @@ export const ModalContainer = styled(ReactModal)`
   border: 1px solid black;
   border-radius: 4px;
   transform: translate(60%, 150%);
-  transition: all .3s;
 
   @media(max-width: 500px) {
     flex-direction: column;
