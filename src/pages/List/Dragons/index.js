@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import dayjs from "dayjs";
 import { deleteDragon, updateDragon } from "../../../services/dragon";
-import { Button, DeleteButtonContainer, Input, Separator, Modal } from "../../../components";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { Button, DeleteButtonContainer, Input, Separator, UpdateModal, DeleteButtonModal, Icons } from "../../../components";
 import { faTimes, faCheck, faPencilAlt, faTrashAlt } from '@fortawesome/free-solid-svg-icons'
 import { 
   ButtonBox, 
@@ -53,12 +52,12 @@ function Dragons({item, isClicked, setIsClicked, setModified}) {
     setUpdatedDragon({...updatedDragon, [id]: value})
   }
 
-  function handleEditButtom() {
+  function handleEditButton() {
     setModified(true)
     setIsUpdate(true)
   }
 
-  function handleCancelButtom() {
+  function handleCancelButton() {
     setModified(false)
     setIsUpdate(false)
     setUpdatedDragon({
@@ -76,43 +75,6 @@ function Dragons({item, isClicked, setIsClicked, setModified}) {
   return (
     <>
       <DragonsContainer >
-      {isUpdate ? (      
-      <>
-        <Recipe>
-          <DateContainer>
-            {dayjs(item.updatedAt).format('DD/MM/YYYY')}
-          </DateContainer>
-        </Recipe>
-        <Recipe>
-          <Input
-            onChange={handleChange}
-            id='newName'
-            type='text'
-            list
-            value={updatedDragon.newName}
-          />
-        </Recipe>
-        <Recipe>
-          <Input 
-            onChange={handleChange} 
-            id='newType'
-            type='text'
-            list
-            value={updatedDragon.newType}
-          />
-        </Recipe>
-        <ButtonBox>
-          <Button onClick={() => handleUpdate(item.id)} edit >
-            <FontAwesomeIcon icon={faCheck} size={'2x'} className="edit-btn"/> 
-          </Button>
-          <Separator />
-          <Button onClick={handleCancelButtom} edit>
-            <FontAwesomeIcon icon={faTimes} size={'2x'} className="cancel-btn"/>
-          </Button>
-        </ButtonBox>
-      </>
-      ) : (
-      <>
         <Recipe>
           <DateContainer>
             {dayjs(item.createdAt).format('DD/MM/YYYY')}
@@ -129,41 +91,77 @@ function Dragons({item, isClicked, setIsClicked, setModified}) {
           </TypeContainer>
         </Recipe>
         <ButtonBox>
-          <Button onClick={handleEditButtom} edit>
-            <FontAwesomeIcon icon={faPencilAlt} size={'2x'} className="edit-btn"/>
+          <Button onClick={handleEditButton} edit>
+            <Icons icon={faPencilAlt} list hoverColor={'green'}/>
           </Button>
           <Separator />
           <DeleteButtonContainer>
             <Button onClick={() => setModal(true)} del>
-              <FontAwesomeIcon icon={faTrashAlt} size={'2x'} className="del-btn"/>
+              <Icons icon={faTrashAlt} list hoverColor={'#990000'}/>
             </Button>
           </DeleteButtonContainer>
         </ButtonBox>
-      </>  
-      )}
-      <Modal modal={modal} setModal={setModal}>
-        <ModalMessage>
-          <Text>Esta ação ira apagar o Dragão permanentemente!</Text>  
-          <Text>This will delete the Dragon permanently!</Text>
-        </ModalMessage>
-        <ModalButtomContainer>
-          <ModalcloseButtom>
-            < Button 
-              onClick={() => setModal(false)}
-              x={17} 
-              y={17} 
-              custom
-            >
-              <FontAwesomeIcon icon={faTimes}/>
+        <UpdateModal 
+          isUpdate={isUpdate} 
+          setIsUpdate={setIsUpdate} 
+          handleCancelButton={handleCancelButton}
+        >
+          <Recipe>
+            <DateContainer>
+              {dayjs(item.updatedAt).format('DD/MM/YYYY')}
+            </DateContainer>
+          </Recipe>
+          <Recipe>
+            <Input
+              onChange={handleChange}
+              id='newName'
+              type='text'
+              list
+              value={updatedDragon.newName}
+            />
+          </Recipe>
+          <Recipe>
+            <Input 
+              onChange={handleChange} 
+              id='newType'
+              type='text'
+              list
+              value={updatedDragon.newType}
+            />
+          </Recipe>
+          <ButtonBox>
+            <Button onClick={() => handleUpdate(item.id)} edit >
+              <Icons icon={faCheck} list hoverColor={'green'}/> 
             </Button>
-          </ModalcloseButtom>
-          <DeleteButtonContainer>
-            <Button onClick={() => handleDelete(item.id)}>
-              <FontAwesomeIcon icon={faTrashAlt} size={'2x'} className="del-btn"/>
+            <Separator />
+            <Button onClick={handleCancelButton} edit>
+              <Icons icon={faTimes} list hoverColor={'#5555ff'}/>
             </Button>
-          </DeleteButtonContainer>
-        </ModalButtomContainer>
-      </Modal>
+          </ButtonBox>
+        </UpdateModal>
+        <DeleteButtonModal modal={modal} setModal={setModal}>
+          <ModalMessage>
+            <Text>Esta ação ira apagar o Dragão permanentemente!</Text>  
+            <Text>This will delete the Dragon permanently!</Text>
+          </ModalMessage>
+          <ModalButtomContainer>
+            <ModalcloseButtom>
+              < Button 
+                onClick={() => setModal(false)}
+                x={17} 
+                y={17} 
+                custom
+              >
+                <Icons icon={faTimes}/>
+              </Button>
+            </ModalcloseButtom>
+            <DeleteButtonContainer>
+              <Button onClick={() => handleDelete(item.id)}>
+                <Icons icon={faTrashAlt} list hoverColor={'#990000'}/>
+              </Button>
+            </DeleteButtonContainer>
+          </ModalButtomContainer>
+        </DeleteButtonModal>
       </DragonsContainer>
       <Separator />
     </>

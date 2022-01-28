@@ -3,18 +3,6 @@ body {
   background-color: #131313;
 }
 
-.edit-btn:hover{
-  color: green;
-  transition: all .3s;
-}
-.cancel-btn:hover{
-  color: #5555ff;
-  transition: all .3s;
-}
-.del-btn:hover{
-  color: #990000;
-  transition: all .3s;
-}
 
 .Toastify__toast--success {
   color: #131313 !important;
@@ -40,16 +28,17 @@ body {
 
 .ReactModal__Overlay{
   opacity: 0;
-  transform: translateX(-100px);
-  transition: all .2s;
+  transform: translateY(-100px);
+  transition: all .5s;
+  z-index: 99;
 }
 .ReactModal__Overlay--after-open{
   opacity: 1;
-  transform: translateX(0px);
+  transform: translatey(0px);
 }
 .ReactModal__Overlay--before-close{
   opacity: 0;
-  transform: translateX(-100px);
+  transform: translateY(-100px);
 }
 .ReactModal__Body--open {
   overflow: hidden;

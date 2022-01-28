@@ -10,6 +10,7 @@ export const DragonsContainer = styled.div`
    width: 90%;
    height: 55px;
    border-radius: 2px;
+   font-family: 'Noto Sans';
    background-color: ${Colors.dragons};
 
    @media(max-width: 800px) {

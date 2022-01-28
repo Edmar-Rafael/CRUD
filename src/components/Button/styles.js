@@ -24,6 +24,15 @@ export const ButtonContainer = styled.button`
       }
    }
 
+   &.mask {
+      position: fixed;
+      height: 21px;
+      width: 23px;
+      padding: 0;
+      box-shadow: none;
+      transform: translate3d(245px, 17px, 0);
+   }
+
    &.edit{
       width: 45px;
       height: 45px;

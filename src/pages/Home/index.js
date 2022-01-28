@@ -1,14 +1,16 @@
 import React, { useState } from 'react'
 import { useAuth } from '../../hooks/useAuth'
 import { JWT } from '../../config'
-import { Wrapper, Separator, Button, Input, Container, InputLabelContainer } from '../../components'
+import { Wrapper, Separator, Button, Input, Container, InputLabelContainer, Icons } from '../../components'
 import { LoginContainer } from './styles'
 import FloatingLabel from '../../components/FloatingLabel'
 import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
+import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons'
 
 
 function Home() {
+   const [maskType, setMaskType] = useState(false)
    const [user, setUser] = useState({
       token: JWT,
       id: 1,
@@ -49,7 +51,7 @@ function Home() {
                   <Input 
                      onChange={handleChange}
                      id='password'
-                     type='password'
+                     type={maskType ? 'password' : ''}
                      home
                      x={115}
                      placeholder='test' 
@@ -57,6 +59,16 @@ function Home() {
                   />
                   <FloatingLabel text={'Senha/Password'}/>
                   <Separator y={23}/>
+                  <Button 
+                     onClick={() => setMaskType(!maskType)} 
+                     type='button' 
+                     mask
+                  >
+                     <Icons 
+                        isFaEye={maskType} 
+                        icon={maskType ? faEye : faEyeSlash}
+                     />
+                  </Button>
                </InputLabelContainer>
                <Separator />
                <Button text={'Avançar'} x={278} custom/>

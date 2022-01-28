@@ -1,7 +1,7 @@
 import React from "react";
 import { ModalContainer } from "./styles";
 
-function Modal({children, modal, setModal}) {
+function DeleteButtonModal({children, modal, setModal}) {
 
   return (
     
@@ -10,8 +10,7 @@ function Modal({children, modal, setModal}) {
       isOpen={modal} 
       onRequestClose={() => setModal(false)}
       style={{overlay: {
-        background: '#000000cc',
-        backdropFilter: 'blur(1px)',
+        background: '#000000bb',
       }}}
     >
       {children}
@@ -20,4 +19,4 @@ function Modal({children, modal, setModal}) {
   )
 }
 
-export default Modal
+export default DeleteButtonModal
