@@ -3,8 +3,8 @@ import styled from "styled-components";
 import Colors from "../../resources/Colors";
 
 export const IconContainer = styled(FontAwesomeIcon)`
-  font-size: 20px;
-  color: ${({color}) => color || Colors.label};
+  font-size: 27px;
+  color: white;
   transition: all .3s;
 
   &:hover{
@@ -12,11 +12,29 @@ export const IconContainer = styled(FontAwesomeIcon)`
     filter: brightness(0.9);
   }
 
-  &.list{
-    font-size: 27px;
-    color: white;
+  &.fa_eye_slash{
+    font-size: 22px;
+    color: ${Colors.label};
     &:hover {
-      color: ${({hoverColor}) => hoverColor}
+      color: ${({isFaEye}) => isFaEye ? `${Colors.dragons}` : ''}
+    }
+  }
+
+  &.fa_trash{
+    &:hover {
+      color: ${Colors.fa_trash_hover};
+    }
+  }
+
+  &.fa_pencil_check{
+    &:hover {
+      color: ${Colors.fa_pencil_check_hover};
+    }
+  }
+
+  &.fa_times{
+    &:hover {
+      color: ${Colors.dragons};
     }
   }
 `

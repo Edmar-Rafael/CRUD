@@ -100,12 +100,12 @@ function Dragons({item, isClicked, setIsClicked}) {
         </DragonsRecipe>
         <ButtonBox>
           <Button onClick={handleEditButton} edit>
-            <Icons icon={faPencilAlt} list hoverColor={'green'}/>
+            <Icons icon={faPencilAlt} fa_pencil_check/>
           </Button>
           <Separator />
           <DeleteButtonContainer>
             <Button onClick={() => setDeleteModal(true)} del>
-              <Icons icon={faTrashAlt} list hoverColor={'#990000'}/>
+              <Icons icon={faTrashAlt} fa_trash />
             </Button>
           </DeleteButtonContainer>
         </ButtonBox>
@@ -115,17 +115,17 @@ function Dragons({item, isClicked, setIsClicked}) {
           handleCancelButton={handleCancelButton}
         >
           <UpdateModalHeader>
-          <DragonsHeader x={100}>
-            <RecipeContainer >
-               <Recipe >Modificado em</Recipe>
-            </RecipeContainer>
-            <RecipeContainer>
-               <Recipe>Nome/Name</Recipe>
-            </RecipeContainer>
-            <RecipeContainer>
-               <Recipe>Tipo/Type</Recipe>
-            </RecipeContainer>
-         </DragonsHeader>
+            <DragonsHeader x={100}>
+              <RecipeContainer >
+                <Recipe >Modificado em</Recipe>
+              </RecipeContainer>
+              <RecipeContainer>
+                <Recipe>Nome/Name</Recipe>
+              </RecipeContainer>
+              <RecipeContainer>
+                <Recipe>Tipo/Type</Recipe>
+              </RecipeContainer>
+            </DragonsHeader>
           </UpdateModalHeader>
           <Row update_modal>
             <DragonsRecipe>
@@ -153,13 +153,13 @@ function Dragons({item, isClicked, setIsClicked}) {
             </DragonsRecipe>
             <ButtonBox>
               <Button onClick={() => handleUpdate(item.id)} edit >
-                <Icons icon={faCheck} list hoverColor={'green'}/> 
+                <Icons icon={faCheck} fa_pencil_check/> 
               </Button>
               <Separator />
               <Button onClick={handleCancelButton} edit>
-                <Icons icon={faTimes} list hoverColor={'#5555ff'}/>
+                <Icons icon={faTimes} fa_times />
               </Button>
-          </ButtonBox>
+            </ButtonBox>
           </Row>
         </UpdateModal>
         <DeleteButtonModal deleteModal={deleteModal} setDeleteModal={setDeleteModal}>
@@ -175,7 +175,7 @@ function Dragons({item, isClicked, setIsClicked}) {
                 y={17} 
                 custom
               >
-                <Icons icon={faTimes} color={'black'}/>
+                <Icons icon={faTimes} fa_times/>
               </Button>
             </ModalcloseButtom>
             <DeleteButtonContainer>

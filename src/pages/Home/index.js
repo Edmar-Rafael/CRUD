@@ -67,6 +67,7 @@ function Home() {
                      <Icons 
                         isFaEye={maskType} 
                         icon={maskType ? faEye : faEyeSlash}
+                        fa_eye_slash
                      />
                   </Button>
                </InputLabelContainer>
