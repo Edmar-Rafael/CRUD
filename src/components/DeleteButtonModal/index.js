@@ -1,16 +1,17 @@
 import React from "react";
 import { ModalContainer } from "./styles";
 
-function DeleteButtonModal({children, modal, setModal}) {
+function DeleteButtonModal({children, deleteModal, setDeleteModal}) {
 
   return (
     
     <ModalContainer 
       closeTimeoutMS={2000}
-      isOpen={modal} 
-      onRequestClose={() => setModal(false)}
+      isOpen={deleteModal} 
+      onRequestClose={() => setDeleteModal(false)}
       style={{overlay: {
-        background: '#000000bb',
+        background: '#00000077',
+        backdropFilter: 'blur(2px)'
       }}}
     >
       {children}

@@ -1,11 +1,20 @@
 import React, { useState } from "react";
 import dayjs from "dayjs";
 import { deleteDragon, updateDragon } from "../../../services/dragon";
-import { Button, DeleteButtonContainer, Input, Separator, UpdateModal, DeleteButtonModal, Icons } from "../../../components";
 import { faTimes, faCheck, faPencilAlt, faTrashAlt } from '@fortawesome/free-solid-svg-icons'
 import { 
+  Button, 
+  DeleteButtonContainer, 
+  Input, 
+  Separator, 
+  UpdateModal, 
+  DeleteButtonModal, 
+  Icons, 
+  Row 
+} from "../../../components";
+import { 
   ButtonBox, 
-  Recipe, 
+  DragonsRecipe, 
   DragonsContainer, 
   NameContainer, 
   TypeContainer, 
@@ -13,14 +22,16 @@ import {
   Text,
   ModalMessage,
   ModalcloseButtom,
-  ModalButtomContainer
+  ModalButtomContainer,
+  UpdateModalHeader
 } from "./styles";
 import { useAuth } from "../../../hooks/useAuth";
+import { DragonsHeader, Recipe, RecipeContainer } from "../styles";
 
 
-function Dragons({item, isClicked, setIsClicked, setModified}) {
-  const [modal, setModal] = useState(false)
-  const [isUpdate, setIsUpdate] = useState(false)
+function Dragons({item, isClicked, setIsClicked}) {
+  const [deleteModal, setDeleteModal] = useState(false)
+  const [updateModal, setUpdateModal] = useState(false)
   const [updatedDragon, setUpdatedDragon] = useState({
     newName: item.name,
     newType: item.type
@@ -43,8 +54,7 @@ function Dragons({item, isClicked, setIsClicked, setModified}) {
       notify.success()
     }
     setIsClicked(!isClicked)
-    setIsUpdate(false)
-    setModified(false)
+    setUpdateModal(false)
   }
 
   function handleChange(event) {
@@ -53,13 +63,11 @@ function Dragons({item, isClicked, setIsClicked, setModified}) {
   }
 
   function handleEditButton() {
-    setModified(true)
-    setIsUpdate(true)
+    setUpdateModal(true)
   }
 
   function handleCancelButton() {
-    setModified(false)
-    setIsUpdate(false)
+    setUpdateModal(false)
     setUpdatedDragon({
       newName: item.name,
       newType: item.type
@@ -75,71 +83,86 @@ function Dragons({item, isClicked, setIsClicked, setModified}) {
   return (
     <>
       <DragonsContainer >
-        <Recipe>
+        <DragonsRecipe>
           <DateContainer>
             {dayjs(item.createdAt).format('DD/MM/YYYY')}
           </DateContainer>
-        </Recipe>
-        <Recipe>
+        </DragonsRecipe>
+        <DragonsRecipe>
           <NameContainer>
             {item.name}
           </NameContainer>
-        </Recipe>
-        <Recipe>
+        </DragonsRecipe>
+        <DragonsRecipe>
           <TypeContainer>
             {item.type}
           </TypeContainer>
-        </Recipe>
+        </DragonsRecipe>
         <ButtonBox>
           <Button onClick={handleEditButton} edit>
             <Icons icon={faPencilAlt} list hoverColor={'green'}/>
           </Button>
           <Separator />
           <DeleteButtonContainer>
-            <Button onClick={() => setModal(true)} del>
+            <Button onClick={() => setDeleteModal(true)} del>
               <Icons icon={faTrashAlt} list hoverColor={'#990000'}/>
             </Button>
           </DeleteButtonContainer>
         </ButtonBox>
         <UpdateModal 
-          isUpdate={isUpdate} 
-          setIsUpdate={setIsUpdate} 
+          updateModal={updateModal} 
+          setUpdateModal={setUpdateModal} 
           handleCancelButton={handleCancelButton}
         >
-          <Recipe>
-            <DateContainer>
-              {dayjs(item.updatedAt).format('DD/MM/YYYY')}
-            </DateContainer>
-          </Recipe>
-          <Recipe>
-            <Input
-              onChange={handleChange}
-              id='newName'
-              type='text'
-              list
-              value={updatedDragon.newName}
-            />
-          </Recipe>
-          <Recipe>
-            <Input 
-              onChange={handleChange} 
-              id='newType'
-              type='text'
-              list
-              value={updatedDragon.newType}
-            />
-          </Recipe>
-          <ButtonBox>
-            <Button onClick={() => handleUpdate(item.id)} edit >
-              <Icons icon={faCheck} list hoverColor={'green'}/> 
-            </Button>
-            <Separator />
-            <Button onClick={handleCancelButton} edit>
-              <Icons icon={faTimes} list hoverColor={'#5555ff'}/>
-            </Button>
+          <UpdateModalHeader>
+          <DragonsHeader >
+            <RecipeContainer >
+               <Recipe >Modificado em</Recipe>
+            </RecipeContainer>
+            <RecipeContainer>
+               <Recipe>Nome/Name</Recipe>
+            </RecipeContainer>
+            <RecipeContainer>
+               <Recipe>Tipo/Type</Recipe>
+            </RecipeContainer>
+         </DragonsHeader>
+          </UpdateModalHeader>
+          <Row update_modal>
+            <DragonsRecipe>
+              <DateContainer>
+                {dayjs(item.updatedAt).format('DD/MM/YYYY')}
+              </DateContainer>
+            </DragonsRecipe>
+            <DragonsRecipe>
+              <Input
+                onChange={handleChange}
+                id='newName'
+                type='text'
+                list
+                value={updatedDragon.newName}
+              />
+            </DragonsRecipe>
+            <DragonsRecipe>
+              <Input 
+                onChange={handleChange} 
+                id='newType'
+                type='text'
+                list
+                value={updatedDragon.newType}
+              />
+            </DragonsRecipe>
+            <ButtonBox>
+              <Button onClick={() => handleUpdate(item.id)} edit >
+                <Icons icon={faCheck} list hoverColor={'green'}/> 
+              </Button>
+              <Separator />
+              <Button onClick={handleCancelButton} edit>
+                <Icons icon={faTimes} list hoverColor={'#5555ff'}/>
+              </Button>
           </ButtonBox>
+          </Row>
         </UpdateModal>
-        <DeleteButtonModal modal={modal} setModal={setModal}>
+        <DeleteButtonModal deleteModal={deleteModal} setDeleteModal={setDeleteModal}>
           <ModalMessage>
             <Text>Esta ação ira apagar o Dragão permanentemente!</Text>  
             <Text>This will delete the Dragon permanently!</Text>
@@ -147,12 +170,12 @@ function Dragons({item, isClicked, setIsClicked, setModified}) {
           <ModalButtomContainer>
             <ModalcloseButtom>
               < Button 
-                onClick={() => setModal(false)}
+                onClick={() => setDeleteModal(false)}
                 x={17} 
                 y={17} 
                 custom
               >
-                <Icons icon={faTimes}/>
+                <Icons icon={faTimes} color={'black'}/>
               </Button>
             </ModalcloseButtom>
             <DeleteButtonContainer>

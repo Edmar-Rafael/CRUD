@@ -10,7 +10,7 @@ export const DragonsContainer = styled.div`
    width: 90%;
    height: 55px;
    border-radius: 2px;
-   font-family: 'Noto Sans';
+   font-family: 'Roboto Condensed';
    background-color: ${Colors.dragons};
 
    @media(max-width: 800px) {
@@ -18,7 +18,13 @@ export const DragonsContainer = styled.div`
    }
 `
 
-export const Recipe = styled.div`
+export const UpdateModalHeader = styled.div`
+  width: 98%;
+  color: white;
+  padding: 5px;
+`
+
+export const DragonsRecipe = styled.div`
    display: flex;
    align-items: center;
    justify-content: flex-start;

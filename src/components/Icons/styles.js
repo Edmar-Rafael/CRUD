@@ -4,7 +4,7 @@ import Colors from "../../resources/Colors";
 
 export const IconContainer = styled(FontAwesomeIcon)`
   font-size: 20px;
-  color: ${Colors.label};
+  color: ${({color}) => color || Colors.label};
   transition: all .3s;
 
   &:hover{

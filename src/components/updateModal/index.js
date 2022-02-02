@@ -1,16 +1,17 @@
 import React from "react";
 import { UpdateModalContainer } from "./styles";
 
-function UpdateModal({children, isUpdate, handleCancelButton}) {
+function UpdateModal({children, updateModal, handleCancelButton}) {
 
   return (
     <UpdateModalContainer
       closeTimeoutMS={2000}
-      isOpen={isUpdate}
+      isOpen={updateModal}
       onRequestClose={() => handleCancelButton()}
       style={{
         overlay:{
-          background: '#000000bb',
+          background: '#00000077',
+          backdropFilter: 'blur(2px)'
         }
       }}
     >

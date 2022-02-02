@@ -9,7 +9,6 @@ import { DragonsHeader, Recipe, RecipeContainer } from './styles'
 
 function DragonsList() {
    const [dragons, setDragons] = useState()
-   const [modified, setModified] = useState(false)
    const [loading, setLoading] = useState(false)
    const [isClicked, setIsClicked] = useState(false)
    
@@ -30,7 +29,7 @@ function DragonsList() {
          <ToastContainer theme='colored' position='top-center' closeOnClick/>
          <DragonsHeader >
             <RecipeContainer >
-               <Recipe >{modified ? 'modificado em/Modified at' : 'Data/Date'}</Recipe>
+               <Recipe >Data/Date</Recipe>
             </RecipeContainer>
             <RecipeContainer>
                <Recipe>Nome/Name</Recipe>
@@ -47,7 +46,6 @@ function DragonsList() {
                key={dragon.id}
                isClicked={isClicked}
                setIsClicked={setIsClicked}
-               setModified={setModified}
                item={dragon}
             />
          ))}
