@@ -115,7 +115,7 @@ function Dragons({item, isClicked, setIsClicked}) {
           handleCancelButton={handleCancelButton}
         >
           <UpdateModalHeader>
-          <DragonsHeader >
+          <DragonsHeader x={100}>
             <RecipeContainer >
                <Recipe >Modificado em</Recipe>
             </RecipeContainer>

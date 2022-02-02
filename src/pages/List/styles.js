@@ -3,7 +3,7 @@ import styled from 'styled-components'
 export const DragonsHeader = styled.div`
    display: flex;
    justify-content: flex-start;
-   width: 90%;
+   width: ${({x}) => x || 90}%;
    padding: 5px;
 `
 
