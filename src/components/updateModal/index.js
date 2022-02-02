@@ -11,8 +11,8 @@ function UpdateModal({children, updateModal, handleCancelButton}) {
       style={{
         overlay:{
           background: '#00000077',
-/*           backdropFilter: 'blur(2px)'
- */        }
+          backdropFilter: 'blur(2px)'
+        }
       }}
     >
       {children}
