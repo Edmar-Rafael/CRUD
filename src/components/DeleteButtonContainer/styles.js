@@ -36,4 +36,9 @@ export const DeleteButtonBox = styled.div`
       transform: rotate(-360deg)
     }
   }
+
+  @media(max-width: 800px){
+    width: 37px;
+    height: 39px
+  }
 `

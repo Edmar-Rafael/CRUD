@@ -5,7 +5,12 @@ export const UpdateModalContainer = styled(ReactModal)`
   display: flex;
   align-items: center;
   flex-direction: column;
-  width: 70%;
-  transform: translate3D(30%, 100%, 0);
+  width: 90%;
+  transform: translate(8%, 100%);
   margin-top: 5%;
+
+  @media(max-width: 500px) {
+    width: 92%;
+    transform: translate(7%, 100%);
+  }
 `

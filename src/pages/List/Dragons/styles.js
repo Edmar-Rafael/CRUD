@@ -4,24 +4,14 @@ import Colors from "../../../resources/Colors"
 export const DragonsContainer = styled.div`
    display: flex;
    flex-direction: row;
-   align-items: center;
-   justify-content: space-between;
    padding: 5px 10px 5px 5px;
    width: 90%;
-   height: 55px;
    border-radius: 2px;
-   font-family: 'Roboto Condensed';
    background-color: ${Colors.dragons};
 
-   @media(max-width: 800px) {
-      height: 35px;
+   @media(max-width: 800px){
+     padding: 3px 5px;
    }
-`
-
-export const UpdateModalHeader = styled.div`
-  width: 98%;
-  color: white;
-  padding: 5px;
 `
 
 export const DragonsRecipe = styled.div`
@@ -33,6 +23,10 @@ export const DragonsRecipe = styled.div`
    font-size: 20px;
    color: white;
 
+   @media(max-width: 500px){
+     width: 31%;
+   }
+
    @media(max-width: 800px) {
       font-size: 14px;
       padding: 3px;
@@ -43,13 +37,38 @@ export const ButtonBox = styled.div`
    display: flex;
    justify-content: flex-end;
    width: 25%;
+
+   &.modalButtonBox_mobile{
+     @media(max-width: 500px){
+       justify-content: space-between;
+       width: 100%;
+       padding: 5px 15px
+     }
+   }
 `
 
-export const DateContainer = styled.div``
+export const DateContainer = styled.div`
+  font-family: 'Roboto';
+`
 
-export const NameContainer = styled.div``
+export const NameContainer = styled.div`
+  overflow: hidden;
+  padding: 1px;
+  font-family: 'Noto Sans';
+`
 
-export const TypeContainer = styled.div``
+export const TypeContainer = styled.div`
+  overflow: hidden;
+  padding: 1px;
+  font-family: 'Noto Sans';
+`
+
+
+export const UpdateModalHeader = styled.div`
+  width: 100%;
+  color: white;
+  padding: 5px;
+`
 
 export const ModalMessage = styled.div`
   display: flex;

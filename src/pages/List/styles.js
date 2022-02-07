@@ -16,12 +16,18 @@ export const RecipeContainer = styled.div`
    font-size: 20px;
    color: white;
 
+   &.mobile_modal{
+      width: 35%;
+   }
+
+   @media(max-width: 500px){
+      flex-wrap: wrap;
+   }
+
    @media(max-width: 800px) {
       font-size: 13px;
       padding: 2px;
    }
-
-
 `
 
 export const Recipe = styled.div`
@@ -29,7 +35,6 @@ export const Recipe = styled.div`
    border-bottom: 2px solid white;
 
    @media(max-width: 800px) {
-      flex-direction: column;
       padding: 0;
    }
 `

@@ -66,7 +66,7 @@ function Home() {
                   >
                      <Icons 
                         isFaEye={maskType} 
-                        icon={maskType ? faEye : faEyeSlash}
+                        icon={maskType ? faEyeSlash : faEye}
                         fa_eye_slash
                      />
                   </Button>

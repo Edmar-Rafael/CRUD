@@ -62,10 +62,6 @@ function Dragons({item, isClicked, setIsClicked}) {
     setUpdatedDragon({...updatedDragon, [id]: value})
   }
 
-  function handleEditButton() {
-    setUpdateModal(true)
-  }
-
   function handleCancelButton() {
     setUpdateModal(false)
     setUpdatedDragon({
@@ -99,7 +95,7 @@ function Dragons({item, isClicked, setIsClicked}) {
           </TypeContainer>
         </DragonsRecipe>
         <ButtonBox>
-          <Button onClick={handleEditButton} edit>
+          <Button onClick={() => setUpdateModal(true)} edit>
             <Icons icon={faPencilAlt} fa_pencil_check/>
           </Button>
           <Separator />
@@ -116,13 +112,14 @@ function Dragons({item, isClicked, setIsClicked}) {
         >
           <UpdateModalHeader>
             <DragonsHeader x={100}>
-              <RecipeContainer >
-                <Recipe >Modificado em</Recipe>
+              <RecipeContainer className="mobile_modal">
+                <Recipe>Modificado em/</Recipe>
+                <Recipe>Modified at</Recipe>
               </RecipeContainer>
-              <RecipeContainer>
+              <RecipeContainer className="mobile_modal">
                 <Recipe>Nome/Name</Recipe>
               </RecipeContainer>
-              <RecipeContainer>
+              <RecipeContainer className="mobile_modal">
                 <Recipe>Tipo/Type</Recipe>
               </RecipeContainer>
             </DragonsHeader>
@@ -151,12 +148,12 @@ function Dragons({item, isClicked, setIsClicked}) {
                 value={updatedDragon.newType}
               />
             </DragonsRecipe>
-            <ButtonBox>
-              <Button onClick={() => handleUpdate(item.id)} edit >
+            <ButtonBox className="modalButtonBox_mobile">
+              <Button onClick={() => handleUpdate(item.id)} x={100} modal_edit >
                 <Icons icon={faCheck} fa_pencil_check/> 
               </Button>
-              <Separator />
-              <Button onClick={handleCancelButton} edit>
+              <Separator/>
+              <Button onClick={handleCancelButton} x={120} modal_edit>
                 <Icons icon={faTimes} fa_times />
               </Button>
             </ButtonBox>

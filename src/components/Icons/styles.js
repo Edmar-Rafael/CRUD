@@ -8,7 +8,6 @@ export const IconContainer = styled(FontAwesomeIcon)`
   transition: all .3s;
 
   &:hover{
-    color: ${({isFaEye}) => isFaEye ? `${Colors.dragons}` : ''};
     filter: brightness(0.9);
   }
 
@@ -16,13 +15,7 @@ export const IconContainer = styled(FontAwesomeIcon)`
     font-size: 22px;
     color: ${Colors.label};
     &:hover {
-      color: ${({isFaEye}) => isFaEye ? `${Colors.dragons}` : ''}
-    }
-  }
-
-  &.fa_trash{
-    &:hover {
-      color: ${Colors.fa_trash_hover};
+      color: ${({isFaEye}) => isFaEye ? '' : `${Colors.dragons}`}
     }
   }
 
@@ -32,9 +25,19 @@ export const IconContainer = styled(FontAwesomeIcon)`
     }
   }
 
+  &.fa_trash{
+    &:hover {
+      color: ${Colors.fa_trash_hover};
+    }
+  }
+
   &.fa_times{
     &:hover {
       color: ${Colors.dragons};
     }
   }
+
+  @media(max-width: 800px){
+      font-size: 19px;
+    }
 `

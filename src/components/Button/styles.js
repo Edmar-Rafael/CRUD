@@ -22,6 +22,10 @@ export const ButtonContainer = styled.button`
       &:hover{
          background: ${Colors.dragons};
       }
+
+      @media(max-width: 800px){
+         border-radius: 30px
+      }
    }
 
    &.mask {
@@ -37,12 +41,33 @@ export const ButtonContainer = styled.button`
       width: 45px;
       height: 45px;
       border-radius: 25px;
+
+      @media(max-width: 500px){
+         width: 37px;
+         height: 37px
+      }
+   }
+
+   &.modal_edit{
+      width: 45px;
+      height: 45px;
+      border-radius: 25px;
+
+      @media(max-width: 500px){
+         width: 120px;
+         height: 37px
+      }
    }
 
    &.del{
       width: 38px;
       height: 38px;
       border-radius: 5px;
+
+      @media(max-width: 800px){
+         width: 29px;
+         height: 31px
+      }
    }
 
    &:hover {

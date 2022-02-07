@@ -36,4 +36,8 @@ export const InputContainer = styled.input`
       border-color: white;
     }
   }
+
+  @media(max-width: 800px){
+    font-size: 14px;
+  }
 `
