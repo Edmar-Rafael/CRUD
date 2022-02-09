@@ -29,13 +29,16 @@ function DragonsList() {
          <ToastContainer theme='colored' position='top-center' closeOnClick/>
          <DragonsHeader >
             <RecipeContainer >
-               <Recipe >Data/Date</Recipe>
+               <Recipe >Data/</Recipe>
+               <Recipe>Date</Recipe>
             </RecipeContainer>
             <RecipeContainer>
-               <Recipe>Nome/Name</Recipe>
+               <Recipe>Nome/</Recipe>
+               <Recipe>Name</Recipe>
             </RecipeContainer>
             <RecipeContainer>
-               <Recipe>Tipo/Type</Recipe>
+               <Recipe>Tipo/</Recipe>
+               <Recipe>Type</Recipe>
             </RecipeContainer>
          </DragonsHeader>
          {loading ? (

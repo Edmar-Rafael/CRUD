@@ -23,10 +23,12 @@ import {
   ModalMessage,
   ModalcloseButtom,
   ModalButtomContainer,
-  UpdateModalHeader
+  UpdateModalHeader,
+  ModalDragonsHeader,
+  ModalRecipeContainer,
+  ModalRecipe
 } from "./styles";
 import { useAuth } from "../../../hooks/useAuth";
-import { DragonsHeader, Recipe, RecipeContainer } from "../styles";
 
 
 function Dragons({item, isClicked, setIsClicked}) {
@@ -111,18 +113,18 @@ function Dragons({item, isClicked, setIsClicked}) {
           handleCancelButton={handleCancelButton}
         >
           <UpdateModalHeader>
-            <DragonsHeader x={100}>
-              <RecipeContainer className="mobile_modal">
-                <Recipe>Modificado em/</Recipe>
-                <Recipe>Modified at</Recipe>
-              </RecipeContainer>
-              <RecipeContainer className="mobile_modal">
-                <Recipe>Nome/Name</Recipe>
-              </RecipeContainer>
-              <RecipeContainer className="mobile_modal">
-                <Recipe>Tipo/Type</Recipe>
-              </RecipeContainer>
-            </DragonsHeader>
+            <ModalDragonsHeader>
+              <ModalRecipeContainer>
+                <ModalRecipe>Modificado em/</ModalRecipe>
+                <ModalRecipe>Modified at</ModalRecipe>
+              </ModalRecipeContainer>
+              <ModalRecipeContainer>
+                <ModalRecipe>Nome/Name</ModalRecipe>
+              </ModalRecipeContainer>
+              <ModalRecipeContainer>
+                <ModalRecipe>Tipo/Type</ModalRecipe>
+              </ModalRecipeContainer>
+            </ModalDragonsHeader>
           </UpdateModalHeader>
           <Row update_modal>
             <DragonsRecipe>

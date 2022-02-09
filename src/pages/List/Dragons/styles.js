@@ -42,7 +42,7 @@ export const ButtonBox = styled.div`
      @media(max-width: 500px){
        justify-content: space-between;
        width: 100%;
-       padding: 5px 15px
+       padding: 25px 15px 5px 15px;
      }
    }
 `
@@ -95,4 +95,41 @@ export const ModalcloseButtom = styled.div`
   display: flex;
   justify-content: flex-end;
   padding-bottom: 4px;
+`
+
+export const ModalDragonsHeader = styled.div`
+  display: flex;
+  justify-content: flex-start;
+  width: 100%;
+  padding: 5px;
+`
+
+export const ModalRecipeContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding-left: 5px;
+  width: 25%;
+  font-size: 20px;
+  color: white;
+
+  @media(max-width: 500px){
+    flex-wrap: wrap;
+    width: 35%;
+  }
+
+  @media(max-width: 800px) {
+    flex-wrap: wrap;
+    font-size: 13px;
+    padding: 2px;
+  }
+`
+
+export const ModalRecipe = styled.div`
+  padding:0 6px;
+  border-bottom: 2px solid white;
+
+  @media(max-width: 800px) {
+    padding: 0;
+  }
 `

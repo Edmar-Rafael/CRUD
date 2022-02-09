@@ -12,19 +12,19 @@ function NaviBar() {
   return (
     <NaviBarContainer>
       <Box>
-        {isList ? (
-          <Button
+      {isList ? (
+        <Button
           onClick={() => history.push('/create')} 
           text={'CRIAR DRAGÃO'} 
           custom
         />
-        ) : (
-          <Button 
-            onClick={() => history.push('/')} 
-            text={'VOLTAR'} 
-            custom
-          />
-        )}
+      ) : (
+        <Button 
+          onClick={() => history.push('/')} 
+          text={'VOLTAR'} 
+          custom
+        />
+      )}
       </Box>
       <Button 
         onClick={logOut} 

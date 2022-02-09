@@ -13,6 +13,8 @@ export const ButtonContainer = styled.button`
    border: none;
    position: relative;
    box-shadow: 6px 8px 10px #090909;
+   transition: all 0.3s; 
+   cursor: pointer;
 
    &.custom {
       width: ${({x}) => x || 100}px;
@@ -42,7 +44,7 @@ export const ButtonContainer = styled.button`
       height: 45px;
       border-radius: 25px;
 
-      @media(max-width: 500px){
+      @media(max-width: 800px){
          width: 37px;
          height: 37px
       }
@@ -73,9 +75,6 @@ export const ButtonContainer = styled.button`
    &:hover {
       filter: brightness(0.9)
    }
-
-   transition: all 0.2s; 
-   cursor: pointer;
 `
 
 export const ButtonText = styled.span`

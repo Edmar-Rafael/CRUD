@@ -51,7 +51,7 @@ function Home() {
                   <Input 
                      onChange={handleChange}
                      id='password'
-                     type={maskType ? 'password' : ''}
+                     type={maskType ? '' : 'password'}
                      home
                      x={115}
                      placeholder='test' 
