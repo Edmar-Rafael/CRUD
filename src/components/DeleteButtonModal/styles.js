@@ -20,3 +20,30 @@ export const ModalContainer = styled(ReactModal)`
     transform: translate(35%, 55%);
   }
 `
+
+export const ModalMessage = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  width: 90%;
+  font-size: 22px;
+  padding: 5px;
+  color: #770000;
+`
+
+export const Text = styled.div`
+  width: 100%;
+`
+
+export const ModalButtomContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 10%;
+  padding: 2px 3px 5px 2px;
+`
+
+export const ModalcloseButtom = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  padding-bottom: 4px;
+`

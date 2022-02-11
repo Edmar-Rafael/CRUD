@@ -5,11 +5,16 @@ export const SkeletonContainer = styled.div`
   justify-content: space-between;
   align-items: center;
   width: 91.2%;
-  height: 65px;
+  height: 50px;
   border-radius: 4px;
+  padding: 5px;
   background-color: #777;
   overflow: hidden;
   position: relative;
+
+  @media(max-width: 800px){
+    height: 40px;
+  }
 
   &::before{
     content: '';
@@ -47,9 +52,13 @@ export const SkeletonItem = styled.div`
   flex-direction: row;
   justify-content: flex-start;
   width: 25%;
-  padding-left: 10px;
+  padding-left: 5px;
   font-size: 20px;
   color: #aaa;
+
+  @media(max-width: 800px){
+    font-size: 13px;
+  }
 `
 
 export const SkeletonBox = styled.div`
@@ -63,5 +72,10 @@ export const SkeletonButton = styled.div`
   height: 45px;
   margin-right: 6px;
   border-radius: 25px;
-  background-color: #aaaaaa;
+  background-color: #aaa;
+
+  @media(max-width: 800px){
+    width: 37px;
+    height: 37px
+  }
 `

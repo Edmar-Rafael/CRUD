@@ -17,7 +17,7 @@ function DragonsList() {
          setLoading(true)
          const {data} = await getDragons()
          setDragons(data)
-         setLoading(false)
+         setLoading(true)
       }
       fetchDragons()
    },

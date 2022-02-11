@@ -1,7 +1,21 @@
+import { faTimes, faTrashAlt } from "@fortawesome/free-solid-svg-icons";
 import React from "react";
+import { Button, DeleteButtonContainer, Icons } from "..";
+import { deleteDragon } from "../../services/dragon";
 import { ModalContainer } from "./styles";
+import {
+  Text,
+  ModalMessage,
+  ModalcloseButtom,
+  ModalButtomContainer,
+} from './styles'
 
-function DeleteButtonModal({children, deleteModal, setDeleteModal}) {
+function DeleteButtonModal({item, deleteModal, setDeleteModal, isClicked, setIsClicked}) {
+
+  async function handleDelete(id) {
+    await deleteDragon(id)
+    setIsClicked(!isClicked)
+  }
 
   return (
     
@@ -14,9 +28,28 @@ function DeleteButtonModal({children, deleteModal, setDeleteModal}) {
         backdropFilter: 'blur(2px)'
       }}}
     >
-      {children}
+      <ModalMessage>
+        <Text>Esta ação ira apagar o Dragão permanentemente!</Text>  
+        <Text>This will delete the Dragon permanently!</Text>
+      </ModalMessage>
+      <ModalButtomContainer>
+        <ModalcloseButtom>
+          < Button 
+            onClick={() => setDeleteModal(false)}
+            x={17} 
+            y={17} 
+            custom
+          >
+            <Icons icon={faTimes} fa_times/>
+          </Button>
+        </ModalcloseButtom>
+        <DeleteButtonContainer>
+          <Button onClick={() => handleDelete(item.id)}>
+            <Icons icon={faTrashAlt} fa_trash/>
+          </Button>
+        </DeleteButtonContainer>
+      </ModalButtomContainer>
     </ModalContainer>
-    
   )
 }
 

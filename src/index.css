@@ -28,17 +28,17 @@ body {
 
 .ReactModal__Overlay{
   opacity: 0;
-  transform: translateY(-100px);
+  transform: translateX(100px);
   transition: all .5s;
   z-index: 99;
 }
 .ReactModal__Overlay--after-open{
   opacity: 1;
-  transform: translatey(0px);
+  transform: translateY(0px);
 }
 .ReactModal__Overlay--before-close{
   opacity: 0;
-  transform: translateY(-100px);
+  transform: translateX(100px);
 }
 .ReactModal__Body--open {
   overflow: hidden;

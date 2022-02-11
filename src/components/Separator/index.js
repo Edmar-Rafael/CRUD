@@ -5,6 +5,7 @@ const Separator = styled.div`
    height: ${({y}) => y || 10}px;
 
    @media(max-width: 800px){
+      width: 5px;
    }
 `
 
