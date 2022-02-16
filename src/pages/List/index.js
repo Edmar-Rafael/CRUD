@@ -55,7 +55,7 @@ function DragonsList() {
                <Recipe>Type</Recipe>
             </RecipeContainer>
             <RecipeContainer>
-               Empty
+               
             </RecipeContainer>
          </DragonsHeader>
          {loading ? (
