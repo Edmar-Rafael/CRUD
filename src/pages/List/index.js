@@ -62,7 +62,7 @@ function DragonsList() {
             <SkeletonLoading newSize={7}/>
          ) : (
          dragons && dragons
-            .filter(dragon => dragon.name.indexOf(searchTerm) > -1)
+            .filter(dragon => dragon.name.toLowerCase().indexOf(searchTerm) > -1)
             .map(dragon =>
             <Dragons 
                key={dragon.id}
