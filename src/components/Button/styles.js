@@ -16,6 +16,10 @@ export const ButtonContainer = styled.button`
    transition: all 0.3s; 
    cursor: pointer;
 
+   &:hover {
+      filter: brightness(0.9)
+   }
+
    &.custom {
       width: ${({x}) => x || 100}px;
       color: black;
@@ -68,12 +72,8 @@ export const ButtonContainer = styled.button`
 
       @media(max-width: 800px){
          width: 29px;
-         height: 31px
+         height: 29px
       }
-   }
-
-   &:hover {
-      filter: brightness(0.9)
    }
 `
 

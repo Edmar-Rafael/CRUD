@@ -5,7 +5,6 @@ export const Label = styled.label`
    font-size: 18px;
    color: ${Colors.label};
    font-weight: 100;
-   font-family: 'Noto-sans';
    width: 70%;
    max-width: 99%;
    padding: 0 4px 2px 4px;
@@ -17,4 +16,18 @@ export const Label = styled.label`
    background-color: ${Colors.background};
    z-index: 9;
    pointer-events: none;
-   `
+
+   &.search{
+      transform: translate(17px, -38px);
+
+      @media(max-width: 800px){
+         font-size: 14px;
+         transform: translate(17px, -35px);
+      }
+   }
+
+   @media(max-width: 800px){
+      font-size: 14px;
+      transform: translate(0px, -35px);
+   }
+`

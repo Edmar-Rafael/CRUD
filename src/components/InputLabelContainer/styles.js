@@ -5,4 +5,8 @@ export const InputLabelBox = styled.div`
   flex-wrap: wrap;
   width: ${({x}) => x || 290}px;
   max-width: 99%;
+
+  &.search{
+    width: 90%;
+  }
 `

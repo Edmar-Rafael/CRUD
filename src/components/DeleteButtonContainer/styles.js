@@ -39,6 +39,6 @@ export const DeleteButtonBox = styled.div`
 
   @media(max-width: 800px){
     width: 37px;
-    height: 39px
+    height: 37px
   }
 `

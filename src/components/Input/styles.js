@@ -19,7 +19,7 @@ export const InputContainer = styled.input`
   
   &:focus + label, :not(:placeholder-shown) + label {
     font-size: 16px;
-    font-weight: 700;
+    font-weight: 900;
     width: ${({x}) => x || 113}px;
     padding-left: 5px;
     color: ${Colors.dragons};
@@ -34,6 +34,15 @@ export const InputContainer = styled.input`
 
     &:focus, :hover {
       border-color: white;
+    }
+  }
+
+  &.search_dragon{
+    padding-left: 27px;
+    border-radius: 30px;
+    
+    &:focus + label, :not(:placeholder-shown) + label {
+      transform: translate3d(10px, -60px, 0) scale(.82) ;
     }
   }
 

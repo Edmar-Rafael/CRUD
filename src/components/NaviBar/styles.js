@@ -11,7 +11,7 @@ export const NaviBarContainer = styled.header`
    border-radius: 4px;
    background-color: ${Colors.header};
    position: fixed;
-   z-index: 9;
+   z-index: 99;
 `
 
 export const Box = styled.div``

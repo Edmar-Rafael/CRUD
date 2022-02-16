@@ -3,13 +3,15 @@ import { getDragons } from '../../services/dragon'
 import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
 import Dragons from './Dragons'
-import { Container, SkeletonLoading } from '../../components'
+import { Container, FloatingLabel, Icons, Input, InputLabelContainer, Separator, SkeletonLoading } from '../../components'
 import { DragonsHeader, Recipe, RecipeContainer } from './styles'
+import { faSearch } from '@fortawesome/free-solid-svg-icons';
 
 
 function DragonsList() {
-   const [dragons, setDragons] = useState()
+   const [dragons, setDragons] = useState([])
    const [loading, setLoading] = useState(false)
+   const [searchTerm, setSearchTerm] = useState('')
    const [isClicked, setIsClicked] = useState(false)
    
    useEffect(() => {
@@ -21,12 +23,24 @@ function DragonsList() {
       }
       fetchDragons()
    },
-   [isClicked])
+   [isClicked, searchTerm])
 
 
    return (
       <Container list>
          <ToastContainer theme='colored' position='top-center' closeOnClick/>
+         <InputLabelContainer search>
+            <Input 
+               onChange={(e) => setSearchTerm(e.target.value)}
+               type='text' 
+               placeholder='Busca por Nome'
+               value={searchTerm}
+               search_dragon
+            />
+            <FloatingLabel text={'Busca/Search'} search/>
+            <Icons icon={faSearch} fa_search/>
+            <Separator y={23}/>
+         </InputLabelContainer>
          <DragonsHeader >
             <RecipeContainer >
                <Recipe >Data/</Recipe>
@@ -40,11 +54,16 @@ function DragonsList() {
                <Recipe>Tipo/</Recipe>
                <Recipe>Type</Recipe>
             </RecipeContainer>
+            <RecipeContainer>
+               Empty
+            </RecipeContainer>
          </DragonsHeader>
          {loading ? (
             <SkeletonLoading newSize={7}/>
          ) : (
-            dragons && dragons.map(dragon =>
+         dragons && dragons
+            .filter(dragon => dragon.name.indexOf(searchTerm) > -1)
+            .map(dragon =>
             <Dragons 
                key={dragon.id}
                isClicked={isClicked}

@@ -3,8 +3,8 @@ import styled from "styled-components";
 import Colors from "../../resources/Colors";
 
 export const IconContainer = styled(FontAwesomeIcon)`
-  font-size: 27px;
-  color: white;
+  font-size: ${({isModalOpened}) => isModalOpened ? 15 : 27}px;
+  color: ${({isModalOpened}) =>  isModalOpened ? 'black' : 'white'};
   transition: all .3s;
 
   &:hover{
@@ -15,7 +15,7 @@ export const IconContainer = styled(FontAwesomeIcon)`
     font-size: 22px;
     color: ${Colors.label};
     &:hover {
-      color: ${({isFaEye}) => isFaEye ? '' : `${Colors.dragons}`}
+      color: ${({isFaEyeSlash}) => isFaEyeSlash ? '' : `${Colors.dragons}`}
     }
   }
 
@@ -33,8 +33,14 @@ export const IconContainer = styled(FontAwesomeIcon)`
 
   &.fa_times{
     &:hover {
-      color: ${Colors.dragons};
+      color: ${({isModalOpened}) => isModalOpened ? 'black' : `${Colors.dragons}`};
     }
+  }
+
+  &.fa_search{
+    position: absolute;
+    font-size: 18px;
+    transform: translate(10px, 20px);
   }
 
   @media(max-width: 800px){

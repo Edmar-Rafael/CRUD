@@ -25,7 +25,7 @@ function DeleteButtonModal({item, deleteModal, setDeleteModal, isClicked, setIsC
       onRequestClose={() => setDeleteModal(false)}
       style={{overlay: {
         background: '#00000077',
-        backdropFilter: 'blur(2px)'
+        /* backdropFilter: 'blur(2px)' */
       }}}
     >
       <ModalMessage>
@@ -40,11 +40,11 @@ function DeleteButtonModal({item, deleteModal, setDeleteModal, isClicked, setIsC
             y={17} 
             custom
           >
-            <Icons icon={faTimes} fa_times/>
+            <Icons isModalOpened={deleteModal} icon={faTimes} fa_times />
           </Button>
         </ModalcloseButtom>
         <DeleteButtonContainer>
-          <Button onClick={() => handleDelete(item.id)}>
+          <Button onClick={() => handleDelete(item.id)} del>
             <Icons icon={faTrashAlt} fa_trash/>
           </Button>
         </DeleteButtonContainer>

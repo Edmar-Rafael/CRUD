@@ -12,12 +12,12 @@ export const ModalContainer = styled(ReactModal)`
 
   @media(max-width: 500px) {
     flex-direction: column;
-    transform: translate(20%, 50%);
+    transform: translate(20%, 100%);
   }
 
   @media(max-width: 800px) {
-    width: 60%;
-    transform: translate(35%, 55%);
+    width: 88%;
+    transform: translate(6%, 200%);
   }
 `
 
@@ -37,13 +37,18 @@ export const Text = styled.div`
 export const ModalButtomContainer = styled.div`
   display: flex;
   flex-direction: column;
+  align-items: center;
   justify-content: center;
   width: 10%;
-  padding: 2px 3px 5px 2px;
+  padding: 2px 0px 5px 0px;
+
+  @media(max-width: 800px){
+  }
 `
 
 export const ModalcloseButtom = styled.div`
   display: flex;
   justify-content: flex-end;
-  padding-bottom: 4px;
+  width: 100%;
+  padding: 0px 5px 4px 0;
 `

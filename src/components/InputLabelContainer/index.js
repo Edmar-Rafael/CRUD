@@ -1,10 +1,10 @@
 import React from "react";
 import { InputLabelBox } from "./styles";
 
-function InputLabelContainer({children, ...props}) {
+function InputLabelContainer({children, search, ...props}) {
 
   return(
-    <InputLabelBox {...props}>
+    <InputLabelBox className={search && 'search'} {...props}>
       {children}
     </InputLabelBox>
   )

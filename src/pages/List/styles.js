@@ -10,12 +10,9 @@ export const DragonsHeader = styled.div`
 export const RecipeContainer = styled.div`
    display: flex;
    justify-content: flex-start;
-   padding-left: px;
    width: 25%;
    font-size: 20px;
    color: white;
-
-   
 
    @media(max-width: 800px) {
       font-size: 13px;
@@ -24,6 +21,7 @@ export const RecipeContainer = styled.div`
 `
 
 export const Recipe = styled.div`
+   align-self: end;
    padding:0 6px;
    border-bottom: 2px solid white;
 

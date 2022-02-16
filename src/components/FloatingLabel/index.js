@@ -1,10 +1,12 @@
 import React from 'react'
 import { Label } from './styles'
 
-function FloatingLabel({text}) {
+function FloatingLabel({text, search}) {
 
   return (
-    <Label>{text}</Label>
+    <Label className={search && 'search'}>
+      {text}
+    </Label>
   ) 
 }
 
