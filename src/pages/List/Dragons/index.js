@@ -23,6 +23,7 @@ function Dragons({item, isClicked, setIsClicked}) {
   const [deleteModal, setDeleteModal] = useState(false)
   const [updateModal, setUpdateModal] = useState(false)
 
+
   return (
     <>
       <DragonsContainer >

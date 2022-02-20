@@ -3,8 +3,8 @@ import { getDragons } from '../../services/dragon'
 import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
 import Dragons from './Dragons'
-import { Container, FloatingLabel, Icons, Input, InputLabelContainer, Separator, SkeletonLoading } from '../../components'
-import { DragonsHeader, Recipe, RecipeContainer } from './styles'
+import { Button, Container, FloatingLabel, Icons, Input, InputLabelContainer, Separator, SkeletonLoading } from '../../components'
+import { DragonsHeader, ListContainer, ListFooter, ListHeader, Recipe, RecipeContainer } from './styles'
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 
 
@@ -13,6 +13,7 @@ function DragonsList() {
    const [loading, setLoading] = useState(false)
    const [searchTerm, setSearchTerm] = useState('')
    const [isClicked, setIsClicked] = useState(false)
+   const [chunk, setChunk] = useState(5);
    
    useEffect(() => {
       async function fetchDragons() {
@@ -25,9 +26,12 @@ function DragonsList() {
    },
    [isClicked, searchTerm])
 
+   console.log(chunk, dragons.length)
+
 
    return (
       <Container list>
+         <ListContainer>
          <ToastContainer theme='colored' position='top-center' closeOnClick/>
          <InputLabelContainer search>
             <Input 
@@ -54,15 +58,13 @@ function DragonsList() {
                <Recipe>Tipo/</Recipe>
                <Recipe>Type</Recipe>
             </RecipeContainer>
-            <RecipeContainer>
-               
-            </RecipeContainer>
          </DragonsHeader>
          {loading ? (
             <SkeletonLoading newSize={7}/>
          ) : (
          dragons && dragons
             .filter(dragon => dragon.name.toLowerCase().indexOf(searchTerm) > -1)
+            .slice(chunk - 5, chunk)
             .map(dragon =>
             <Dragons 
                key={dragon.id}
@@ -71,7 +73,19 @@ function DragonsList() {
                item={dragon}
             />
          ))}
+         </ListContainer>
+         <ListFooter>
+            {chunk > 5 ?
+               <Button onClick={() => setChunk(chunk - 5)} text={'Voltar/Back 5 '}/> 
+               :  <Button text={'Voltar/Back 5'} custom style={{color:'#dddddd66',background:'#111111'}}/>
+            }
+            {dragons.length > chunk ?
+               <Button onClick={() => setChunk(chunk + 5)} text={'Próximos/Next 5 '}/> 
+               : <Button text={'Próximos/Next 5'} custom style={{color:'#dddddd66',background:'#111111'}}/>
+            }
+            </ListFooter>
       </Container>
+      
    )
 }
 

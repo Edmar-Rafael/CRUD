@@ -9,6 +9,8 @@ export const ContainerBox = styled.div`
    overflow: hidden;
 
    &.list{
+      min-height: 656px;
+      height: 656px;
       padding-top: 80px;
    }
 

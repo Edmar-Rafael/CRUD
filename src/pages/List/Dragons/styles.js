@@ -5,7 +5,7 @@ export const DragonsContainer = styled.div`
   display: flex;
   flex-direction: row;
   padding: 5px 10px 5px 5px;
-  width: 90%;
+  width: 100%;
   border-radius: 2px;
   background-color: ${Colors.dragons};
 
