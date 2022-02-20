@@ -81,7 +81,7 @@ function DragonsList() {
             }
             {dragons.length > chunk ?
                <Button onClick={() => setChunk(chunk + 5)} text={'Próximos/Next 5 '}/> 
-               : <Button text={'Próximos/Next 5'} custom style={{color:'#dddddd66',background:'#111111'}}/>
+               : <Button text={'Próximos/Next 5'} style={{color:'#dddddd66',background:'#111111'}}/>
             }
             </ListFooter>
       </Container>
