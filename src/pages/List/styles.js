@@ -55,5 +55,6 @@ export const ListFooter = styled.div`
    flex-direction: row;
    justify-content: space-evenly;
    width: 90%;
-   padding: 10px;
+   padding: 12px;
+   background-color: ${Colors.header};
 `
