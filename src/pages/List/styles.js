@@ -7,7 +7,7 @@ export const ListContainer = styled.div`
    align-items: center;
    width: 90%;
    height: 70%;
-   padding: 5px 10px;
+   padding: 15px 10px 0 10px;
    border: 1px solid ${Colors.label};
    transition: all .3s;
 
