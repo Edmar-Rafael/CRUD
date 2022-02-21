@@ -1,15 +1,16 @@
 import React from 'react'
 import { ButtonContainer, ButtonText } from './styles'
 
-function Button({children, text, custom, edit, modal_edit, del, mask, ...props}) {
+function Button({children, text, ...props}) {
    return (
       <ButtonContainer 
          className={
-            custom ? 'custom' : '' || 
-            edit ? 'edit' : '' || 
-            modal_edit ? 'modal_edit' : '' ||
-            del ? 'del' : '' || 
-            mask ? 'mask' : ''
+            props.custom ? 'custom' : '' || 
+            props.edit ? 'edit' : '' || 
+            props.modal_edit ? 'modal_edit' : '' ||
+            props.del ? 'del' : '' || 
+            props.mask ? 'mask' : '' ||
+            props.footer ? 'footer' : ''
          } 
             {...props}
       >

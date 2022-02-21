@@ -53,8 +53,32 @@ export const Recipe = styled.div`
 export const ListFooter = styled.div`
    display: flex;
    flex-direction: row;
-   justify-content: space-evenly;
-   width: 90%;
-   padding: 12px;
-   background-color: ${Colors.header};
+   justify-content: flex-end;
+   width: 91.8%;
+`
+
+export const ListFooterButtonBox = styled.div`
+   display: flex;
+   flex-direction: row;
+   justify-content: space-between;
+   width: 120px;
+   padding: 5px;
+   color: white;
+   border: 1px solid ${Colors.dragons};
+   border-style: none inset inset inset;
+   background-color: ${Colors.dragons};
+   transition: all .3s;
+   transform: translate(0, 0px);
+
+   &:hover{
+      filter: brightness(0.9);
+   }
+`
+
+export const FooterIcons = styled.div`
+   display: flex;
+   align-items: center;
+   font-size: 24px;
+   font-weight: 800;
+   font-family: Roboto;
 `

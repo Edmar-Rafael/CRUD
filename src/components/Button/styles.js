@@ -75,6 +75,11 @@ export const ButtonContainer = styled.button`
          height: 29px
       }
    }
+
+   &.footer{
+      color: #dddddd66;
+      background-color: #111;
+   }
 `
 
 export const ButtonText = styled.span`

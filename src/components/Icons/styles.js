@@ -43,6 +43,11 @@ export const IconContainer = styled(FontAwesomeIcon)`
     transform: translate(10px, 20px);
   }
 
+  &.fa_chevron{
+    color: #dddddd66;
+    background-color: #111111;
+  }
+
   @media(max-width: 800px){
       font-size: 19px;
     }

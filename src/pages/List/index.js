@@ -3,9 +3,20 @@ import { getDragons } from '../../services/dragon'
 import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
 import Dragons from './Dragons'
-import { Button, Container, FloatingLabel, Icons, Input, InputLabelContainer, Separator, SkeletonLoading } from '../../components'
-import { DragonsHeader, ListContainer, ListFooter, ListHeader, Recipe, RecipeContainer } from './styles'
-import { faSearch } from '@fortawesome/free-solid-svg-icons';
+import { 
+   Button, 
+   Container, 
+   FloatingLabel, 
+   Icons, 
+   Input, 
+   InputLabelContainer, 
+   Separator, 
+   SkeletonLoading 
+} from '../../components'
+import { 
+   DragonsHeader, FooterIcons, ListContainer, ListFooter, ListFooterButtonBox, Recipe, RecipeContainer 
+} from './styles'
+import { faChevronLeft, faSearch } from '@fortawesome/free-solid-svg-icons';
 
 
 function DragonsList() {
@@ -25,8 +36,6 @@ function DragonsList() {
       fetchDragons()
    },
    [isClicked, searchTerm])
-
-   console.log(chunk, dragons.length)
 
 
    return (
@@ -75,17 +84,29 @@ function DragonsList() {
          ))}
          </ListContainer>
          <ListFooter>
-            {chunk > 5 ?
-               <Button onClick={() => setChunk(chunk - 5)} text={'Voltar/Back 5 '}/> 
-               :  <Button text={'Voltar/Back 5'} custom style={{color:'#dddddd66',background:'#111111'}}/>
-            }
-            {dragons.length > chunk ?
-               <Button onClick={() => setChunk(chunk + 5)} text={'Próximos/Next 5 '}/> 
-               : <Button text={'Próximos/Next 5'} style={{color:'#dddddd66',background:'#111111'}}/>
-            }
-            </ListFooter>
+            <ListFooterButtonBox>
+            {chunk > 5 ? (
+               <Button onClick={() => setChunk(chunk - 5)} >
+                  <Icons icon={faChevronLeft}/>
+               </Button> 
+            ) : (
+               <Button footer>
+                  <Icons icon={faChevronLeft} fa_chevron/>
+               </Button>
+            )}
+            <FooterIcons> - 5 + </FooterIcons>
+            {chunk < dragons.length ? (
+               <Button onClick={() => setChunk(chunk + 5)}>
+                  <Icons icon={faChevronLeft} rotation={180}/>
+               </Button>
+            ) : (
+               <Button footer>
+                  <Icons icon={faChevronLeft} rotation={180} fa_chevron/>
+               </Button>
+            )}
+            </ListFooterButtonBox>
+         </ListFooter>
       </Container>
-      
    )
 }
 
