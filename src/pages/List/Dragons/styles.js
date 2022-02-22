@@ -8,6 +8,11 @@ export const DragonsContainer = styled.div`
   width: 100%;
   border-radius: 2px;
   background-color: ${Colors.dragons};
+  transition: all .3s;
+
+  &:hover{
+    filter: brightness(.9)
+  }
 
   @media(max-width: 800px){
     padding: 3px 5px;

@@ -79,6 +79,7 @@ export const ButtonContainer = styled.button`
    &.footer{
       color: #dddddd66;
       background-color: #111;
+      cursor: text;
    }
 `
 

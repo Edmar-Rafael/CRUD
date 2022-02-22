@@ -6,12 +6,11 @@ export const ContainerBox = styled.div`
    display: flex;
    flex-direction: column;
    align-items: center;
-   overflow: hidden;
 
    &.list{
       min-height: 656px;
       height: 656px;
-      padding-top: 80px;
+      justify-content: center;
    }
 
    &.homeCreate{

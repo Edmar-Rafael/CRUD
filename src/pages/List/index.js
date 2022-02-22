@@ -14,7 +14,13 @@ import {
    SkeletonLoading 
 } from '../../components'
 import { 
-   DragonsHeader, FooterIcons, ListContainer, ListFooter, ListFooterButtonBox, Recipe, RecipeContainer 
+   DragonsHeader, 
+   FooterIcons, 
+   ListContainer, 
+   ListFooter, 
+   ListFooterButtonBox, 
+   Recipe, 
+   RecipeContainer 
 } from './styles'
 import { faChevronLeft, faSearch } from '@fortawesome/free-solid-svg-icons';
 
@@ -37,9 +43,12 @@ function DragonsList() {
    },
    [isClicked, searchTerm])
 
+   console.log()
+
 
    return (
       <Container list>
+         <Separator />
          <ListContainer>
          <ToastContainer theme='colored' position='top-center' closeOnClick/>
          <InputLabelContainer search>
@@ -49,6 +58,7 @@ function DragonsList() {
                placeholder='Busca por Nome'
                value={searchTerm}
                search_dragon
+               x={95}
             />
             <FloatingLabel text={'Busca/Search'} search/>
             <Icons icon={faSearch} fa_search/>

@@ -23,7 +23,7 @@ export const ListContainer = styled.div`
 export const DragonsHeader = styled.div`
    display: flex;
    justify-content: flex-start;
-   width: 90%;
+   width: 100%;
    padding: 5px;
 `
 

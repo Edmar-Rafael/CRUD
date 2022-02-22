@@ -24,13 +24,18 @@ export const InputContainer = styled.input`
     padding-left: 5px;
     color: ${Colors.dragons};
     transform: translate3d(-6px, -60px, 0) scale(.82) ;
+
+    @media(max-width: 800px){
+      font-size: 12px;
+      font-weight: 700;
+    }
   }
 
   &.list{
     background-color: ${Colors.dragons};
     height: 20px;
     border-style: none none inset none;
-    width: 70%;
+    width: 90%;
 
     &:focus, :hover {
       border-color: white;
