@@ -9,6 +9,7 @@ function NaviBar() {
   const isList = useLocation().pathname === '/'
   const {logOut} = useAuth()
 
+
   return (
     <NaviBarContainer>
       <Box>

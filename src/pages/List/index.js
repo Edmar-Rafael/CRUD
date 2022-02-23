@@ -31,6 +31,7 @@ function DragonsList() {
    const [searchTerm, setSearchTerm] = useState('')
    const [isClicked, setIsClicked] = useState(false)
    const [chunk, setChunk] = useState(5);
+
    
    useEffect(() => {
       async function fetchDragons() {
@@ -79,7 +80,7 @@ function DragonsList() {
             </RecipeContainer>
          </DragonsHeader>
          {loading ? (
-            <SkeletonLoading newSize={7}/>
+            <SkeletonLoading />
          ) : (
          dragons && dragons
             .filter(dragon => dragon.name.toLowerCase().indexOf(searchTerm) > -1)

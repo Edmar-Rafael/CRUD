@@ -4,8 +4,8 @@ export const SkeletonContainer = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 91.2%;
-  height: 50px;
+  width: 100%;
+  height: 47px;
   border-radius: 4px;
   padding: 5px;
   background-color: #777;
