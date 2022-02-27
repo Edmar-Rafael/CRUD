@@ -10,7 +10,6 @@ export const ContainerBox = styled.div`
    &.list{
       min-height: 656px;
       height: 656px;
-      justify-content: center;
    }
 
    &.homeCreate{

@@ -44,55 +44,53 @@ function DragonsList() {
    },
    [isClicked, searchTerm])
 
-   console.log()
-
 
    return (
       <Container list>
-         <Separator />
-         <ListContainer>
+         <Separator y={80}/>
          <ToastContainer theme='colored' position='top-center' closeOnClick/>
-         <InputLabelContainer search>
-            <Input 
-               onChange={(e) => setSearchTerm(e.target.value)}
-               type='text' 
-               placeholder='Busca por Nome'
-               value={searchTerm}
-               search_dragon
-               x={95}
-            />
-            <FloatingLabel text={'Busca/Search'} search/>
-            <Icons icon={faSearch} fa_search/>
-            <Separator y={23}/>
-         </InputLabelContainer>
-         <DragonsHeader >
-            <RecipeContainer >
-               <Recipe >Data/</Recipe>
-               <Recipe>Date</Recipe>
-            </RecipeContainer>
-            <RecipeContainer>
-               <Recipe>Nome/</Recipe>
-               <Recipe>Name</Recipe>
-            </RecipeContainer>
-            <RecipeContainer>
-               <Recipe>Tipo/</Recipe>
-               <Recipe>Type</Recipe>
-            </RecipeContainer>
-         </DragonsHeader>
-         {loading ? (
-            <SkeletonLoading />
-         ) : (
-         dragons && dragons
-            .filter(dragon => dragon.name.toLowerCase().indexOf(searchTerm) > -1)
-            .slice(chunk - 5, chunk)
-            .map(dragon =>
-            <Dragons 
-               key={dragon.id}
-               isClicked={isClicked}
-               setIsClicked={setIsClicked}
-               item={dragon}
-            />
-         ))}
+         <ListContainer>
+            <InputLabelContainer search>
+               <Input 
+                  onChange={(e) => setSearchTerm(e.target.value)}
+                  type='text' 
+                  placeholder='Busca por Nome'
+                  value={searchTerm}
+                  search_dragon
+                  x={95}
+               />
+               <FloatingLabel text={'Busca/Search'} search/>
+               <Icons icon={faSearch} fa_search/>
+               <Separator y={23}/>
+            </InputLabelContainer>
+            <DragonsHeader >
+               <RecipeContainer >
+                  <Recipe >Data/</Recipe>
+                  <Recipe>Date</Recipe>
+               </RecipeContainer>
+               <RecipeContainer>
+                  <Recipe>Nome/</Recipe>
+                  <Recipe>Name</Recipe>
+               </RecipeContainer>
+               <RecipeContainer>
+                  <Recipe>Tipo/</Recipe>
+                  <Recipe>Type</Recipe>
+               </RecipeContainer>
+            </DragonsHeader>
+            {loading ? (
+               <SkeletonLoading />
+            ) : (
+            dragons && dragons
+               .filter(dragon => dragon.name.toLowerCase().indexOf(searchTerm) > -1)
+               .slice(chunk - 5, chunk)
+               .map(dragon =>
+               <Dragons 
+                  key={dragon.id}
+                  isClicked={isClicked}
+                  setIsClicked={setIsClicked}
+                  item={dragon}
+               />
+            ))}
          </ListContainer>
          <ListFooter>
             <ListFooterButtonBox>

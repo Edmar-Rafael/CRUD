@@ -16,7 +16,7 @@ export const ListContainer = styled.div`
    }
 
    @media(max-width: 800px){
-      height: 400px
+      height: 375px;
    }
 `
 
