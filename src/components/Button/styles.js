@@ -66,14 +66,21 @@ export const ButtonContainer = styled.button`
    }
 
    &.del{
-      width: 38px;
+      width: 36px;
       height: 38px;
-      border-radius: 5px;
+      border-radius: 7px;
 
       @media(max-width: 800px){
          width: 29px;
-         height: 29px
+         height: 29px;
+         border-radius: 6px;
       }
+   }
+
+   &.mobile_modal_del{
+      width: 110px;
+      height: 29px;
+      border-radius: 7px;
    }
 
    &.footer{

@@ -5,6 +5,7 @@ export const ModalContainer = styled(ReactModal)`
   display: flex;
   align-items: center;
   width: 40%;
+  min-width: 50%;
   background-color: white;
   border: 1px solid black;
   border-radius: 4px;
@@ -12,12 +13,11 @@ export const ModalContainer = styled(ReactModal)`
 
   @media(max-width: 500px) {
     flex-direction: column;
-    transform: translate(20%, 100%);
   }
 
   @media(max-width: 800px) {
     width: 88%;
-    transform: translate(6%, 200%);
+    transform: translate(6%, 100%);
   }
 `
 
@@ -42,7 +42,8 @@ export const ModalButtomContainer = styled.div`
   width: 10%;
   padding: 2px 0px 5px 0px;
 
-  @media(max-width: 800px){
+  @media(max-width: 500px){
+    width: 95%
   }
 `
 

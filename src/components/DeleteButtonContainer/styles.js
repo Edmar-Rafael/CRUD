@@ -37,8 +37,16 @@ export const DeleteButtonBox = styled.div`
     }
   }
 
+  &.mobile_delete_modal{
+    width: 120px;
+    &::before{
+      height: 340%;
+    }
+  }
+
   @media(max-width: 800px){
     width: 37px;
-    height: 37px
+    height: 37px;
+    border-radius: 8px;
   }
 `

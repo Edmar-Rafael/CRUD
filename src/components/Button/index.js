@@ -10,7 +10,8 @@ function Button({children, text, ...props}) {
             props.modal_edit ? 'modal_edit' : '' ||
             props.del ? 'del' : '' || 
             props.mask ? 'mask' : '' ||
-            props.footer ? 'footer' : ''
+            props.footer ? 'footer' : '' ||
+            props.mobile_modal_del ? 'mobile_modal_del' : ''
          } 
             {...props}
       >
