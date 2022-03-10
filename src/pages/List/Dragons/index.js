@@ -23,7 +23,6 @@ function Dragons({item, isClicked, setIsClicked}) {
   const [deleteModal, setDeleteModal] = useState(false)
   const [updateModal, setUpdateModal] = useState(false)
 
-
   return (
     <>
       <DragonsContainer >
@@ -42,7 +41,7 @@ function Dragons({item, isClicked, setIsClicked}) {
             {item.type}
           </TypeContainer>
         </DragonsRecipe>
-        <ButtonBox>
+        <ButtonBox>        
           <Button onClick={() => setUpdateModal(true)} edit>
             <Icons icon={faPencilAlt} fa_pencil_check/>
           </Button>

@@ -38,9 +38,11 @@ export const DeleteButtonBox = styled.div`
   }
 
   &.mobile_delete_modal{
-    width: 120px;
-    &::before{
-      height: 340%;
+    @media(max-width: 500px){
+      width: 120px;
+      &::before{
+        height: 340%;
+      }
     }
   }
 

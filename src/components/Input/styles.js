@@ -21,11 +21,12 @@ export const InputContainer = styled.input`
     font-size: 16px;
     font-weight: 900;
     width: ${({x}) => x || 113}px;
-    padding-left: 5px;
+    padding: 0 5px 0 5px;
     color: ${Colors.dragons};
     transform: translate3d(-6px, -60px, 0) scale(.82) ;
 
     @media(max-width: 800px){
+      width: fit-content;
       font-size: 12px;
       font-weight: 700;
     }

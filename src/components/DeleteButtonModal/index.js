@@ -1,9 +1,9 @@
-import { faTimes, faTrashAlt } from "@fortawesome/free-solid-svg-icons";
 import React from "react";
 import { Button, DeleteButtonContainer, Icons } from "..";
 import { deleteDragon } from "../../services/dragon";
-import { ModalContainer } from "./styles";
+import { faTimes, faTrashAlt } from "@fortawesome/free-solid-svg-icons";
 import {
+  ModalContainer,
   Text,
   ModalMessage,
   ModalcloseButtom,
