@@ -1,6 +1,6 @@
 import React from "react";
 import { Button, DeleteButtonContainer, Icons } from "..";
-import { deleteDragon } from "../../services/dragon";
+import { deleteDragon } from "../../services/dragons";
 import { faTimes, faTrashAlt } from "@fortawesome/free-solid-svg-icons";
 import {
   ModalContainer,

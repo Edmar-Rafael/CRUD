@@ -1,9 +1,9 @@
-import { getDragons } from '../../services/dragons'
+import { createDragon } from "../../services/dragons"
 
 const Types = {
-  REQUEST: 'dragons/REQUEST',
-  REQUEST_SUCCESS: 'dragons/REQUEST_SUCCESS',
-  REQUEST_FAILURE: 'dragons/REQUEST_FAILURE',
+  REQUEST: 'creating/REQUEST',
+  REQUEST_SUCCESS: 'creating/REQUEST_SUCCESS',
+  REQUEST_FAILURE: 'creating/REQUEST_FAILURE'
 }
 
 const Creators = {
@@ -11,30 +11,30 @@ const Creators = {
     type: Types.REQUEST,
     data: {
       loading: true,
-      error: false,
+      error: false
     }
   }),
   requestSuccess: (response) => ({
     type: Types.REQUEST_SUCCESS,
     data: {
       loading: false,
-      data: response,
+      data: response
     }
   }),
   requestFailure: () => ({
     type: Types.REQUEST_FAILURE,
     data: {
       loading: false,
-      error: true,
+      error: true
     }
   })
 }
 
-export function requestDragons() {
+export function requestCreating() {
   return async (dispatch) => {
     dispatch(Creators.request())
     try {
-      const response = await getDragons()
+      const response = await createDragon()
       dispatch(Creators.requestSuccess(response.data))
     } catch(error) {
       dispatch(Creators.requestFailure)
@@ -48,7 +48,7 @@ const initialState = {
   data: {}
 }
 
-export default function dragonsState(state = initialState, action) {
+export default function creatingState(state = initialState, action) {
   const { type, data } = action
 
   switch(type) {
@@ -63,4 +63,4 @@ export default function dragonsState(state = initialState, action) {
       return state
     }
   }
-}
+} 

@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react'
-import { getDragons } from '../../services/dragon'
 import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
 import Dragons from './Dragons'
+import { useSelector, useDispatch } from 'react-redux';
+import { requestDragons } from '../../store/ducks/dragons'
 import { 
    Button, 
    Container, 
@@ -26,21 +27,17 @@ import { faChevronLeft, faSearch } from '@fortawesome/free-solid-svg-icons';
 
 
 function DragonsList() {
-   const [dragons, setDragons] = useState([])
-   const [loading, setLoading] = useState(false)
+   const data = useSelector(({dragonsState}) => dragonsState.data)
+   const loading = useSelector(({dragonsState}) => dragonsState.loading)
    const [searchTerm, setSearchTerm] = useState('')
    const [isClicked, setIsClicked] = useState(false)
    const [chunk, setChunk] = useState(5);
 
+   const dispatch = useDispatch()
+
    
    useEffect(() => {
-      async function fetchDragons() {
-         setLoading(true)
-         const {data} = await getDragons()
-         setDragons(data)
-         setLoading(false)
-      }
-      fetchDragons()
+      dispatch(requestDragons())
    },
    [isClicked, searchTerm])
 
@@ -80,7 +77,7 @@ function DragonsList() {
             {loading ? (
                <SkeletonLoading />
             ) : (
-            dragons && dragons
+            data && data
                .filter(dragon => dragon.name.toLowerCase().indexOf(searchTerm) > -1)
                .slice(chunk - 5, chunk)
                .map(dragon =>
@@ -104,7 +101,7 @@ function DragonsList() {
                </Button>
             )}
             <FooterIcons> - 5 + </FooterIcons>
-            {chunk < dragons.length ? (
+            {chunk < data.length ? (
                <Button onClick={() => setChunk(chunk + 5)}>
                   <Icons icon={faChevronLeft} rotation={180}/>
                </Button>

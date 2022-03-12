@@ -1,6 +1,6 @@
-import applyMiddlewares from 'redux'
+import { applyMiddleware } from 'redux'
 import thunk from 'redux-thunk'
 
-const middlewares = applyMiddlewares(thunk)
+const middlewares = [applyMiddleware(thunk)]
 
 export default middlewares
