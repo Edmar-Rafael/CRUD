@@ -27,11 +27,11 @@ import { faChevronLeft, faSearch } from '@fortawesome/free-solid-svg-icons';
 
 
 function DragonsList() {
-   const data = useSelector(({dragonsState}) => dragonsState.data)
-   const loading = useSelector(({dragonsState}) => dragonsState.loading)
    const [searchTerm, setSearchTerm] = useState('')
    const [isClicked, setIsClicked] = useState(false)
    const [chunk, setChunk] = useState(5);
+   const data = useSelector(({dragonsState}) => dragonsState.data)
+   const loading = useSelector(({dragonsState}) => dragonsState.loading)
 
    const dispatch = useDispatch()
 
@@ -39,8 +39,7 @@ function DragonsList() {
    useEffect(() => {
       dispatch(requestDragons())
    },
-   [isClicked, searchTerm])
-
+   [dispatch, isClicked, searchTerm])
 
    return (
       <Container list>
@@ -50,7 +49,7 @@ function DragonsList() {
             <InputLabelContainer search>
                <Input 
                   onChange={(e) => setSearchTerm(e.target.value)}
-                  type='text' 
+                  type={'text' || 'password'} 
                   placeholder='Busca por Nome'
                   value={searchTerm}
                   search_dragon

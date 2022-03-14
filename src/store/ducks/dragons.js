@@ -37,7 +37,7 @@ export function requestDragons() {
       const response = await getDragons()
       dispatch(Creators.requestSuccess(response.data))
     } catch(error) {
-      dispatch(Creators.requestFailure)
+      dispatch(Creators.requestFailure())
     }
   }
 }
@@ -45,7 +45,7 @@ export function requestDragons() {
 const initialState = {
   loading: true,
   error: false,
-  data: {}
+  data: []
 }
 
 export default function dragonsState(state = initialState, action) {
@@ -56,6 +56,9 @@ export default function dragonsState(state = initialState, action) {
       return {...state, ...data}
     }
     case Types.REQUEST_FAILURE: {
+      return {...state, ...data}
+    }
+    case Types.REQUEST: {
       return {...state, ...data}
     }
 

@@ -40,7 +40,7 @@ function Home() {
                      onChange={handleChange}
                      x={90}
                      id='name'
-                     type='text'
+                     type={'text' || 'password'}
                      placeholder='test' 
                      value={user.name}
                   />

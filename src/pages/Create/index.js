@@ -2,8 +2,7 @@ import React, { useState } from 'react'
 import { useHistory } from 'react-router-dom'
 import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
-import { createDragon } from '../../services/dragons'
-import { 
+   import { 
    Button, 
    Separator, 
    Input, 
@@ -14,29 +13,36 @@ import {
    LoaderSpinner
 } from '../../components'
 import { useAuth } from '../../hooks/useAuth';
+import { useDispatch, useSelector } from 'react-redux';
+import { requestCreateDragon } from '../../store/ducks/creating';
 
 
 function Create() {
-   const [isSpinner, setIsSpinner] = useState(false)
    const [newDragon, setNewDragon] = useState({
       name: '',
       type: ''
    })
+   const loading = useSelector(({createDragonState}) => createDragonState.loading)
+   
+   const dispatch = useDispatch()
 
    const {notify} = useAuth()
    const history = useHistory()
 
    async function createNewDragon() {
-      if(newDragon.name !== '' && newDragon.type !== '') {
-         setIsSpinner(true)
-         await createDragon({
-            name: `${newDragon.name}`,
-            type: `${newDragon.type}`
-         })
-         history.goBack()
-      }
-      else {
-         notify.error()
+      try {
+         if(newDragon.name !== '' && newDragon.type !== '') {
+            await dispatch(requestCreateDragon({
+               name: `${newDragon.name}`,
+               type: `${newDragon.type}`
+            }))
+            history.goBack()
+         }
+         else {
+            notify.error()
+         }
+      } catch(error) {
+         return error
       }
    }
 
@@ -48,7 +54,7 @@ function Create() {
 
    return (
       <Container homeCreate >
-      {isSpinner ? (
+      {loading ? (
          <LoaderSpinner />
       ) : (
          <Wrapper create >
