@@ -3,7 +3,6 @@ import { faCheck, faTimes } from "@fortawesome/free-solid-svg-icons";
 import dayjs from "dayjs";
 import { Button, Icons, Input, Row, Separator } from "..";
 import { useAuth } from "../../hooks/useAuth";
-import { updateDragon } from "../../services/dragons";
 import { 
   UpdateModalContainer,
   UpdateModalHeader,

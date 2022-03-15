@@ -4,7 +4,7 @@ import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import Colors from "../../resources/Colors";
 
 
-function LoaderSpinner() {
+function LoaderSpinner({y}) {
 
   return (
     <Loader 
@@ -12,7 +12,7 @@ function LoaderSpinner() {
       color={`${Colors.dragons}`}
       secondaryColor='black'
       width={300} 
-      height={300}
+      height={ y || 300}
     />
   )
 }

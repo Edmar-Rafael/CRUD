@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { ToastContainer } from 'react-toastify'
+import { toast, ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
 import Dragons from './Dragons'
 import { useSelector, useDispatch } from 'react-redux';
@@ -41,6 +41,7 @@ function DragonsList() {
    },
    [dispatch, isClicked, searchTerm])
 
+
    return (
       <Container list>
          <Separator y={80}/>
@@ -60,7 +61,7 @@ function DragonsList() {
                <Separator y={23}/>
             </InputLabelContainer>
             <DragonsHeader >
-               <RecipeContainer >
+               <RecipeContainer>
                   <Recipe >Data/</Recipe>
                   <Recipe>Date</Recipe>
                </RecipeContainer>
