@@ -14,31 +14,39 @@ import {
   DragonsRecipe,
   DateContainer
 } from "./styles";
+import { useDispatch } from "react-redux";
+import { requestUpdateDragon } from "../../store/ducks/update";
 
 function UpdateModal({item, updateModal, setUpdateModal, isClicked, setIsClicked}) {
   const [updatedDragon, setUpdatedDragon] = useState({
     newName: item.name,
     newType: item.type
   })
+  
+  const dispatch = useDispatch()
 
   const {notify} = useAuth()
 
   async function handleUpdate(id) {
-    if(updatedDragon.newName === '' || updatedDragon.newType === '') {
-      notify.error()
-    } 
-    else if(updatedDragon.newName === item.name && updatedDragon.newType === item.type) {
-      notify.info()
-    } 
-    else {
-      await updateDragon(id, {
-        name: `${updatedDragon.newName}`,
-        type: `${updatedDragon.newType}`
-      })
-      notify.success()
+    try {
+      if(updatedDragon.newName === '' || updatedDragon.newType === '') {
+        notify.error()
+      }
+      else if(updatedDragon.newName === item.name && updatedDragon.newType === item.type) {
+        notify.info()
+      }
+      else {
+        await dispatch(requestUpdateDragon(id, {
+          name: `${updatedDragon.newName}`,
+          type: `${updatedDragon.newType}`
+        }))
+        notify.success()
+      }
+      setIsClicked(!isClicked)
+      setUpdateModal(false)
+    } catch(error) {
+      return error
     }
-    setIsClicked(!isClicked)
-    setUpdateModal(false)
   }
 
   function handleCancelButton() {

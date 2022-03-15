@@ -3,7 +3,7 @@ import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
 import Dragons from './Dragons'
 import { useSelector, useDispatch } from 'react-redux';
-import { requestDragons } from '../../store/ducks/dragons'
+import { requestDragons } from '../../store/ducks/dragonsList'
 import { 
    Button, 
    Container, 
