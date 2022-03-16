@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, DeleteButtonContainer, Icons, LoaderSpinner } from "..";
+import { Button, DeleteButtonContainer, Icons } from "..";
 import { faTimes, faTrashAlt } from "@fortawesome/free-solid-svg-icons";
 import {
   ModalContainer,
@@ -7,13 +7,11 @@ import {
   ModalMessage,
   ModalcloseButtom,
   ModalButtomContainer,
-  ModalloadingContainer,
 } from './styles'
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { requestDeleteDragon } from "../../store/ducks/delete";
 
 function DeleteButtonModal({item, deleteModal, setDeleteModal, isClicked, setIsClicked}) {
-  const loading = useSelector(({deleteDragonState}) => deleteDragonState.loading)
   const dispatch = useDispatch()
 
   async function handleDelete(id) {

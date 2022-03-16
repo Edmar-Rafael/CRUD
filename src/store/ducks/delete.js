@@ -37,7 +37,7 @@ export function requestDeleteDragon(id) {
     try {
       const response = await deleteDragon(id)
       dispatch(Creators.requestSuccess(response.data))
-      toast.success('Dragão deletado com sucesso!\n' + 'Delete dragon successfull')
+      toast.success('Dragão deletado com sucesso! \n Delete dragon successfull')
     } catch(error) {
       dispatch(Creators.requestFailure())
     }

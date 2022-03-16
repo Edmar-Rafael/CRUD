@@ -53,7 +53,3 @@ export const ModalcloseButtom = styled.div`
   width: 100%;
   padding: 0px 5px 4px 0;
 `
-
-export const ModalloadingContainer = styled.div`
-  padding-left: 150px;
-`
