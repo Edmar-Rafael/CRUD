@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import { useAuth } from '../../hooks/useAuth'
 import { JWT } from '../../config'
 import { Wrapper, Separator, Button, Input, Container, InputLabelContainer, Icons } from '../../components'
 import { LoginContainer } from './styles'
@@ -7,6 +6,8 @@ import FloatingLabel from '../../components/FloatingLabel'
 import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons'
+import { useDispatch } from 'react-redux'
+import { requestLogIn } from '../../store/ducks/login'
 
 
 function Home() {
@@ -17,12 +18,12 @@ function Home() {
       name: '',
       password: '',
    })
-   const { logIn } = useAuth()
+   const dispatch = useDispatch()
 
    function handleSubmit(event) {
       event.preventDefault()
-         logIn(user)
-      }
+      dispatch(requestLogIn(user))
+   }
    
    function handleChange(event) {
       const {id, value} = event.target

@@ -11,7 +11,7 @@ import {
 import { useDispatch } from "react-redux";
 import { requestDeleteDragon } from "../../store/ducks/delete";
 
-function DeleteButtonModal({item, deleteModal, setDeleteModal, isClicked, setIsClicked}) {
+function DeleteModal({item, deleteModal, setDeleteModal, isClicked, setIsClicked}) {
   const dispatch = useDispatch()
 
   async function handleDelete(id) {
@@ -59,4 +59,4 @@ function DeleteButtonModal({item, deleteModal, setDeleteModal, isClicked, setIsC
   )
 }
 
-export default DeleteButtonModal
+export default DeleteModal

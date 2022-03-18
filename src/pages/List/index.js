@@ -32,9 +32,7 @@ function DragonsList() {
    const [chunk, setChunk] = useState(5);
    const data = useSelector(({dragonsState}) => dragonsState.data)
    const loading = useSelector(({dragonsState}) => dragonsState.loading)
-
    const dispatch = useDispatch()
-
    
    useEffect(() => {
       dispatch(requestDragons())

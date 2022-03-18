@@ -30,11 +30,9 @@ function UpdateModal({item, updateModal, setUpdateModal, isClicked, setIsClicked
     try {
       if(updatedDragon.newName === '' || updatedDragon.newType === '') {
         notify.error()
-      }
-      else if(updatedDragon.newName === item.name && updatedDragon.newType === item.type) {
+      } else if(updatedDragon.newName === item.name && updatedDragon.newType === item.type) {
         notify.info()
-      }
-      else {
+      } else {
         await dispatch(requestUpdateDragon(id, {
           name: `${updatedDragon.newName}`,
           type: `${updatedDragon.newType}`

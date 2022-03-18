@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useHistory } from 'react-router-dom'
-import { ToastContainer } from 'react-toastify'
+import { toast, ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
    import { 
    Button, 
@@ -12,7 +12,6 @@ import 'react-toastify/dist/ReactToastify.css';
    Container,
    LoaderSpinner
 } from '../../components'
-import { useAuth } from '../../hooks/useAuth';
 import { useDispatch, useSelector } from 'react-redux';
 import { requestCreateDragon } from '../../store/ducks/creating';
 
@@ -23,11 +22,8 @@ function Create() {
       type: ''
    })
    const loading = useSelector(({createDragonState}) => createDragonState.loading)
-   
-   const dispatch = useDispatch()
-
-   const {notify} = useAuth()
    const history = useHistory()
+   const dispatch = useDispatch()
 
    async function createNewDragon() {
       try {
@@ -37,9 +33,10 @@ function Create() {
                type: `${newDragon.type}`
             }))
             history.goBack()
-         }
-         else {
-            notify.error()
+         } else {
+            toast.error(
+               'ops! Nome e/ou Tipo não inseridos \n Oops! Name and/or Type not inserted'
+            )
          }
       } catch(error) {
          return error

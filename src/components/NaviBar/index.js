@@ -1,13 +1,15 @@
 import React from "react";
-import { useAuth } from '../../hooks/useAuth' 
 import { Button } from '../../components'
 import { Box, NaviBarContainer } from "./styles";
 import { useLocation, useHistory } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { logOut } from "../../store/ducks/login";
 
 function NaviBar() {
   const history = useHistory()
   const isList = useLocation().pathname === '/'
-  const {logOut} = useAuth()
+
+  const dispatch = useDispatch()
 
 
   return (
@@ -28,7 +30,7 @@ function NaviBar() {
       )}
       </Box>
       <Button 
-        onClick={logOut} 
+        onClick={() => dispatch(logOut())}
         text={'SAIR'} 
         custom
       />
