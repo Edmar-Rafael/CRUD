@@ -14,6 +14,7 @@ import 'react-toastify/dist/ReactToastify.css';
 } from '../../components'
 import { useDispatch, useSelector } from 'react-redux';
 import { requestCreateDragon } from '../../store/ducks/creating';
+import handleLanguage from '../../resources/LangSource';
 
 
 function Create() {
@@ -21,8 +22,10 @@ function Create() {
       name: '',
       type: ''
    })
-   const loading = useSelector(({createDragonState}) => createDragonState.loading)
+   const {loading} = useSelector(({createDragonState}) => createDragonState)
+   useSelector(({changeLanguageState}) => changeLanguageState)
    const history = useHistory()
+
    const dispatch = useDispatch()
 
    async function createNewDragon() {
@@ -65,7 +68,7 @@ function Create() {
                   create
                   value={newDragon.name}
                />
-               <FloatingLabel text={'Nome*'}/>
+               <FloatingLabel text={handleLanguage('createName')}/>
                <Separator y={23}/>
             </InputLabelContainer>
             <InputLabelContainer x={310}>
@@ -74,11 +77,11 @@ function Create() {
                   x={45}
                   id='type'
                   type='text'
-                  placeholder='Ex: vermelho/red*' 
+                  placeholder={handleLanguage('exRed')} 
                   create
                   value={newDragon.type} 
                />
-               <FloatingLabel text={'Tipo*'}/>
+               <FloatingLabel text={handleLanguage('createType')}/>
                <Separator y={23}/>
             </InputLabelContainer>
             <Separator />
@@ -86,7 +89,7 @@ function Create() {
                onClick={createNewDragon} 
                type= 'buttom'
                custom 
-               text={'CADASTRAR'} 
+               text={handleLanguage('register')} 
                x={310} 
             />
          </Wrapper>

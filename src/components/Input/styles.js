@@ -20,13 +20,12 @@ export const InputContainer = styled.input`
   &:focus + label, :not(:placeholder-shown) + label {
     font-size: 16px;
     font-weight: 900;
-    width: ${({x}) => x || 113}px;
+    width: fit-content;
     padding: 0 5px 0 5px;
     color: ${Colors.dragons};
     transform: translate3d(-6px, -60px, 0) scale(.82) ;
 
     @media(max-width: 800px){
-      width: fit-content;
       font-size: 12px;
       font-weight: 700;
     }

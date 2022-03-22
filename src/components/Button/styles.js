@@ -90,6 +90,15 @@ export const ButtonContainer = styled.button`
       background-color: #111;
       cursor: text;
    }
+
+   &.lang_select{
+      color: ${Colors.label};
+      border: 2px solid ${Colors.label};
+      &:hover{
+         color: white;
+         border: 2px solid ${Colors.dragons};
+      }
+   }
 `
 
 export const ButtonText = styled.span`

@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { faCheck, faTimes } from "@fortawesome/free-solid-svg-icons";
 import dayjs from "dayjs";
 import { Button, Icons, Input, Row, Separator } from "..";
-import { useAuth } from "../../hooks/useAuth";
 import { 
   UpdateModalContainer,
   UpdateModalHeader,
@@ -15,29 +14,29 @@ import {
 } from "./styles";
 import { useDispatch } from "react-redux";
 import { requestUpdateDragon } from "../../store/ducks/update";
+import { toast } from "react-toastify";
 
 function UpdateModal({item, updateModal, setUpdateModal, isClicked, setIsClicked}) {
   const [updatedDragon, setUpdatedDragon] = useState({
     newName: item.name,
     newType: item.type
   })
-  
   const dispatch = useDispatch()
-
-  const {notify} = useAuth()
 
   async function handleUpdate(id) {
     try {
       if(updatedDragon.newName === '' || updatedDragon.newType === '') {
-        notify.error()
+        toast.error(
+          'Ops! Nome e/ou Tipo não inseridos! \n Oops! Name and/or Type not inserted'
+        )
       } else if(updatedDragon.newName === item.name && updatedDragon.newType === item.type) {
-        notify.info()
+        toast.info('Nenhuma alteração realizada! \n No changes made!')
       } else {
         await dispatch(requestUpdateDragon(id, {
           name: `${updatedDragon.newName}`,
           type: `${updatedDragon.newType}`
         }))
-        notify.success()
+        toast.success('Dragão modificado com sucesso! \n Dragon modified successfull')
       }
       setIsClicked(!isClicked)
       setUpdateModal(false)

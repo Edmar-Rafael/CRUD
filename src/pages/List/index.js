@@ -24,14 +24,15 @@ import {
    RecipeContainer 
 } from './styles'
 import { faChevronLeft, faSearch } from '@fortawesome/free-solid-svg-icons';
+import handleLanguage from '../../resources/LangSource';
 
 
 function DragonsList() {
    const [searchTerm, setSearchTerm] = useState('')
    const [isClicked, setIsClicked] = useState(false)
    const [chunk, setChunk] = useState(5);
-   const data = useSelector(({dragonsState}) => dragonsState.data)
-   const loading = useSelector(({dragonsState}) => dragonsState.loading)
+   const {data, loading} = useSelector(({dragonsState}) => dragonsState)
+   useSelector(({changeLanguageState}) => changeLanguageState)
    const dispatch = useDispatch()
    
    useEffect(() => {
@@ -49,27 +50,24 @@ function DragonsList() {
                <Input 
                   onChange={(e) => setSearchTerm(e.target.value)}
                   type={'text' || 'password'} 
-                  placeholder='Busca por Nome'
+                  placeholder={handleLanguage('searchByName')}
                   value={searchTerm}
                   search_dragon
                   x={95}
                />
-               <FloatingLabel text={'Busca/Search'} search/>
+               <FloatingLabel text={handleLanguage('search')} search/>
                <Icons icon={faSearch} fa_search/>
                <Separator y={23}/>
             </InputLabelContainer>
             <DragonsHeader >
                <RecipeContainer>
-                  <Recipe >Data/</Recipe>
-                  <Recipe>Date</Recipe>
+                  <Recipe >{handleLanguage('date')}</Recipe>
                </RecipeContainer>
                <RecipeContainer>
-                  <Recipe>Nome/</Recipe>
-                  <Recipe>Name</Recipe>
+                  <Recipe>{handleLanguage('name')}</Recipe>
                </RecipeContainer>
                <RecipeContainer>
-                  <Recipe>Tipo/</Recipe>
-                  <Recipe>Type</Recipe>
+                  <Recipe>{handleLanguage('type')}</Recipe>
                </RecipeContainer>
             </DragonsHeader>
             {loading ? (

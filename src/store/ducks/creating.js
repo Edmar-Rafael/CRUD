@@ -1,9 +1,9 @@
 import { createDragon } from "../../services/dragons"
 
 const Types = {
-  REQUEST: 'create/REQUEST',
-  REQUEST_SUCCESS: 'create/REQUEST_SUCCESS',
-  REQUEST_FAILURE: 'create/REQUEST_FAILURE'
+  REQUEST: 'creating/REQUEST',
+  REQUEST_SUCCESS: 'creating/REQUEST_SUCCESS',
+  REQUEST_FAILURE: 'creating/REQUEST_FAILURE'
 }
 
 const Creators = {
