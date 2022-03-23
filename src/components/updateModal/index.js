@@ -15,6 +15,7 @@ import {
 import { useDispatch } from "react-redux";
 import { requestUpdateDragon } from "../../store/ducks/update";
 import { toast } from "react-toastify";
+import handleLanguage from "../../resources/LangSource";
 
 function UpdateModal({item, updateModal, setUpdateModal, isClicked, setIsClicked}) {
   const [updatedDragon, setUpdatedDragon] = useState({
@@ -73,14 +74,13 @@ function UpdateModal({item, updateModal, setUpdateModal, isClicked, setIsClicked
       <UpdateModalHeader>
         <ModalDragonsHeader>
           <ModalRecipeContainer>
-            <ModalRecipe>Modificado em/</ModalRecipe>
-            <ModalRecipe>Modified at</ModalRecipe>
+            <ModalRecipe>{handleLanguage('modified')}</ModalRecipe>
           </ModalRecipeContainer>
           <ModalRecipeContainer>
-            <ModalRecipe>Nome/Name</ModalRecipe>
+            <ModalRecipe>{handleLanguage('name')}</ModalRecipe>
           </ModalRecipeContainer>
           <ModalRecipeContainer>
-            <ModalRecipe>Tipo/Type</ModalRecipe>
+            <ModalRecipe>{handleLanguage('type')}</ModalRecipe>
           </ModalRecipeContainer>
         </ModalDragonsHeader>
       </UpdateModalHeader>

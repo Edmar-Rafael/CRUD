@@ -7,12 +7,14 @@ const ptBr = {
   back: 'VOLTAR',
   exit: 'SAIR',
   date: 'Data',
+  modified: 'Modificado em',
   type: 'Tipo',
   createType: 'Tipo*',
   search: 'Busca',
   searchByName: 'Busca por Nome',
   exRed: 'Ex: Vermelho*',
-  register: 'REGISTRAR'
+  register: 'REGISTRAR',
+  deleteModalMessage: 'Essa ação irá apagar o Dragão permanentemente!'
 }
 
 export default ptBr

@@ -6,5 +6,7 @@ export const LanguageToggleContainer = styled.div`
 `
 
 export const BorderToggle = styled.div`
-  border:${({langSelect}) => langSelect ? '4px solid blue' : 0};
+  border-radius: 6px;
+  background-color: ${({lang}) => lang ? 'blue' : ''};
+  border: ${({lang}) => lang ? `3px solid blue` : ''};
 `

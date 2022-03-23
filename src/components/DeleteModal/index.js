@@ -10,6 +10,7 @@ import {
 } from './styles'
 import { useDispatch } from "react-redux";
 import { requestDeleteDragon } from "../../store/ducks/delete";
+import handleLanguage from "../../resources/LangSource";
 
 function DeleteModal({item, deleteModal, setDeleteModal, isClicked, setIsClicked}) {
   const dispatch = useDispatch()
@@ -35,8 +36,7 @@ function DeleteModal({item, deleteModal, setDeleteModal, isClicked, setIsClicked
       }}}
     >
       <ModalMessage>
-        <Text>Esta ação ira apagar o Dragão permanentemente!</Text>  
-        <Text>This will delete the Dragon permanently!</Text>
+        <Text>{handleLanguage('deleteModalMessage')}</Text>  
       </ModalMessage>
       <ModalButtomContainer>
         <ModalcloseButtom>

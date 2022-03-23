@@ -92,8 +92,9 @@ export const ButtonContainer = styled.button`
    }
 
    &.lang_select{
-      color: ${Colors.label};
-      border: 2px solid ${Colors.label};
+      color: ${({lang}) => lang ? `white` : `${Colors.label}`};
+      border: ${({lang}) => 
+         lang ? `2px solid ${Colors.dragons}` : `2px solid ${Colors.label}`};
       &:hover{
          color: white;
          border: 2px solid ${Colors.dragons};

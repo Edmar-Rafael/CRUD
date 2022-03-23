@@ -16,19 +16,19 @@ function LanguageToggle() {
 
   return (
     <LanguageToggleContainer>
-      <BorderToggle>
+      <BorderToggle lang={language === 'pt-Br'}>
         <Button 
           onClick={() => toggleLanguage('pt-Br')} 
-          langSelect={language === 'pt-Br'}
+          lang={language === 'pt-Br'}
           text={'Português'}
           lang_select
         />
       </BorderToggle>
       <Separator x={50}/>
-      <BorderToggle>
+      <BorderToggle lang={language === 'eng'}>
         <Button 
           onClick={() => toggleLanguage('eng')} 
-          langSelect={language === 'eng'}
+          lang={language === 'eng'}
           text={'English'}
           lang_select
         />

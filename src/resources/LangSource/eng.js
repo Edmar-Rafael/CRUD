@@ -7,12 +7,14 @@ const eng = {
   back: 'BACK',
   exit: 'EXIT',
   date: 'Date',
+  modified: 'Modified at',
   type: 'Type',
   createType: 'Type*',
   search: 'Search',
   searchByName: 'Search by Name*',
   exRed: 'Ex: Red*',
-  register: 'REGISTER'
+  register: 'REGISTER',
+  deleteModalMessage: 'This will delete the Dragon permanently!'
 }
 
 export default eng
