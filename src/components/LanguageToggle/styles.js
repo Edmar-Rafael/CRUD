@@ -11,4 +11,5 @@ export const BorderToggle = styled.div`
   border-radius: 6px;
   background-color: ${({lang}) => lang ? 'blue' : ''};
   border: ${({lang}) => lang ? `3px solid blue` : '3px solid transparent'};
+  transition: all .3s;
 `
