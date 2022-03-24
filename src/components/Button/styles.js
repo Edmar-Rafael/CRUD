@@ -92,6 +92,8 @@ export const ButtonContainer = styled.button`
    }
 
    &.lang_select{
+      width: ${({lang}) => lang ? 88 : 90}px;
+      height: ${({lang}) => lang ? 25 : 30}px;
       color: ${({lang}) => lang ? `white` : `${Colors.label}`};
       border: ${({lang}) => 
          lang ? `2px solid ${Colors.dragons}` : `2px solid ${Colors.label}`};
