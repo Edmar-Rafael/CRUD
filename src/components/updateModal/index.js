@@ -25,25 +25,25 @@ function UpdateModal({item, updateModal, setUpdateModal, isClicked, setIsClicked
   const dispatch = useDispatch()
 
   async function handleUpdate(id) {
-    try {
-      if(updatedDragon.newName === '' || updatedDragon.newType === '') {
-        toast.error(
-          'Ops! Nome e/ou Tipo não inseridos! \n Oops! Name and/or Type not inserted'
-        )
-      } else if(updatedDragon.newName === item.name && updatedDragon.newType === item.type) {
-        toast.info('Nenhuma alteração realizada! \n No changes made!')
-      } else {
-        await dispatch(requestUpdateDragon(id, {
-          name: `${updatedDragon.newName}`,
-          type: `${updatedDragon.newType}`
-        }))
-        toast.success('Dragão modificado com sucesso! \n Dragon modified successfull')
-      }
-      setIsClicked(!isClicked)
-      setUpdateModal(false)
-    } catch(error) {
-      return error
+    if(updatedDragon.newName === '' || updatedDragon.newType === '') {
+      toast.error(
+        handleLanguage('createError')
+      )
+    } else if(updatedDragon.newName === item.name && updatedDragon.newType === item.type) {
+      toast.info(
+        handleLanguage('noUpdate')
+      )
+    } else {
+      await dispatch(requestUpdateDragon(id, {
+        name: `${updatedDragon.newName}`,
+        type: `${updatedDragon.newType}`
+      }))
+      toast.success(
+        handleLanguage('updateSuccess')
+      )
     }
+    setIsClicked(!isClicked)
+    setUpdateModal(false)
   }
 
   function handleCancelButton() {

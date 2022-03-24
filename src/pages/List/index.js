@@ -40,7 +40,7 @@ function DragonsList() {
    },
    [dispatch, isClicked, searchTerm])
 
-
+   
    return (
       <Container list>
          <Separator y={80}/>
@@ -60,7 +60,7 @@ function DragonsList() {
                <Separator y={23}/>
             </InputLabelContainer>
             <DragonsHeader >
-               <RecipeContainer>
+               <RecipeContainer >
                   <Recipe >{handleLanguage('date')}</Recipe>
                </RecipeContainer>
                <RecipeContainer>

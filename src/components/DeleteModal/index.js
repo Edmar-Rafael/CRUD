@@ -11,6 +11,7 @@ import {
 import { useDispatch } from "react-redux";
 import { requestDeleteDragon } from "../../store/ducks/delete";
 import handleLanguage from "../../resources/LangSource";
+import { toast } from "react-toastify";
 
 function DeleteModal({item, deleteModal, setDeleteModal, isClicked, setIsClicked}) {
   const dispatch = useDispatch()
@@ -19,6 +20,9 @@ function DeleteModal({item, deleteModal, setDeleteModal, isClicked, setIsClicked
     try {
       await dispatch(requestDeleteDragon(id))
       setIsClicked(!isClicked)
+      toast.success(
+        handleLanguage('deleteSuccess')
+      )
     } catch(error) {
       return error
     }
