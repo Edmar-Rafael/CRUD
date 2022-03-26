@@ -97,6 +97,7 @@ export const ButtonContainer = styled.button`
       color: ${({lang}) => lang ? `white` : `${Colors.label}`};
       border: ${({lang}) => 
          lang ? `2px solid ${Colors.dragons}` : `2px solid ${Colors.label}`};
+      transition: all .1s;
       &:hover{
          color: white;
          border: 2px solid ${Colors.dragons};
