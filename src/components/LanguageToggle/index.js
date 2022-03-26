@@ -24,7 +24,9 @@ function LanguageToggle() {
           lang_select
         />
       </BorderToggle>
+
       <Separator x={50} />
+
       <BorderToggle lang={language === 'eng'}>
         <Button 
           onClick={() => toggleLanguage('eng')} 
