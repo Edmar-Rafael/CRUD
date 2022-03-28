@@ -1,12 +1,23 @@
 import React, { useState } from 'react'
-import { useAuth } from '../../hooks/useAuth'
 import { JWT } from '../../config'
-import { Wrapper, Separator, Button, Input, Container, InputLabelContainer, Icons } from '../../components'
+import { 
+  Wrapper, 
+  Separator, 
+  Button, 
+  Input, 
+  Container, 
+  InputLabelContainer, 
+  Icons, 
+  LanguageToggle, 
+} from '../../components'
 import { LoginContainer } from './styles'
 import FloatingLabel from '../../components/FloatingLabel'
 import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons'
+import { useDispatch, useSelector } from 'react-redux'
+import { requestLogIn } from '../../store/ducks/login'
+import handleLanguage from '../../resources/LangSource'
 
 
 function Home() {
@@ -17,12 +28,14 @@ function Home() {
       name: '',
       password: '',
    })
-   const { logIn } = useAuth()
+   useSelector(({changeLanguageState}) => changeLanguageState)
+   
+   const dispatch = useDispatch()
 
    function handleSubmit(event) {
       event.preventDefault()
-         logIn(user)
-      }
+      dispatch(requestLogIn(user))
+   }
    
    function handleChange(event) {
       const {id, value} = event.target
@@ -33,18 +46,20 @@ function Home() {
    return (
       <Container homeCreate>
          <ToastContainer theme='colored' />
+         <LanguageToggle />
+         <Separator />
          <Wrapper>
             <LoginContainer onSubmit={handleSubmit}>
                <InputLabelContainer x={280}>
                   <Input 
                      onChange={handleChange}
-                     x={90}
+                     x={42}
                      id='name'
-                     type='text'
+                     type={'text' || 'password'}
                      placeholder='test' 
                      value={user.name}
                   />
-                  <FloatingLabel text={'Nome/Name'}/>
+                  <FloatingLabel text={handleLanguage('name')}/>
                   <Separator y={25}/>
                </InputLabelContainer>
                <InputLabelContainer x={280}>
@@ -53,11 +68,11 @@ function Home() {
                      id='password'
                      type={maskType ? '' : 'password'}
                      home
-                     x={115}
+                     x={45}
                      placeholder='test' 
                      value={user.password}
                   />
-                  <FloatingLabel text={'Senha/Password'}/>
+                  <FloatingLabel text={handleLanguage('password')}/>
                   <Separator y={23}/>
                   <Button 
                      onClick={() => setMaskType(!maskType)} 
@@ -72,7 +87,7 @@ function Home() {
                   </Button>
                </InputLabelContainer>
                <Separator />
-               <Button text={'Avançar'} x={278} custom/>
+               <Button text={handleLanguage('toConfirm')} x={278} custom/>
             </LoginContainer>
          </Wrapper>
       </Container>

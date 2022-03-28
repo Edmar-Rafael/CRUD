@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react'
-import { getDragons } from '../../services/dragon'
 import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
 import Dragons from './Dragons'
+import { useSelector, useDispatch } from 'react-redux';
+import { requestDragons } from '../../store/ducks/dragonsList'
 import { 
    Button, 
    Container, 
@@ -23,28 +24,23 @@ import {
    RecipeContainer 
 } from './styles'
 import { faChevronLeft, faSearch } from '@fortawesome/free-solid-svg-icons';
+import handleLanguage from '../../resources/LangSource';
 
 
 function DragonsList() {
-   const [dragons, setDragons] = useState([])
-   const [loading, setLoading] = useState(false)
    const [searchTerm, setSearchTerm] = useState('')
    const [isClicked, setIsClicked] = useState(false)
    const [chunk, setChunk] = useState(5);
-
+   const {data, loading} = useSelector(({dragonsState}) => dragonsState)
+   useSelector(({changeLanguageState}) => changeLanguageState)
+   const dispatch = useDispatch()
    
    useEffect(() => {
-      async function fetchDragons() {
-         setLoading(true)
-         const {data} = await getDragons()
-         setDragons(data)
-         setLoading(false)
-      }
-      fetchDragons()
+      dispatch(requestDragons())
    },
-   [isClicked, searchTerm])
+   [dispatch, isClicked, searchTerm])
 
-
+   
    return (
       <Container list>
          <Separator y={80}/>
@@ -53,34 +49,31 @@ function DragonsList() {
             <InputLabelContainer search>
                <Input 
                   onChange={(e) => setSearchTerm(e.target.value)}
-                  type='text' 
-                  placeholder='Busca por Nome'
+                  type={'text' || 'password'} 
+                  placeholder={handleLanguage('searchByName')}
                   value={searchTerm}
                   search_dragon
                   x={95}
                />
-               <FloatingLabel text={'Busca/Search'} search/>
+               <FloatingLabel text={handleLanguage('search')} search/>
                <Icons icon={faSearch} fa_search/>
                <Separator y={23}/>
             </InputLabelContainer>
             <DragonsHeader >
                <RecipeContainer >
-                  <Recipe >Data/</Recipe>
-                  <Recipe>Date</Recipe>
+                  <Recipe >{handleLanguage('date')}</Recipe>
                </RecipeContainer>
                <RecipeContainer>
-                  <Recipe>Nome/</Recipe>
-                  <Recipe>Name</Recipe>
+                  <Recipe>{handleLanguage('name')}</Recipe>
                </RecipeContainer>
                <RecipeContainer>
-                  <Recipe>Tipo/</Recipe>
-                  <Recipe>Type</Recipe>
+                  <Recipe>{handleLanguage('type')}</Recipe>
                </RecipeContainer>
             </DragonsHeader>
             {loading ? (
                <SkeletonLoading />
             ) : (
-            dragons && dragons
+            data && data
                .filter(dragon => dragon.name.toLowerCase().indexOf(searchTerm) > -1)
                .slice(chunk - 5, chunk)
                .map(dragon =>
@@ -104,7 +97,7 @@ function DragonsList() {
                </Button>
             )}
             <FooterIcons> - 5 + </FooterIcons>
-            {chunk < dragons.length ? (
+            {chunk < data.length ? (
                <Button onClick={() => setChunk(chunk + 5)}>
                   <Icons icon={faChevronLeft} rotation={180}/>
                </Button>

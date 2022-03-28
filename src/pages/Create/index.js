@@ -1,9 +1,8 @@
 import React, { useState } from 'react'
 import { useHistory } from 'react-router-dom'
-import { ToastContainer } from 'react-toastify'
+import { toast, ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
-import { createDragon } from '../../services/dragon'
-import { 
+   import { 
    Button, 
    Separator, 
    Input, 
@@ -13,30 +12,37 @@ import {
    Container,
    LoaderSpinner
 } from '../../components'
-import { useAuth } from '../../hooks/useAuth';
+import { useDispatch, useSelector } from 'react-redux';
+import { requestCreateDragon } from '../../store/ducks/creating';
+import handleLanguage from '../../resources/LangSource';
 
 
 function Create() {
-   const [isSpinner, setIsSpinner] = useState(false)
    const [newDragon, setNewDragon] = useState({
       name: '',
       type: ''
    })
-
-   const {notify} = useAuth()
+   const {loading} = useSelector(({createDragonState}) => createDragonState)
+   useSelector(({changeLanguageState}) => changeLanguageState)
    const history = useHistory()
 
+   const dispatch = useDispatch()
+
    async function createNewDragon() {
-      if(newDragon.name !== '' && newDragon.type !== '') {
-         setIsSpinner(true)
-         await createDragon({
-            name: `${newDragon.name}`,
-            type: `${newDragon.type}`
-         })
-         history.goBack()
-      }
-      else {
-         notify.error()
+      try {
+         if(newDragon.name !== '' && newDragon.type !== '') {
+            await dispatch(requestCreateDragon({
+               name: `${newDragon.name}`,
+               type: `${newDragon.type}`
+            }))
+            history.goBack()
+         } else {
+            toast.error(
+               'ops! Nome e/ou Tipo não inseridos \n Oops! Name and/or Type not inserted'
+            )
+         }
+      } catch(error) {
+         return error
       }
    }
 
@@ -48,7 +54,7 @@ function Create() {
 
    return (
       <Container homeCreate >
-      {isSpinner ? (
+      {loading ? (
          <LoaderSpinner />
       ) : (
          <Wrapper create >
@@ -62,7 +68,7 @@ function Create() {
                   create
                   value={newDragon.name}
                />
-               <FloatingLabel text={'Nome*'}/>
+               <FloatingLabel text={handleLanguage('createName')}/>
                <Separator y={23}/>
             </InputLabelContainer>
             <InputLabelContainer x={310}>
@@ -71,11 +77,11 @@ function Create() {
                   x={45}
                   id='type'
                   type='text'
-                  placeholder='Ex: vermelho/red*' 
+                  placeholder={handleLanguage('exRed')} 
                   create
                   value={newDragon.type} 
                />
-               <FloatingLabel text={'Tipo*'}/>
+               <FloatingLabel text={handleLanguage('createType')}/>
                <Separator y={23}/>
             </InputLabelContainer>
             <Separator />
@@ -83,7 +89,7 @@ function Create() {
                onClick={createNewDragon} 
                type= 'buttom'
                custom 
-               text={'CADASTRAR'} 
+               text={handleLanguage('register')} 
                x={310} 
             />
          </Wrapper>

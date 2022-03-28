@@ -6,7 +6,7 @@ import {
   DeleteButtonContainer, 
   Separator, 
   UpdateModal, 
-  DeleteButtonModal, 
+  DeleteModal, 
   Icons
 } from "../../../components";
 import { 
@@ -59,7 +59,7 @@ function Dragons({item, isClicked, setIsClicked}) {
           setIsClicked={setIsClicked}
           item={item}
         />
-        <DeleteButtonModal 
+        <DeleteModal 
           deleteModal={deleteModal} 
           setDeleteModal={setDeleteModal}
           isClicked={isClicked}

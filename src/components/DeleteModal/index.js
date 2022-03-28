@@ -1,6 +1,5 @@
 import React from "react";
 import { Button, DeleteButtonContainer, Icons } from "..";
-import { deleteDragon } from "../../services/dragon";
 import { faTimes, faTrashAlt } from "@fortawesome/free-solid-svg-icons";
 import {
   ModalContainer,
@@ -9,12 +8,24 @@ import {
   ModalcloseButtom,
   ModalButtomContainer,
 } from './styles'
+import { useDispatch } from "react-redux";
+import { requestDeleteDragon } from "../../store/ducks/delete";
+import handleLanguage from "../../resources/LangSource";
+import { toast } from "react-toastify";
 
-function DeleteButtonModal({item, deleteModal, setDeleteModal, isClicked, setIsClicked}) {
+function DeleteModal({item, deleteModal, setDeleteModal, isClicked, setIsClicked}) {
+  const dispatch = useDispatch()
 
   async function handleDelete(id) {
-    await deleteDragon(id)
-    setIsClicked(!isClicked)
+    try {
+      await dispatch(requestDeleteDragon(id))
+      setIsClicked(!isClicked)
+      toast.success(
+        handleLanguage('deleteSuccess')
+      )
+    } catch(error) {
+      return error
+    }
   }
 
   return (
@@ -29,8 +40,7 @@ function DeleteButtonModal({item, deleteModal, setDeleteModal, isClicked, setIsC
       }}}
     >
       <ModalMessage>
-        <Text>Esta ação ira apagar o Dragão permanentemente!</Text>  
-        <Text>This will delete the Dragon permanently!</Text>
+        <Text>{handleLanguage('deleteModalMessage')}</Text>  
       </ModalMessage>
       <ModalButtomContainer>
         <ModalcloseButtom>
@@ -53,4 +63,4 @@ function DeleteButtonModal({item, deleteModal, setDeleteModal, isClicked, setIsC
   )
 }
 
-export default DeleteButtonModal
+export default DeleteModal

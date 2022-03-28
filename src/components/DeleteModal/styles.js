@@ -4,8 +4,7 @@ import styled from "styled-components";
 export const ModalContainer = styled(ReactModal)`
   display: flex;
   align-items: center;
-  width: 40%;
-  min-width: 50%;
+  width: 50%;
   background-color: white;
   border: 1px solid black;
   border-radius: 4px;

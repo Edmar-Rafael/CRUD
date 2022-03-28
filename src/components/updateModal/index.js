@@ -2,8 +2,6 @@ import React, { useState } from "react";
 import { faCheck, faTimes } from "@fortawesome/free-solid-svg-icons";
 import dayjs from "dayjs";
 import { Button, Icons, Input, Row, Separator } from "..";
-import { useAuth } from "../../hooks/useAuth";
-import { updateDragon } from "../../services/dragon";
 import { 
   UpdateModalContainer,
   UpdateModalHeader,
@@ -14,28 +12,35 @@ import {
   DragonsRecipe,
   DateContainer
 } from "./styles";
+import { useDispatch } from "react-redux";
+import { requestUpdateDragon } from "../../store/ducks/update";
+import { toast } from "react-toastify";
+import handleLanguage from "../../resources/LangSource";
 
 function UpdateModal({item, updateModal, setUpdateModal, isClicked, setIsClicked}) {
   const [updatedDragon, setUpdatedDragon] = useState({
     newName: item.name,
     newType: item.type
   })
-
-  const {notify} = useAuth()
+  const dispatch = useDispatch()
 
   async function handleUpdate(id) {
     if(updatedDragon.newName === '' || updatedDragon.newType === '') {
-      notify.error()
-    } 
-    else if(updatedDragon.newName === item.name && updatedDragon.newType === item.type) {
-      notify.info()
-    } 
-    else {
-      await updateDragon(id, {
+      toast.error(
+        handleLanguage('createError')
+      )
+    } else if(updatedDragon.newName === item.name && updatedDragon.newType === item.type) {
+      toast.info(
+        handleLanguage('noUpdate')
+      )
+    } else {
+      await dispatch(requestUpdateDragon(id, {
         name: `${updatedDragon.newName}`,
         type: `${updatedDragon.newType}`
-      })
-      notify.success()
+      }))
+      toast.success(
+        handleLanguage('updateSuccess')
+      )
     }
     setIsClicked(!isClicked)
     setUpdateModal(false)
@@ -69,14 +74,13 @@ function UpdateModal({item, updateModal, setUpdateModal, isClicked, setIsClicked
       <UpdateModalHeader>
         <ModalDragonsHeader>
           <ModalRecipeContainer>
-            <ModalRecipe>Modificado em/</ModalRecipe>
-            <ModalRecipe>Modified at</ModalRecipe>
+            <ModalRecipe>{handleLanguage('modified')}</ModalRecipe>
           </ModalRecipeContainer>
           <ModalRecipeContainer>
-            <ModalRecipe>Nome/Name</ModalRecipe>
+            <ModalRecipe>{handleLanguage('name')}</ModalRecipe>
           </ModalRecipeContainer>
           <ModalRecipeContainer>
-            <ModalRecipe>Tipo/Type</ModalRecipe>
+            <ModalRecipe>{handleLanguage('type')}</ModalRecipe>
           </ModalRecipeContainer>
         </ModalDragonsHeader>
       </UpdateModalHeader>
