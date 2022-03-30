@@ -92,10 +92,11 @@ export const ButtonContainer = styled.button`
    }
 
    &.lang_select{
-      width: ${({lang}) => lang ? 88 : 90}px;
-      height: ${({lang}) => lang ? 25 : 30}px;
+      width: ${({lang}) => lang ? 58 : 60}px;
+      height: ${({lang}) => lang ? 22 : 25}px;
       color: ${({lang}) => lang ? `white` : `${Colors.label}`};
-      border: ${({lang}) => 
+      font-size: ${({lang}) => lang ? 12 : 13}px;
+      border: ${({lang}) =>
          lang ? `2px solid ${Colors.dragons}` : `2px solid ${Colors.label}`};
       transition: all .1s;
       &:hover{

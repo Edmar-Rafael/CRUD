@@ -20,18 +20,16 @@ function LanguageToggle() {
         <Button 
           onClick={() => toggleLanguage('pt-Br')} 
           lang={language === 'pt-Br'}
-          text={'Português'}
+          text={'pt-Br'}
           lang_select
         />
       </BorderToggle>
-
-      <Separator x={50} />
-
+      <Separator x={20}/>
       <BorderToggle lang={language === 'eng'}>
         <Button 
           onClick={() => toggleLanguage('eng')} 
           lang={language === 'eng'}
-          text={'English'}
+          text={'Eng'}
           lang_select
         />
       </BorderToggle>

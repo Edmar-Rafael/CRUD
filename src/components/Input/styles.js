@@ -21,6 +21,7 @@ export const InputContainer = styled.input`
     font-size: 16px;
     font-weight: 900;
     width: fit-content;
+    height: fit-content;
     padding: 0 5px 0 5px;
     color: ${Colors.dragons};
     transform: translate3d(-6px, -60px, 0) scale(.82) ;
