@@ -46,7 +46,7 @@ function Home() {
    return (
       <Container homeCreate>
          <ToastContainer theme='colored' />
-         <LanguageToggle />
+         <LanguageToggle topY={24.5}/>
          <Separator />
          <Wrapper>
             <LoginContainer onSubmit={handleSubmit}>

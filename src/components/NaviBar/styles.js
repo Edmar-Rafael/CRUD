@@ -5,7 +5,7 @@ export const NaviBarContainer = styled.header`
   display: flex;
    align-items: center;
    justify-content: space-between;
-   padding: 10px 15px;
+   padding: 7px 15px;
    margin-top: 10px;
    width: 97%;
    border-radius: 4px;

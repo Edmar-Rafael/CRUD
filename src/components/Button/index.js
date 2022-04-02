@@ -12,7 +12,8 @@ function Button({children, text, ...props}) {
             props.mask ? 'mask' : '' ||
             props.footer ? 'footer' : '' ||
             props.mobile_modal_del ? 'mobile_modal_del' : '' ||
-            props.lang_select ? 'lang_select' : ''
+            props.lang_select ? 'lang_select' : '' ||
+            props.selected_lang ? 'selected_lang' : ''
          } 
             {...props}
       >

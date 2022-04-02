@@ -44,8 +44,10 @@ export const IconContainer = styled(FontAwesomeIcon)`
   }
 
   &.fa_chevron{
-    color: #dddddd66;
+    color: ${({drop}) => drop ? 'white' : '#dddddd66'};
     background-color: #111111;
+    font-size: ${({drop}) => drop ? 15 : ''}px;
+    transform: ${({show}) => `rotate(${show ? '180deg' : 0})`};
   }
 
   @media(max-width: 800px){

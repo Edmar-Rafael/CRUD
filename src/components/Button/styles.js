@@ -92,15 +92,31 @@ export const ButtonContainer = styled.button`
    }
 
    &.lang_select{
-      width: ${({lang}) => lang ? 58 : 60}px;
-      height: ${({lang}) => lang ? 22 : 25}px;
+      width: ${({lang}) => lang ? 83 : 85}px;
+      height: ${({lang}) => lang ? 23 : 25}px;
       color: ${({lang}) => lang ? `white` : `${Colors.label}`};
       font-size: ${({lang}) => lang ? 12 : 13}px;
       border: ${({lang}) =>
          lang ? `2px solid ${Colors.dragons}` : `2px solid ${Colors.label}`};
       transition: all .1s;
+
       &:hover{
          color: white;
+         border: 2px solid ${Colors.dragons};
+      }
+   }
+
+   &.selected_lang{
+      justify-content: space-between;
+      width: 85px;
+      height: 25px;
+      color: white;
+      font-size: 13px;
+      border: ${({show}) => 
+         show ? `2px solid ${Colors.dragons}`: `2px solid ${Colors.label}`};
+      box-shadow: none;
+
+      &:hover{
          border: 2px solid ${Colors.dragons};
       }
    }
