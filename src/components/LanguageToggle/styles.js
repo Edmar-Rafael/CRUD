@@ -24,15 +24,15 @@ export const BorderToggle = styled.div`
 export const Drop = styled.div`
   display: ${({show}) => show ? 'visible' : 'none'};
   width: 91px;
-  top: ${({topY}) => topY || 77}%;
+  transform: translate(0, 27px);
   padding: 7px 0;
   background-color: ${Colors.background};
   border: 2px solid blue;
   border-style: none inset inset inset;
   border-bottom-right-radius: 4px;
   border-bottom-left-radius: 4px;
-  position: absolute;
-  z-index: 9;
+  position: fixed;
+  z-index: 19;
 `
 
 export const ArrowBox = styled.div`

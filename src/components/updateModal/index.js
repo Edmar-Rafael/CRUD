@@ -26,21 +26,15 @@ function UpdateModal({item, updateModal, setUpdateModal, isClicked, setIsClicked
 
   async function handleUpdate(id) {
     if(updatedDragon.newName === '' || updatedDragon.newType === '') {
-      toast.error(
-        handleLanguage('createError')
-      )
+      toast.error(handleLanguage('createError'))
     } else if(updatedDragon.newName === item.name && updatedDragon.newType === item.type) {
-      toast.info(
-        handleLanguage('noUpdate')
-      )
+      toast.info(handleLanguage('noUpdate'))
     } else {
       await dispatch(requestUpdateDragon(id, {
         name: `${updatedDragon.newName}`,
         type: `${updatedDragon.newType}`
       }))
-      toast.success(
-        handleLanguage('updateSuccess')
-      )
+      toast.success(handleLanguage('updateSuccess'))
     }
     setIsClicked(!isClicked)
     setUpdateModal(false)

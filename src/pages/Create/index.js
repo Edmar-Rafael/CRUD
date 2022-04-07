@@ -29,20 +29,14 @@ function Create() {
    const dispatch = useDispatch()
 
    async function createNewDragon() {
-      try {
-         if(newDragon.name !== '' && newDragon.type !== '') {
-            await dispatch(requestCreateDragon({
-               name: `${newDragon.name}`,
-               type: `${newDragon.type}`
-            }))
-            history.goBack()
-         } else {
-            toast.error(
-               'ops! Nome e/ou Tipo não inseridos \n Oops! Name and/or Type not inserted'
-            )
-         }
-      } catch(error) {
-         return error
+      if(newDragon.name !== '' && newDragon.type !== '') {
+         await dispatch(requestCreateDragon({
+            name: `${newDragon.name}`,
+            type: `${newDragon.type}`
+         }))
+         history.goBack()
+      } else {
+         toast.error(handleLanguage('createError'))
       }
    }
 

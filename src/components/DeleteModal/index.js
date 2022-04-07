@@ -20,9 +20,7 @@ function DeleteModal({item, deleteModal, setDeleteModal, isClicked, setIsClicked
     try {
       await dispatch(requestDeleteDragon(id))
       setIsClicked(!isClicked)
-      toast.success(
-        handleLanguage('deleteSuccess')
-      )
+      toast.success(handleLanguage('deleteSuccess'))
     } catch(error) {
       return error
     }

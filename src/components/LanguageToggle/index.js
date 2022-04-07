@@ -19,23 +19,13 @@ function LanguageToggle({topY}) {
   function toggleLanguage(lang) {
     dispatch(changeLanguage(lang))
   }
-
-  function showSelectedLanguage() {
-    if(language === 'pt-Br') {
-      return 'pt-Br'
-    } else if(language === 'eng') {
-      return 'Eng'
-    } else {
-      return 'Finn'
-    }
-  }
   
 
   return (
     <LanguageToggleContainer>
       <Button 
         onClick={() => toggleShow(!show)} 
-        text={showSelectedLanguage()}
+        text={language}
         show={show}
         selected_lang
       >
@@ -53,10 +43,10 @@ function LanguageToggle({topY}) {
           />
         </BorderToggle>
         <Separator y={5}/>
-        <BorderToggle lang={language === 'eng'}>
+        <BorderToggle lang={language === 'Eng'}>
           <Button 
-            onClick={() => toggleLanguage('eng')} 
-            lang={language === 'eng'}
+            onClick={() => toggleLanguage('Eng')} 
+            lang={language === 'Eng'}
             text={'Eng'}
             lang_select
           />

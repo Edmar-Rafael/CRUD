@@ -45,11 +45,12 @@ function Home() {
 
    return (
       <Container homeCreate>
-         <ToastContainer theme='colored' />
-         <LanguageToggle topY={24.5}/>
-         <Separator />
+         <ToastContainer theme='colored'/>         
          <Wrapper>
+            <Separator y={20}/>
+            <LanguageToggle topY={205}/>
             <LoginContainer onSubmit={handleSubmit}>
+               <Separator y={30}/>
                <InputLabelContainer x={280}>
                   <Input 
                      onChange={handleChange}
