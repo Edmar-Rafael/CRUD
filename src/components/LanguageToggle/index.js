@@ -7,7 +7,7 @@ import Separator from "../Separator"
 import Icon from "../Icons"
 import { faChevronDown } from "@fortawesome/free-solid-svg-icons"
 
-function LanguageToggle({topY}) {
+function LanguageToggle() {
   const [show, toggleShow] = useState(false)
   const { language } = useSelector(({changeLanguageState}) => changeLanguageState)
   const dispatch = useDispatch()
@@ -33,7 +33,7 @@ function LanguageToggle({topY}) {
           <Icon icon={faChevronDown} show={show} fa_chevron drop/>
         </ArrowBox>
       </Button>
-      <Drop show={show} topY={topY}>
+      <Drop show={show}>
         <BorderToggle lang={language === 'pt-Br'}>
           <Button 
             onClick={() => toggleLanguage('pt-Br')} 
