@@ -51,10 +51,6 @@ export function requestLogIn(data) {
       if(name === EMAIL && password === PASSWORD) {
         await localStorage.setItem(`${SESSION_KEY}`, 'true')
         dispatch(Creators.requestSuccess(true))
-      } else {
-        toast.error(
-          'Ops! Nome e/ou senha incorretos!\n Oops! Name and/or password incorrects!'
-        )
       }
     } catch(error) {
       dispatch(Creators.requestFailure())

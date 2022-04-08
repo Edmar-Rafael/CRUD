@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { JWT } from '../../config'
+import { EMAIL, JWT, PASSWORD } from '../../config'
 import { 
   Wrapper, 
   Separator, 
@@ -12,7 +12,7 @@ import {
 } from '../../components'
 import { LoginContainer } from './styles'
 import FloatingLabel from '../../components/FloatingLabel'
-import { ToastContainer } from 'react-toastify'
+import { toast, ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons'
 import { useDispatch, useSelector } from 'react-redux'
@@ -34,7 +34,12 @@ function Home() {
 
    function handleSubmit(event) {
       event.preventDefault()
-      dispatch(requestLogIn(user))
+      if(user.name === EMAIL && user.password === PASSWORD) {
+         dispatch(requestLogIn(user))
+      } else {
+         toast.error(handleLanguage('loginError'))
+      }
+      
    }
    
    function handleChange(event) {

@@ -22,9 +22,9 @@ function LanguageToggle() {
   
 
   return (
-    <LanguageToggleContainer>
+    <LanguageToggleContainer onMouseLeave={() => toggleShow(false)}>
       <Button 
-        onClick={() => toggleShow(!show)} 
+        onClick={() => toggleShow(!show)}
         text={language}
         show={show}
         selected_lang

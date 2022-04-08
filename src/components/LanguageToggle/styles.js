@@ -22,7 +22,8 @@ export const BorderToggle = styled.div`
 `
 
 export const Drop = styled.div`
-  display: ${({show}) => show ? 'visible' : 'none'};
+  opacity: ${({show}) => show ? 1 : 0};
+  pointer-events: ${({show}) => show ? 'visible' : 'none'};
   width: 91px;
   transform: translate(0, 27px);
   padding: 7px 0;
@@ -33,6 +34,7 @@ export const Drop = styled.div`
   border-bottom-left-radius: 4px;
   position: fixed;
   z-index: 19;
+  transition: all .3s;
 `
 
 export const ArrowBox = styled.div`
