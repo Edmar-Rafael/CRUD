@@ -11,8 +11,8 @@ function SkeletonLoading({newSize}) {
       <>
         <SkeletonContainer key={index}>
           <SkeletonItem>-- / -- / ----</SkeletonItem>
-          <SkeletonItem>Nome/Name</SkeletonItem>
-          <SkeletonItem>Tipo/Type</SkeletonItem>
+          <SkeletonItem>Nome/ Name</SkeletonItem>
+          <SkeletonItem>Tipo/ Type</SkeletonItem>
           <SkeletonBox>
             <SkeletonButton />
             <SkeletonButton />

@@ -51,6 +51,14 @@ function LanguageToggle() {
             lang_select
           />
         </BorderToggle>
+        <Separator y={5}/>
+        <BorderToggle lang={language === 'Fin'}>
+          <Button 
+            onClick={() => toggleLanguage('Fin')} 
+            lang={language === 'Fin'}
+            text={'Fin'} 
+            lang_select/>
+        </BorderToggle>
       </Drop>
     </LanguageToggleContainer>
   )

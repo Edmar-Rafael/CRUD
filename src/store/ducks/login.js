@@ -1,4 +1,3 @@
-import { toast } from 'react-toastify'
 import { EMAIL, PASSWORD, SESSION_KEY } from '../../config/index'
 
 const Types = {
