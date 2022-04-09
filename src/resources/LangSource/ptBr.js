@@ -12,6 +12,7 @@ const ptBr = {
   createType: 'Tipo*',
   search: 'Busca',
   searchByName: 'Busca por Nome',
+  exName: 'Ex: Valentine',
   exRed: 'Ex: Vermelho*',
   register: 'REGISTRAR',
   deleteModalMessage: 'Essa ação irá apagar o Dragão permanentemente!',

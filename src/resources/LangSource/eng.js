@@ -12,6 +12,7 @@ const eng = {
   createType: 'Type*',
   search: 'Search',
   searchByName: 'Search by Name*',
+  exName: 'Ex: Valentine',
   exRed: 'Ex: Red*',
   register: 'REGISTER',
   deleteModalMessage: 'This will delete the Dragon permanently!',

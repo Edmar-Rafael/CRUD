@@ -4,7 +4,7 @@ const fin = {
   password: 'Salasana',
   toConfirm: 'VAHVISTA',
   createDragon: 'LUO UUSI',
-  back: 'Takaisin',
+  back: 'TAkAISIN',
   exit: 'POISTU',
   date: 'Päivämäärä',
   modified: 'Viimeksi muokattu',
@@ -12,14 +12,15 @@ const fin = {
   createType: 'Tyyppi*',
   search: 'Hae',
   searchByName: 'Hae nimellä',
+  exName: 'Esimerkki: Valentine',
   exRed: 'Esimerkki: Punainen',
-  register: '',
+  register: 'TALLENNA',
   deleteModalMessage: 'Tämä poistaa lohikäärmeen pysyvästi',
   loginError: 'Hups! Väärä nimi ja/tai salasana',
   createError: 'Nimeä ja/tai tyyppiä ei ole määritelty',
   deleteSuccess: 'Lohikäärmeen poisto onnistui',
   updateSuccess: 'Lohikäärmeen muokkaaminen onnistui',
-  noUpdate: ''
+  noUpdate: 'Muutoksia ei tallennettu'
 }
 
 export default fin

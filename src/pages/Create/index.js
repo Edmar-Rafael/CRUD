@@ -58,7 +58,7 @@ function Create() {
                   x={55}
                   id='name'
                   type='text'
-                  placeholder='Ex: valentine*' 
+                  placeholder={handleLanguage('exName')} 
                   create
                   value={newDragon.name}
                />
