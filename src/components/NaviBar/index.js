@@ -8,6 +8,8 @@ import LanguageToggle from "../LanguageToggle";
 import handleLanguage from "../../resources/LangSource";
 import Icon from "../Icons";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
+import { ToastContainer } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
 function NaviBar() {
   const history = useHistory()
@@ -19,6 +21,7 @@ function NaviBar() {
 
   return (
     <NaviBarContainer>
+      
       <Box>
       {isList ? (
         <Button
@@ -41,6 +44,7 @@ function NaviBar() {
       </Box>
       <Box>
         <LanguageToggle/>
+        <ToastContainer theme='colored' closeOnClick/>
       </Box>
       <Button 
         onClick={() => dispatch(logOut())}

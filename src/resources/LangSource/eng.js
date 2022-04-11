@@ -17,6 +17,7 @@ const eng = {
   register: 'REGISTER',
   deleteModalMessage: 'This will delete the Dragon permanently!',
   loginError: 'Oops! Name and/or password incorrects!',
+  createSuccess: 'Dragon create successfull',
   createError: 'Oops! Name and/or Type not inserted!',
   deleteSuccess: 'Dragon delete successfull!',
   updateSuccess: 'Dragon modified successfull',

@@ -1,6 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import { ToastContainer } from 'react-toastify'
-import 'react-toastify/dist/ReactToastify.css';
 import Dragons from './Dragons'
 import { useSelector, useDispatch } from 'react-redux';
 import { requestDragons } from '../../store/ducks/dragonsList'
@@ -31,10 +29,19 @@ function DragonsList() {
    const [searchTerm, setSearchTerm] = useState('')
    const [isClicked, setIsClicked] = useState(false)
    const [chunk, setChunk] = useState(5);
-   const {data, loading} = useSelector(({dragonsState}) => dragonsState)
+   const { data, loading } = useSelector(({dragonsState}) => dragonsState)
    useSelector(({changeLanguageState}) => changeLanguageState)
    const dispatch = useDispatch()
    
+   const filteredName = data.filter(dragon => {
+      if(
+         dragon.name.toLowerCase().includes(searchTerm.toLowerCase()) || 
+         dragon.type.toLowerCase().includes(searchTerm.toLowerCase())
+      ) {
+         return dragon
+      }
+   })
+
    useEffect(() => {
       dispatch(requestDragons())
    },
@@ -44,7 +51,6 @@ function DragonsList() {
    return (
       <Container list>
          <Separator y={80}/>
-         <ToastContainer theme='colored' position='top-center' closeOnClick/>
          <ListContainer>
             <InputLabelContainer search>
                <Input 
@@ -53,7 +59,6 @@ function DragonsList() {
                   placeholder={handleLanguage('searchByName')}
                   value={searchTerm}
                   search_dragon
-                  x={95}
                />
                <FloatingLabel text={handleLanguage('search')} search/>
                <Icons icon={faSearch} fa_search/>
@@ -73,8 +78,7 @@ function DragonsList() {
             {loading ? (
                <SkeletonLoading />
             ) : (
-            data && data
-               .filter(dragon => dragon.name.toLowerCase().indexOf(searchTerm) > -1)
+            data && filteredName
                .slice(chunk - 5, chunk)
                .map(dragon =>
                <Dragons 

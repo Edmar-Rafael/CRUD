@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useHistory } from 'react-router-dom'
-import { toast, ToastContainer } from 'react-toastify'
+import { toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
    import { 
    Button, 
@@ -29,14 +29,19 @@ function Create() {
    const dispatch = useDispatch()
 
    async function createNewDragon() {
-      if(newDragon.name !== '' && newDragon.type !== '') {
-         await dispatch(requestCreateDragon({
-            name: `${newDragon.name}`,
-            type: `${newDragon.type}`
-         }))
-         history.goBack()
-      } else {
-         toast.error(handleLanguage('createError'))
+      try{
+         if(newDragon.name !== '' && newDragon.type !== '') {
+            await dispatch(requestCreateDragon({
+               name: `${newDragon.name}`,
+               type: `${newDragon.type}`
+            }))
+            history.goBack()
+            toast.success(handleLanguage('createSuccess'), {position: 'bottom-center'})
+         } else {
+            toast.error(handleLanguage('createError'), {position: 'bottom-center'})
+         }
+      } catch(error) {
+         return error
       }
    }
 
@@ -88,7 +93,6 @@ function Create() {
             />
          </Wrapper>
       )}
-         <ToastContainer theme='colored' position='bottom-center'/>
       </Container>
    )
 }

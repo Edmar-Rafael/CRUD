@@ -34,7 +34,7 @@ function UpdateModal({item, updateModal, setUpdateModal, isClicked, setIsClicked
         name: `${updatedDragon.newName}`,
         type: `${updatedDragon.newType}`
       }))
-      toast.success(handleLanguage('updateSuccess'))
+      toast.success(handleLanguage('updateSuccess'), {position: 'top-center'})
     }
     setIsClicked(!isClicked)
     setUpdateModal(false)
