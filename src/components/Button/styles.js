@@ -21,6 +21,7 @@ export const ButtonContainer = styled.button`
    }
 
    &.custom {
+      flex-direction: ${({toLeft}) => toLeft ? 'row-reverse' : ''};
       width: ${({x}) => x || 100}px;
       color: black;
       background-color: white;

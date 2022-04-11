@@ -51,6 +51,12 @@ export const IconContainer = styled(FontAwesomeIcon)`
   }
 
   @media(max-width: 800px){
-      font-size: 19px;
-    }
+    font-size: 19px;
+  }
+
+  &.fa_arrow{
+    padding-left: ${({toLeft}) => toLeft ? 4 : 0}px;
+    color: black;
+    font-size: 14px;
+  }
 `

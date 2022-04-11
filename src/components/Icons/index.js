@@ -11,7 +11,8 @@ function Icon({icon, ...props}) {
         props.fa_trash ? 'fa_trash' : '' ||
         props.fa_pencil_check ? 'fa_pencil_check' : '' ||
         props.fa_search ? 'fa_search' : '' ||
-        props.fa_chevron ? 'fa_chevron' : ''
+        props.fa_chevron ? 'fa_chevron' : '' ||
+        props.fa_arrow ? 'fa_arrow' : ''
       } 
       icon={icon} 
       {...props}
