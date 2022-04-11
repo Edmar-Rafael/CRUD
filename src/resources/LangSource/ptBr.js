@@ -11,7 +11,7 @@ const ptBr = {
   type: 'Tipo',
   createType: 'Tipo*',
   search: 'Busca',
-  searchByName: 'Busca por Nome',
+  searchByName: 'Busca por Nome ou Tipo',
   exName: 'Ex: Valentine',
   exRed: 'Ex: Vermelho*',
   register: 'REGISTRAR',

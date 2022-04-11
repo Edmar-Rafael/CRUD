@@ -11,7 +11,7 @@ const eng = {
   type: 'Type',
   createType: 'Type*',
   search: 'Search',
-  searchByName: 'Search by Name*',
+  searchByName: 'Search by Name or Type*',
   exName: 'Ex: Valentine',
   exRed: 'Ex: Red*',
   register: 'REGISTER',
