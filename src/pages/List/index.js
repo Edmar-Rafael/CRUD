@@ -33,7 +33,7 @@ function DragonsList() {
    useSelector(({changeLanguageState}) => changeLanguageState)
    const dispatch = useDispatch()
    
-   const filteredName = data.filter(dragon => {
+   const filteredDragon = data.filter(dragon => {
       if(
          dragon.name.toLowerCase().includes(searchTerm.toLowerCase()) || 
          dragon.type.toLowerCase().includes(searchTerm.toLowerCase())
@@ -78,7 +78,7 @@ function DragonsList() {
             {loading ? (
                <SkeletonLoading />
             ) : (
-            data && filteredName
+            data && filteredDragon
                .slice(chunk - 5, chunk)
                .map(dragon =>
                <Dragons 

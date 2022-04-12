@@ -11,7 +11,7 @@ const fin = {
   type: 'Tyyppi',
   createType: 'Tyyppi*',
   search: 'Hae',
-  searchByName: 'Hae nimellä',
+  searchByName: 'Hae nimellä tai Tyypii',
   exName: 'Esimerkki: Valentine',
   exRed: 'Esimerkki: Punainen',
   register: 'TALLENNA',
