@@ -52,11 +52,11 @@ function Create() {
 
 
    return (
-      <Container homeCreate >
+      <Container homeCreate='true' >
       {loading ? (
          <LoaderSpinner />
       ) : (
-         <Wrapper create >
+         <Wrapper create='true' >
             <InputLabelContainer x={310}>
                <Input
                   onChange={handleNewDragon} 
@@ -64,8 +64,8 @@ function Create() {
                   id='name'
                   type='text'
                   placeholder={handleLanguage('exName')} 
-                  create
                   value={newDragon.name}
+                  create='true'
                />
                <FloatingLabel text={handleLanguage('createName')}/>
                <Separator y={23}/>
@@ -77,8 +77,8 @@ function Create() {
                   id='type'
                   type='text'
                   placeholder={handleLanguage('exRed')} 
-                  create
                   value={newDragon.type} 
+                  create='true'
                />
                <FloatingLabel text={handleLanguage('createType')}/>
                <Separator y={23}/>
@@ -87,9 +87,9 @@ function Create() {
             <Button 
                onClick={createNewDragon} 
                type= 'buttom'
-               custom 
                text={handleLanguage('register')} 
                x={310} 
+               custom='true'
             />
          </Wrapper>
       )}

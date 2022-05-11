@@ -49,7 +49,7 @@ function Home() {
       
 
    return (
-      <Container homeCreate>
+      <Container homeCreate='true'>
          <ToastContainer theme='colored'/> 
          <LanguageToggle />  
          <Separator y={20}/>      
@@ -60,7 +60,7 @@ function Home() {
                      onChange={handleChange}
                      x={42}
                      id='name'
-                     type={'text' || 'password'}
+                     type={'text'}
                      placeholder='test' 
                      value={user.name}
                   />
@@ -82,17 +82,17 @@ function Home() {
                   <Button 
                      onClick={() => setMaskType(!maskType)} 
                      type='button' 
-                     mask
+                     mask='true'
                   >
                      <Icons 
                         isFaEyeSlash={maskType} 
                         icon={maskType ? faEyeSlash : faEye}
-                        fa_eye_slash
+                        fa_eye_slash='true'
                      />
                   </Button>
                </InputLabelContainer>
                <Separator />
-               <Button text={handleLanguage('toConfirm')} x={278} custom/>
+               <Button text={handleLanguage('toConfirm')} x={278} custom='true'/>
             </LoginContainer>
          </Wrapper>
       </Container>

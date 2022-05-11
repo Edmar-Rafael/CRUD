@@ -40,6 +40,7 @@ function DragonsList() {
       ) {
          return dragon
       }
+      return dragon
    })
 
    useEffect(() => {
@@ -49,19 +50,19 @@ function DragonsList() {
 
    
    return (
-      <Container list>
+      <Container list='true'>
          <Separator y={80}/>
          <ListContainer>
-            <InputLabelContainer search>
+            <InputLabelContainer search='true'>
                <Input 
                   onChange={(e) => setSearchTerm(e.target.value)}
                   type={'text' || 'password'} 
                   placeholder={handleLanguage('searchByName')}
                   value={searchTerm}
-                  search_dragon
+                  search_dragon='true'
                />
-               <FloatingLabel text={handleLanguage('search')} search/>
-               <Icons icon={faSearch} fa_search/>
+               <FloatingLabel text={handleLanguage('search')} search='true'/>
+               <Icons icon={faSearch} fa_search='true'/>
                <Separator y={23}/>
             </InputLabelContainer>
             <DragonsHeader >
@@ -97,7 +98,7 @@ function DragonsList() {
                </Button> 
             ) : (
                <Button footer>
-                  <Icons icon={faChevronLeft} fa_chevron/>
+                  <Icons icon={faChevronLeft} fa_chevron='true'/>
                </Button>
             )}
             <FooterIcons> - 5 + </FooterIcons>
@@ -107,7 +108,7 @@ function DragonsList() {
                </Button>
             ) : (
                <Button footer>
-                  <Icons icon={faChevronLeft} rotation={180} fa_chevron/>
+                  <Icons icon={faChevronLeft} rotation={180} fa_chevron='true'/>
                </Button>
             )}
             </ListFooterButtonBox>

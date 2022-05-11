@@ -36,7 +36,7 @@ export const ButtonContainer = styled.button`
    }
 
    &.mask {
-      position: fixed;
+      position: absolute;
       height: 21px;
       width: 23px;
       padding: 0;
@@ -123,6 +123,4 @@ export const ButtonContainer = styled.button`
    }
 `
 
-export const ButtonText = styled.span`
-
-`
+export const ButtonText = styled.span``

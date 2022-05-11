@@ -3,8 +3,8 @@ import styled from "styled-components";
 import Colors from "../../resources/Colors";
 
 export const IconContainer = styled(FontAwesomeIcon)`
-  font-size: ${({isModalOpened}) => isModalOpened ? 15 : 27}px;
-  color: ${({isModalOpened}) =>  isModalOpened ? 'black' : 'white'};
+  font-size: ${({isModalOpen}) => isModalOpen ? 15 : 27}px;
+  color: ${({isModalOpen}) =>  isModalOpen ? 'black' : 'white'};
   transition: all .3s;
 
   &:hover{
@@ -33,7 +33,7 @@ export const IconContainer = styled(FontAwesomeIcon)`
 
   &.fa_times{
     &:hover {
-      color: ${({isModalOpened}) => isModalOpened ? 'black' : `${Colors.dragons}`};
+      color: ${({isModalOpen}) => isModalOpen ? 'black' : `${Colors.dragons}`};
     }
   }
 

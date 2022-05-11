@@ -24,8 +24,6 @@ const initialState = {
 export default function changeLanguageState(state = initialState, action) {
   const {type, data} = action
 
-  console.log(action)
-
   switch(type) {
     case Types.CHANGE_REQUEST: {
       return {...state, ...data}

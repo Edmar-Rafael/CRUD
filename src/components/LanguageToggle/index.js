@@ -27,10 +27,10 @@ function LanguageToggle() {
         onClick={() => toggleShow(!show)}
         text={language}
         show={show}
-        selected_lang
+        selected_lang='true'
       >
         <ArrowBox>
-          <Icon icon={faChevronDown} show={show} fa_chevron drop/>
+          <Icon icon={faChevronDown} show={show} fa_chevron='true' drop='true'/>
         </ArrowBox>
       </Button>
       <Drop show={show}>
@@ -39,7 +39,7 @@ function LanguageToggle() {
             onClick={() => toggleLanguage('pt-Br')} 
             lang={language === 'pt-Br'}
             text={'pt-Br'}
-            lang_select
+            lang_select='true'
           />
         </BorderToggle>
         <Separator y={5}/>
@@ -48,7 +48,7 @@ function LanguageToggle() {
             onClick={() => toggleLanguage('Eng')} 
             lang={language === 'Eng'}
             text={'Eng'}
-            lang_select
+            lang_select='true'
           />
         </BorderToggle>
         <Separator y={5}/>
@@ -57,7 +57,8 @@ function LanguageToggle() {
             onClick={() => toggleLanguage('Fin')} 
             lang={language === 'Fin'}
             text={'Fin'} 
-            lang_select/>
+            lang_select='true'
+          />
         </BorderToggle>
       </Drop>
     </LanguageToggleContainer>

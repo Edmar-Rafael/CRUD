@@ -46,14 +46,14 @@ function DeleteModal({item, deleteModal, setDeleteModal, isClicked, setIsClicked
             onClick={() => setDeleteModal(false)}
             x={17} 
             y={17} 
-            custom
+            custom='true'
           >
-            <Icons isModalOpened={deleteModal} icon={faTimes} fa_times/>
+            <Icons isModalOpen={deleteModal} icon={faTimes} fa_times='true'/>
           </Button>
         </ModalcloseButtom>
-        <DeleteButtonContainer mobile_delete_modal>
-          <Button onClick={() => handleDelete(item.id)} mobile_modal_del>
-            <Icons icon={faTrashAlt} fa_trash/>
+        <DeleteButtonContainer mobile_delete_modal='true'>
+          <Button onClick={() => handleDelete(item.id)} mobile_modal_del='true'>
+            <Icons icon={faTrashAlt} fa_trash='true'/>
           </Button>
         </DeleteButtonContainer>
       </ModalButtomContainer>

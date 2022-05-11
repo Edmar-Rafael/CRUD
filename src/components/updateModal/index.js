@@ -78,7 +78,7 @@ function UpdateModal({item, updateModal, setUpdateModal, isClicked, setIsClicked
           </ModalRecipeContainer>
         </ModalDragonsHeader>
       </UpdateModalHeader>
-      <Row update_modal>
+      <Row update_modal='true'>
         <DragonsRecipe>
           <DateContainer>
             {dayjs(item.updatedAt).format('DD/MM/YYYY')}
@@ -89,8 +89,8 @@ function UpdateModal({item, updateModal, setUpdateModal, isClicked, setIsClicked
             onChange={handleChange}
             id='newName'
             type='text'
-            list
             value={updatedDragon.newName}
+            list='true'
           />
         </DragonsRecipe>
         <DragonsRecipe>
@@ -98,17 +98,17 @@ function UpdateModal({item, updateModal, setUpdateModal, isClicked, setIsClicked
             onChange={handleChange} 
             id='newType'
             type='text'
-            list
             value={updatedDragon.newType}
+            list='true'
           />
         </DragonsRecipe>
         <ButtonBox>
-          <Button onClick={() => handleUpdate(item.id)} x={100} modal_edit >
-            <Icons icon={faCheck} fa_pencil_check/> 
+          <Button onClick={() => handleUpdate(item.id)} modal_edit='true' >
+            <Icons icon={faCheck} fa_pencil_check='true'/> 
           </Button>
           <Separator/>
-          <Button onClick={handleCancelButton} x={120} modal_edit>
-            <Icons icon={faTimes} fa_times />
+          <Button onClick={handleCancelButton} modal_edit='true'>
+            <Icons icon={faTimes} fa_times='true' />
           </Button>
         </ButtonBox>
       </Row>

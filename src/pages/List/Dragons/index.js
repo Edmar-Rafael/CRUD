@@ -42,13 +42,13 @@ function Dragons({item, isClicked, setIsClicked}) {
           </TypeContainer>
         </DragonsRecipe>
         <ButtonBox>        
-          <Button onClick={() => setUpdateModal(true)} edit>
-            <Icons icon={faPencilAlt} fa_pencil_check/>
+          <Button onClick={() => setUpdateModal(true)} edit='true'>
+            <Icons icon={faPencilAlt} fa_pencil_check='true'/>
           </Button>
           <Separator />
           <DeleteButtonContainer>
-            <Button onClick={() => setDeleteModal(true)} del>
-              <Icons icon={faTrashAlt} fa_trash />
+            <Button onClick={() => setDeleteModal(true)} del='true'>
+              <Icons icon={faTrashAlt} fa_trash='true' />
             </Button>
           </DeleteButtonContainer>
         </ButtonBox>

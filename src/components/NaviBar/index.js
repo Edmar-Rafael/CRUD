@@ -27,18 +27,18 @@ function NaviBar() {
         <Button
           onClick={() => history.push('/create')} 
           text={handleLanguage('createDragon')} 
-          custom
+          custom='true'
         >
-          <Icon icon={faArrowRight} fa_arrow/>
+          <Icon icon={faArrowRight} fa_arrow='true'/>
         </Button>
       ) : (
         <Button 
           onClick={() => history.push('/')} 
           text={handleLanguage('back')} 
-          custom
-          toLeft
+          custom='true'
+          toLeft='true'
         >
-          <Icon icon={faArrowRight} fa_arrow toLeft rotation={180}/>
+          <Icon icon={faArrowRight} rotation={180} fa_arrow='true' toLeft='true'/>
         </Button>
       )}
       </Box>
@@ -49,7 +49,7 @@ function NaviBar() {
       <Button 
         onClick={() => dispatch(logOut())}
         text={handleLanguage('exit')} 
-        custom
+        custom='true'
       />
     </NaviBarContainer>
   )
