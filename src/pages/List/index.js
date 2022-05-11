@@ -97,7 +97,7 @@ function DragonsList() {
                   <Icons icon={faChevronLeft}/>
                </Button> 
             ) : (
-               <Button footer>
+               <Button footer='true'>
                   <Icons icon={faChevronLeft} fa_chevron='true'/>
                </Button>
             )}
@@ -107,8 +107,8 @@ function DragonsList() {
                   <Icons icon={faChevronLeft} rotation={180}/>
                </Button>
             ) : (
-               <Button footer>
-                  <Icons icon={faChevronLeft} rotation={180} fa_chevron='true'/>
+               <Button footer='true'>
+                  <Icons icon={faChevronLeft} rotation={180} fa_chevron='true' />
                </Button>
             )}
             </ListFooterButtonBox>
