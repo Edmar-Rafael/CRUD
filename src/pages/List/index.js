@@ -29,18 +29,16 @@ function DragonsList() {
    const [searchTerm, setSearchTerm] = useState('')
    const [isClicked, setIsClicked] = useState(false)
    const [chunk, setChunk] = useState(5);
+   
    const { data, loading } = useSelector(({dragonsState}) => dragonsState)
    useSelector(({changeLanguageState}) => changeLanguageState)
    const dispatch = useDispatch()
    
    const filteredDragon = data.filter(dragon => {
-      if(
-         dragon.name.toLowerCase().includes(searchTerm.toLowerCase()) || 
+      return (
+         dragon.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
          dragon.type.toLowerCase().includes(searchTerm.toLowerCase())
-      ) {
-         return dragon
-      }
-      return dragon
+      )
    })
 
    useEffect(() => {
