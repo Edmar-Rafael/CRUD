@@ -12,7 +12,7 @@ export const ButtonContainer = styled.button`
    font-weight: 700;
    border: none;
    position: relative;
-   box-shadow: 6px 8px 10px #090909;
+   box-shadow: ${Colors.boxShadow};
    transition: all 0.3s; 
    cursor: pointer;
 

@@ -9,6 +9,7 @@ export const LanguageToggleContainer = styled.div`
   font-weight: 600;
   border-radius: 6px;
   background-color: ${Colors.background};
+  box-shadow: ${Colors.boxShadow};
   border: 2px solid blue;
 `
 
@@ -32,6 +33,7 @@ export const Drop = styled.div`
   border-style: none inset inset inset;
   border-bottom-right-radius: 4px;
   border-bottom-left-radius: 4px;
+  box-shadow: ${Colors.boxShadow};
   position: fixed;
   z-index: 19;
   transition: all .3s;

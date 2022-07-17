@@ -43,8 +43,7 @@ function DragonsList() {
 
    useEffect(() => {
       dispatch(requestDragons())
-   },
-   [dispatch, isClicked, searchTerm])
+   }, [dispatch, isClicked, searchTerm])
 
    
    return (

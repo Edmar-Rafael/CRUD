@@ -7,6 +7,7 @@ const Colors = {
   blue: '#1111ff66',
   fa_trash_hover: '#990000',
   fa_pencil_check_hover: 'green',
+  boxShadow: '6px 8px 10px #090909'
 }
 
 export default Colors

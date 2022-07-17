@@ -47,7 +47,7 @@ export const IconContainer = styled(FontAwesomeIcon)`
     color: ${({drop}) => drop ? 'white' : '#dddddd66'};
     background-color: #111111;
     font-size: ${({drop}) => drop ? 15 : ''}px;
-    transform: ${({show}) => `rotate(${show ? '180deg' : ''})`};
+    transform: ${({show}) => `rotate(${show ? '-180deg' : ''})`};
   }
 
   @media(max-width: 800px){
