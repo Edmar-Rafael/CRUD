@@ -33,7 +33,11 @@ function DragonsList() {
    const { data, loading } = useSelector(({dragonsState}) => dragonsState)
    useSelector(({changeLanguageState}) => changeLanguageState)
    const dispatch = useDispatch()
-   
+
+   useEffect(() => {
+      dispatch(requestDragons())
+   }, [dispatch, isClicked])
+
    const filteredDragon = data.filter(dragon => {
       return (
          dragon.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -41,21 +45,25 @@ function DragonsList() {
       )
    })
 
-   useEffect(() => {
-      dispatch(requestDragons())
-   }, [dispatch, isClicked, searchTerm])
+   let delay
 
-   
+   function debounce(arg) {
+      clearTimeout(delay)
+      delay = setTimeout(() => {
+         setSearchTerm(arg)
+      }, 1000);
+   }
+
+
    return (
       <Container list='true'>
          <Separator y={80}/>
          <ListContainer>
             <InputLabelContainer search='true'>
                <Input 
-                  onChange={(e) => setSearchTerm(e.target.value)}
-                  type={'text' || 'password'} 
+                  onChange={(e) => debounce(e.target.value)}
+                  type={'text'} 
                   placeholder={handleLanguage('searchByName')}
-                  value={searchTerm}
                   search_dragon='true'
                />
                <FloatingLabel text={handleLanguage('search')} search='true'/>
