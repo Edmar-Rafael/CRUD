@@ -90,7 +90,7 @@ function UpdateModal({item, updateModal, setUpdateModal, isClicked, setIsClicked
             id='newName'
             type='text'
             value={updatedDragon.newName}
-            list='true'
+            list
           />
         </DragonsRecipe>
         <DragonsRecipe>
@@ -99,7 +99,7 @@ function UpdateModal({item, updateModal, setUpdateModal, isClicked, setIsClicked
             id='newType'
             type='text'
             value={updatedDragon.newType}
-            list='true'
+            list
           />
         </DragonsRecipe>
         <ButtonBox>

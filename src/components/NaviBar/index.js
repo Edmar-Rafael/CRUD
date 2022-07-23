@@ -1,7 +1,7 @@
 import React from "react";
 import { Button } from '../../components'
 import { Box, NaviBarContainer } from "./styles";
-import { useLocation, useHistory } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { logOut } from "../../store/ducks/login";
 import LanguageToggle from "../LanguageToggle";
@@ -12,7 +12,7 @@ import { ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 
 function NaviBar() {
-  const history = useHistory()
+  const navigate = useNavigate()
   const isList = useLocation().pathname === '/'
   useSelector(({changeLanguageState}) => changeLanguageState)
 
@@ -25,7 +25,7 @@ function NaviBar() {
       <Box>
       {isList ? (
         <Button
-          onClick={() => history.push('/create')} 
+          onClick={() => navigate('/create')} 
           text={handleLanguage('createDragon')} 
           custom='true'
         >
@@ -33,7 +33,7 @@ function NaviBar() {
         </Button>
       ) : (
         <Button 
-          onClick={() => history.push('/')} 
+          onClick={() => navigate('/')} 
           text={handleLanguage('back')} 
           custom='true'
           toLeft='true'
