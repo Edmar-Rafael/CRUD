@@ -7,7 +7,7 @@ import WithoutAuth from './withoutAuth'
 
 
 function MyRoutes() {
-   const isAuthenticated = useAppSelector(({loginState}) => loginState.data)
+   const isAuthenticated: boolean = useAppSelector(({loginState}) => loginState.data)
 
    const dispatch = useAppDispatch()
 
@@ -17,7 +17,7 @@ function MyRoutes() {
 
    return (
       <Routes>
-         <Route path='' element={isAuthenticated ? <WithAuth/> : <WithoutAuth/>} />
+         <Route path='*' element={isAuthenticated ? <WithAuth/> : <WithoutAuth/>} />
       </Routes>
    )
 }

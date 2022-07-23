@@ -20,7 +20,8 @@ const fin: any = {
   createError: 'Nimeä ja/tai tyyppiä ei ole määritelty',
   deleteSuccess: 'Lohikäärmeen poisto onnistui',
   updateSuccess: 'Lohikäärmeen muokkaaminen onnistui',
-  noUpdate: 'Muutoksia ei tallennettu'
+  noUpdate: 'Muutoksia ei tallennettu',
+  toCreate: 'LUO'
 }
 
 export default fin

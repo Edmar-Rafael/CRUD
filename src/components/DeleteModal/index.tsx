@@ -8,21 +8,32 @@ import {
   ModalcloseButtom,
   ModalButtomContainer,
 } from './styles'
-import { useDispatch } from "react-redux";
 import { requestDeleteDragon } from "../../store/ducks/delete";
 import handleLanguage from "../../resources/LangSource";
 import { toast } from "react-toastify";
+import { Dragon, useAppDispatch } from "../../@types/types";
 
-function DeleteModal({item, deleteModal, setDeleteModal, isClicked, setIsClicked}) {
-  const dispatch = useDispatch()
+type DeleteModalProps = {
+  item: Dragon;
+  deleteModal: boolean;
+  setDeleteModal: (value: boolean) => void;
+  isClicked: boolean;
+  setIsClicked: (value: boolean) => void
+}
 
-  async function handleDelete(id) {
+
+function DeleteModal(
+  {item, deleteModal, setDeleteModal, isClicked, setIsClicked}: DeleteModalProps
+  ) {
+  const dispatch = useAppDispatch()
+
+  async function handleDelete(id: number) {
     try {
       await dispatch(requestDeleteDragon(id))
       setIsClicked(!isClicked)
       toast.success(handleLanguage('deleteSuccess'), {position: 'top-center'})
     } catch(error) {
-      return error
+      console.log('Não deu')
     }
   }
 
@@ -45,15 +56,15 @@ function DeleteModal({item, deleteModal, setDeleteModal, isClicked, setIsClicked
           < Button 
             onClick={() => setDeleteModal(false)}
             x={17} 
-            y={17} 
-            custom='true'
+            y={17}  
+            custom
           >
-            <Icons isModalOpen={deleteModal} icon={faTimes} fa_times='true'/>
+            <Icons isModalOpen={deleteModal} faIcon={faTimes} fa_times />
           </Button>
         </ModalcloseButtom>
-        <DeleteButtonContainer mobile_delete_modal='true'>
-          <Button onClick={() => handleDelete(item.id)} mobile_modal_del='true'>
-            <Icons icon={faTrashAlt} fa_trash='true'/>
+        <DeleteButtonContainer mobile_delete_modal>
+          <Button onClick={() => handleDelete(item.id)} mobile_modal_del >
+            <Icons faIcon={faTrashAlt} fa_trash />
           </Button>
         </DeleteButtonContainer>
       </ModalButtomContainer>

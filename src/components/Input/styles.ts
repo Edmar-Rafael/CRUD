@@ -5,7 +5,7 @@ export const InputContainer = styled.input`
   height: 40px;
   width: 99%;
   padding: 5px 10px;
-  font-size: 20px;
+  font-size: 1.2rem;
   color: white;
   border: 2px solid ${Colors.label};
   border-radius: 4px;
@@ -18,7 +18,7 @@ export const InputContainer = styled.input`
     }
   
   &:focus + label, :not(:placeholder-shown) + label {
-    font-size: 16px;
+    font-size: 1rem;
     font-weight: 900;
     width: fit-content;
     height: fit-content;
@@ -32,7 +32,7 @@ export const InputContainer = styled.input`
     }
   }
 
-  &.list{
+  &.update_modal{
     background-color: ${Colors.dragons};
     height: 20px;
     border-style: none none inset none;

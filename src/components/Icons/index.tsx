@@ -16,6 +16,10 @@ function Icons(props: IconsProps) {
         props.fa_chevron ? 'fa_chevron' : '' ||
         props.fa_arrow ? 'fa_arrow' : ''
       } 
+      toLeft={props.toLeft}
+      show={props.show}
+      drop={props.drop}
+      rotation={props.rotation}
       icon={props.faIcon} 
     />
   )

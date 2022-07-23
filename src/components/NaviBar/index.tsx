@@ -1,22 +1,21 @@
 import React from "react";
-import { Button } from '../../components'
+import { Button, Icons } from '../../components'
 import { Box, NaviBarContainer } from "./styles";
 import { useLocation, useNavigate } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
 import { logOut } from "../../store/ducks/login";
 import LanguageToggle from "../LanguageToggle";
 import handleLanguage from "../../resources/LangSource";
-import Icon from "../Icons";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
+import { useAppDispatch, useAppSelector } from "../../@types/types";
 
 function NaviBar() {
   const navigate = useNavigate()
   const isList = useLocation().pathname === '/'
-  useSelector(({changeLanguageState}) => changeLanguageState)
+  useAppSelector(({changeLanguageState}) => changeLanguageState)
 
-  const dispatch = useDispatch()
+  const dispatch = useAppDispatch()
 
 
   return (
@@ -27,18 +26,18 @@ function NaviBar() {
         <Button
           onClick={() => navigate('/create')} 
           text={handleLanguage('createDragon')} 
-          custom='true'
+          custom
         >
-          <Icon icon={faArrowRight} fa_arrow='true'/>
+          <Icons faIcon={faArrowRight} fa_arrow />
         </Button>
       ) : (
         <Button 
           onClick={() => navigate('/')} 
           text={handleLanguage('back')} 
-          custom='true'
-          toLeft='true'
+          custom
+          toLeft
         >
-          <Icon icon={faArrowRight} rotation={180} fa_arrow='true' toLeft='true'/>
+          <Icons faIcon={faArrowRight} rotation={180} fa_arrow toLeft />
         </Button>
       )}
       </Box>
@@ -49,7 +48,7 @@ function NaviBar() {
       <Button 
         onClick={() => dispatch(logOut())}
         text={handleLanguage('exit')} 
-        custom='true'
+        custom
       />
     </NaviBarContainer>
   )

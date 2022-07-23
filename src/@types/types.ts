@@ -1,4 +1,4 @@
-import { IconProp } from '@fortawesome/fontawesome-svg-core';
+import { IconProp, RotateProp } from '@fortawesome/fontawesome-svg-core';
 import { MouseEvent, ReactNode } from 'react';
 import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux';
 import { AppDispatch, RootState } from '../store';
@@ -23,17 +23,22 @@ export type ButtonProps = {
   footer?: boolean;
   mobile_modal_del?: boolean;
   lang_select?: boolean;
-  selected_lang?: boolean;
+  select_lang?: boolean;
+  selectedLang?: boolean
+  show?: boolean;
+  toLeft?: boolean;
   text?: string;
   type?: string;
   x?: number;
+  y?: number
 }
 
 export type Dragon = {
   id: number;
   name: string;
   type: string;
-  createdAt?: string
+  createdAt?: string;
+  updatedAt?: string
 }
 
 export type DragonsListProps = {
@@ -50,6 +55,10 @@ export type IconsProps = {
   fa_chevron?: boolean;
   fa_arrow?: boolean;
   isFaEyeSlash?: boolean
+  isModalOpen?: boolean;
+  toLeft?: boolean;
+  drop?: boolean;
+  show?: boolean;
   faIcon: IconProp;
-  rotation?: number
+  rotation?: RotateProp
 }

@@ -21,7 +21,8 @@ const eng: any = {
   createError: 'Oops! Name and/or Type not inserted!',
   deleteSuccess: 'Dragon delete successfull!',
   updateSuccess: 'Dragon modified successfull',
-  noUpdate: 'No changes made!'
+  noUpdate: 'No changes made!',
+  toCreate: 'CREATE'
 }
 
 export default eng

@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import Colors from "../../resources/Colors";
 
+
 export const LanguageToggleContainer = styled.div`
   display: flex;
   align-items: center;
@@ -13,16 +14,16 @@ export const LanguageToggleContainer = styled.div`
   border: 2px solid blue;
 `
 
-export const BorderToggle = styled.div`
+export const BorderToggle = styled.div<{selectedLang: boolean}>`
   display: flex;
   justify-content: center;
   border-radius: 6px;
-  background-color: ${({lang}) => lang ? 'blue' : ''};
-  border: ${({lang}) => lang ? `3px solid blue` : '3px solid transparent'};
+  background-color: ${({selectedLang}) => selectedLang ? 'blue' : ''};
+  border: ${({selectedLang}) => selectedLang ? `3px solid blue` : '3px solid transparent'};
   transition: all .3s;
 `
 
-export const Drop = styled.div`
+export const Drop = styled.div<{show: boolean}>`
   opacity: ${({show}) => show ? 1 : 0};
   pointer-events: ${({show}) => show ? 'visible' : 'none'};
   width: 91px;

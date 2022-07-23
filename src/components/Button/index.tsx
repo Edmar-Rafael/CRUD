@@ -16,11 +16,13 @@ function Button(props: ButtonProps) {
             props.footer ? 'footer' : '' ||
             props.mobile_modal_del ? 'mobile_modal_del' : '' ||
             props.lang_select ? 'lang_select' : '' ||
-            props.selected_lang ? 'selected_lang' : ''
+            props.select_lang ? 'selected_lang' : ''
          }
+         selectedLang={props.selectedLang}
+         toLeft={props.toLeft}
          x={props.x} 
       >
-      <ButtonText>{props.text}</ButtonText> 
+         <ButtonText>{props.text}</ButtonText> 
          {props.children}
       </ButtonContainer>
    )

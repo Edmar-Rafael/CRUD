@@ -105,7 +105,7 @@ function DragonsList() {
                </Button> 
             ) : (
                <Button footer>
-                  <Icons faIcon={faChevronLeft} fa_chevron/>
+                  <Icons faIcon={faChevronLeft} fa_chevron />
                </Button>
             )}
             <FooterIcons> - 5 + </FooterIcons>

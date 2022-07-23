@@ -12,19 +12,30 @@ import {
   DragonsRecipe,
   DateContainer
 } from "./styles";
-import { useDispatch } from "react-redux";
 import { requestUpdateDragon } from "../../store/ducks/update";
 import { toast } from "react-toastify";
 import handleLanguage from "../../resources/LangSource";
+import { Dragon, useAppDispatch } from "../../@types/types";
 
-function UpdateModal({item, updateModal, setUpdateModal, isClicked, setIsClicked}) {
+type UpdateModalProps = {
+  item: Dragon;
+  updateModal: boolean;
+  setUpdateModal: (value: boolean) => void;
+  isClicked: boolean;
+  setIsClicked: (value: boolean) => void
+}
+
+
+function UpdateModal(
+  {item, updateModal, setUpdateModal, isClicked, setIsClicked}: UpdateModalProps
+  ) {
   const [updatedDragon, setUpdatedDragon] = useState({
     newName: item.name,
     newType: item.type
   })
-  const dispatch = useDispatch()
+  const dispatch = useAppDispatch()
 
-  async function handleUpdate(id) {
+  async function handleUpdate(id: number) {
     if(updatedDragon.newName === '' || updatedDragon.newType === '') {
       toast.error(handleLanguage('createError'))
     } else if(updatedDragon.newName === item.name && updatedDragon.newType === item.type) {
@@ -48,7 +59,7 @@ function UpdateModal({item, updateModal, setUpdateModal, isClicked, setIsClicked
     })
   }
 
-  function handleChange(event) {
+  function handleChange(event: React.ChangeEvent<HTMLInputElement>) {
     const {id, value} = event.target
     setUpdatedDragon({...updatedDragon, [id]: value})
   }
@@ -78,7 +89,7 @@ function UpdateModal({item, updateModal, setUpdateModal, isClicked, setIsClicked
           </ModalRecipeContainer>
         </ModalDragonsHeader>
       </UpdateModalHeader>
-      <Row update_modal='true'>
+      <Row update_modal >
         <DragonsRecipe>
           <DateContainer>
             {dayjs(item.updatedAt).format('DD/MM/YYYY')}
@@ -90,7 +101,7 @@ function UpdateModal({item, updateModal, setUpdateModal, isClicked, setIsClicked
             id='newName'
             type='text'
             value={updatedDragon.newName}
-            list
+            update_modal
           />
         </DragonsRecipe>
         <DragonsRecipe>
@@ -99,16 +110,16 @@ function UpdateModal({item, updateModal, setUpdateModal, isClicked, setIsClicked
             id='newType'
             type='text'
             value={updatedDragon.newType}
-            list
+            update_modal
           />
         </DragonsRecipe>
         <ButtonBox>
-          <Button onClick={() => handleUpdate(item.id)} modal_edit='true' >
-            <Icons icon={faCheck} fa_pencil_check='true'/> 
+          <Button onClick={() => handleUpdate(item.id)} modal_edit >
+            <Icons faIcon={faCheck} fa_pencil_check /> 
           </Button>
           <Separator/>
-          <Button onClick={handleCancelButton} modal_edit='true'>
-            <Icons icon={faTimes} fa_times='true' />
+          <Button onClick={handleCancelButton} modal_edit>
+            <Icons faIcon={faTimes} fa_times />
           </Button>
         </ButtonBox>
       </Row>

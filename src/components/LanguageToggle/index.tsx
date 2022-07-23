@@ -1,22 +1,22 @@
 import React, { useEffect, useState } from "react"
-import { useDispatch, useSelector } from "react-redux"
 import { changeLanguage } from '../../store/ducks/changeLanguage'
 import { Button } from '../../components'
 import { ArrowBox, BorderToggle, Drop, LanguageToggleContainer } from "./styles"
 import Separator from "../Separator"
 import Icon from "../Icons"
 import { faChevronDown } from "@fortawesome/free-solid-svg-icons"
+import { useAppDispatch, useAppSelector } from "../../@types/types"
 
 function LanguageToggle() {
   const [show, toggleShow] = useState(false)
-  const { language } = useSelector(({changeLanguageState}) => changeLanguageState)
-  const dispatch = useDispatch()
+  const { language } = useAppSelector(({changeLanguageState}) => changeLanguageState)
+  const dispatch = useAppDispatch()
 
   useEffect(() => {
     toggleShow(false)
   }, [language])
 
-  function toggleLanguage(lang) {
+  function toggleLanguage(lang: string) {
     dispatch(changeLanguage(lang))
   }
   
@@ -27,37 +27,37 @@ function LanguageToggle() {
         onClick={() => toggleShow(!show)}
         text={language}
         show={show}
-        selected_lang='true'
+        select_lang
       >
         <ArrowBox>
-          <Icon icon={faChevronDown} show={show} fa_chevron='true' drop='true'/>
+          <Icon faIcon={faChevronDown} show={show} fa_chevron drop/>
         </ArrowBox>
       </Button>
       <Drop show={show}>
-        <BorderToggle lang={language === 'pt-Br'}>
+        <BorderToggle selectedLang={language === 'pt-Br'}>
           <Button 
             onClick={() => toggleLanguage('pt-Br')} 
-            lang={language === 'pt-Br'}
+            selectedLang={language === 'pt-Br'}
             text={'pt-Br'}
-            lang_select='true'
+            lang_select
           />
         </BorderToggle>
         <Separator y={5}/>
-        <BorderToggle lang={language === 'Eng'}>
+        <BorderToggle selectedLang={language === 'Eng'}>
           <Button 
             onClick={() => toggleLanguage('Eng')} 
-            lang={language === 'Eng'}
+            selectedLang={language === 'Eng'}
             text={'Eng'}
-            lang_select='true'
+            lang_select
           />
         </BorderToggle>
         <Separator y={5}/>
-        <BorderToggle lang={language === 'Fin'}>
+        <BorderToggle selectedLang={language === 'Fin'}>
           <Button 
             onClick={() => toggleLanguage('Fin')} 
-            lang={language === 'Fin'}
+            selectedLang={language === 'Fin'}
             text={'Fin'} 
-            lang_select='true'
+            lang_select
           />
         </BorderToggle>
       </Drop>

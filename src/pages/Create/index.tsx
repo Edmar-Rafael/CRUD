@@ -23,10 +23,10 @@ function Create() {
       type: ''
    })
    const {loading} = useAppSelector(({createDragonState}) => createDragonState)
-   useAppSelector(({changeLanguageState}) => changeLanguageState)
-   const navigate = useNavigate()
-
    const dispatch = useAppDispatch()
+   useAppSelector(({changeLanguageState}) => changeLanguageState)
+
+   const navigate = useNavigate()
 
    async function createNewDragon() {
       if(newDragon.name !== '' && newDragon.type !== '') {
@@ -81,7 +81,7 @@ function Create() {
             <Button 
                onClick={createNewDragon} 
                type= 'buttom'
-               text={handleLanguage('register')} 
+               text={handleLanguage('toCreate')} 
                x={310} 
                custom
             />

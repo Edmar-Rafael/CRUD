@@ -5,8 +5,9 @@ type ButtonContainerProps = {
    x?: number;
    y?: number;
    bordRad?: number;
-   toLeft?: string
-   show?: boolean 
+   toLeft?: boolean;
+   show?: boolean;
+   selectedLang?: boolean
 }
 
 export const ButtonContainer = styled.button<ButtonContainerProps>`
@@ -101,12 +102,12 @@ export const ButtonContainer = styled.button<ButtonContainerProps>`
    }
 
    &.lang_select{
-      width: ${({lang}) => lang ? 83 : 85}px;
-      height: ${({lang}) => lang ? 23 : 25}px;
-      color: ${({lang}) => lang ? `white` : `${Colors.label}`};
-      font-size: ${({lang}) => lang ? 12 : 13}px;
-      border: ${({lang}) =>
-         lang ? `2px solid ${Colors.dragons}` : `2px solid ${Colors.label}`};
+      width: ${({selectedLang}) => selectedLang ? 83 : 85}px;
+      height: ${({selectedLang}) => selectedLang ? 23 : 25}px;
+      color: ${({selectedLang}) => selectedLang ? `white` : `${Colors.label}`};
+      font-size: ${({selectedLang}) => selectedLang ? 12 : 13}px;
+      border: ${({selectedLang}) =>
+         selectedLang ? `2px solid ${Colors.dragons}` : `2px solid ${Colors.label}`};
       transition: all .1s;
 
       &:hover{

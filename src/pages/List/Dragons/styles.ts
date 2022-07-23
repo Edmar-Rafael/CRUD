@@ -25,7 +25,7 @@ export const DragonsRecipe = styled.div`
   justify-content: flex-start;
   overflow: hidden;
   width: 25%;
-  font-size: 20px;
+  font-size: 1.22rem;
   color: white;
 
   @media(max-width: 500px){
