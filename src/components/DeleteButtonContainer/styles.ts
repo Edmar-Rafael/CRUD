@@ -7,7 +7,7 @@ export const DeleteButtonBox = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 16px 14px 20px #000009;
+  box-shadow: 9px 8px 10px #000009;
   border-radius: 10px;
   border: none;
   position: relative;

@@ -21,12 +21,11 @@ function NaviBar() {
   return (
     <NaviBarContainer>
       
-      <Box>
       {isList ? (
         <Button
           onClick={() => navigate('/create')} 
-          text={handleLanguage('createDragon')} 
-          custom
+          text={handleLanguage('createDragon')}
+          navi_bar
         >
           <Icons faIcon={faArrowRight} fa_arrow />
         </Button>
@@ -34,13 +33,12 @@ function NaviBar() {
         <Button 
           onClick={() => navigate('/')} 
           text={handleLanguage('back')} 
-          custom
+          navi_bar
           toLeft
         >
-          <Icons faIcon={faArrowRight} rotation={180} fa_arrow toLeft />
+          <Icons faIcon={faArrowRight} rotation={180} fa_arrow />
         </Button>
       )}
-      </Box>
       <Box>
         <LanguageToggle/>
         <ToastContainer theme='colored' closeOnClick/>
@@ -48,7 +46,7 @@ function NaviBar() {
       <Button 
         onClick={() => dispatch(logOut())}
         text={handleLanguage('exit')} 
-        custom
+        navi_bar
       />
     </NaviBarContainer>
   )

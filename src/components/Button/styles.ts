@@ -12,6 +12,7 @@ type ButtonContainerProps = {
 
 export const ButtonContainer = styled.button<ButtonContainerProps>`
    display: flex;
+   flex-direction: ${({toLeft}) => toLeft ? 'row-reverse' : ''};
    align-items: center;
    justify-content: center;
    height: ${({y}) => y || 35}px;
@@ -26,20 +27,34 @@ export const ButtonContainer = styled.button<ButtonContainerProps>`
    cursor: pointer;
 
    &:hover {
-      filter: brightness(0.9)
+      filter: brightness(0.9);
    }
 
    &.custom {
-      flex-direction: ${({toLeft}) => toLeft ? 'row-reverse' : ''};
-      width: ${({x}) => x || 100}px;
+      width: 90%;
       color: black;
       background-color: white;
 
       &:hover{
-         background: ${Colors.dragons};
+         background-color: ${Colors.dragons};
       }
 
       @media(max-width: 800px){
+         border-radius: 30px
+      }
+   }
+
+   &.navi_bar {
+      width: 12%;
+      color: black;
+      background-color: white;
+
+      &:hover{
+         background-color: ${Colors.dragons};
+      }
+
+      @media(max-width: 800px){
+         width: 25%;
          border-radius: 30px
       }
    }
@@ -50,7 +65,7 @@ export const ButtonContainer = styled.button<ButtonContainerProps>`
       width: 23px;
       padding: 0;
       box-shadow: none;
-      transform: translate3d(245px, 17px, 0);
+      transform: translate(110px, 5px);
    }
 
    &.edit{
@@ -85,6 +100,12 @@ export const ButtonContainer = styled.button<ButtonContainerProps>`
          height: 29px;
          border-radius: 5px;
       }
+   }
+
+   &.close_delete_modal {
+      width: 17px;
+      height: 17px;
+      background-color: white;
    }
 
    &.mobile_modal_del{

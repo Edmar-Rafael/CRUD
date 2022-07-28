@@ -16,15 +16,17 @@ export type ButtonProps = {
   onClick?: (event: MouseEvent<HTMLButtonElement>) => void;
   children?: ReactNode;
   custom?: boolean;
+  navi_bar?: boolean;
   edit?: boolean;
   modal_edit?: boolean;
   del?: boolean;
   mask?: boolean;
   footer?: boolean;
   mobile_modal_del?: boolean;
+  close_delete_modal?: boolean;
   lang_select?: boolean;
   select_lang?: boolean;
-  selectedLang?: boolean
+  selectedLang?: boolean;
   show?: boolean;
   toLeft?: boolean;
   text?: string;

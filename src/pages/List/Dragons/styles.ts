@@ -4,6 +4,7 @@ import Colors from "../../../resources/Colors"
 export const DragonsContainer = styled.div`
   display: flex;
   flex-direction: row;
+  align-items: center;
   padding: 5px 10px 5px 5px;
   width: 100%;
   border-radius: 2px;
@@ -33,7 +34,7 @@ export const DragonsRecipe = styled.div`
   }
 
   @media(max-width: 800px) {
-    font-size: 14px;
+    font-size: .9rem;
     padding: 3px;
   }
 `

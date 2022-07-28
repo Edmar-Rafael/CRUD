@@ -27,16 +27,17 @@ export const DragonsHeader = styled.div`
    padding: 5px;
 `
 
-export const RecipeContainer = styled.div`
+export const RecipeContainer = styled.div<{flexEnd?: boolean}>`
    display: flex;
-   justify-content: flex-start;
+   justify-content: ${({flexEnd}) => flexEnd ? 'flex-end' : 'flex-start'};
    width: 25%;
-   font-size: 20px;
+   padding: 0 40px 0 0;
+   font-size: 1.25rem;
    color: white;
 
    @media(max-width: 800px) {
       font-size: 13px;
-      padding: 2px;
+      padding: 2px 40px 2px 2px; 
    }
 `
 

@@ -6,12 +6,10 @@ import {
   Button, 
   Input, 
   Container, 
-  InputLabelContainer, 
   Icons, 
   LanguageToggle, 
 } from '../../components'
-import { LoginContainer } from './styles'
-import FloatingLabel from '../../components/FloatingLabel'
+import { Box, LoginContainer } from './styles'
 import { toast, ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons'
@@ -54,31 +52,26 @@ function Home() {
          <Separator y={20}/>      
          <Wrapper>
             <LoginContainer onSubmit={handleSubmit}>
-               <InputLabelContainer x={280}>
                   <Input 
                      onChange={handleChange}
                      id='name'
                      type={'text'}
-                     placeholder='test' 
+                     placeHolder='test' 
+                     label={handleLanguage('name')}
                      value={user.name}
                   />
-                  <FloatingLabel text={handleLanguage('name')}/>
-                  <Separator y={25}/>
-               </InputLabelContainer>
-               <InputLabelContainer x={280}>
                   <Input 
                      onChange={handleChange}
                      id='password'
                      type={maskType ? '' : 'password'}
-                     home
-                     placeholder='test' 
+                     placeHolder='test' 
+                     label={handleLanguage('password')}
                      value={user.password}
+                     home
                   />
-                  <FloatingLabel text={handleLanguage('password')}/>
-                  <Separator y={23}/>
                   <Button 
                      onClick={() => setMaskType(!maskType)} 
-                     type='button' 
+                     type='submit'
                      mask
                   >
                      <Icons 
@@ -87,9 +80,13 @@ function Home() {
                         fa_eye_slash
                      />
                   </Button>
-               </InputLabelContainer>
                <Separator />
-               <Button text={handleLanguage('toConfirm')} x={278} custom/>
+               <Button 
+                  onClick={handleSubmit}
+                  text={handleLanguage('toConfirm')} 
+                  type='button'
+                  custom
+               />
             </LoginContainer>
          </Wrapper>
       </Container>

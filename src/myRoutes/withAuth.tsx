@@ -10,7 +10,7 @@ function WithAuth() {
     <Container>
       <NaviBar />
       <Routes>
-        <Route path='/' element={<List />} /> 
+        <Route path='*' element={<List />} /> 
         <Route path='/create' element={<Create/>} />
       </Routes>
     </Container>

@@ -79,7 +79,7 @@ export const DragonsRecipe = styled.div`
   padding-left: 10px;
   width: 25%;
   font-size: 20px;
-  color: white;
+  color: white; 
 
   @media(max-width: 500px){
     width: 31%;

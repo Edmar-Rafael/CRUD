@@ -21,7 +21,8 @@ const fin: any = {
   deleteSuccess: 'Lohikäärmeen poisto onnistui',
   updateSuccess: 'Lohikäärmeen muokkaaminen onnistui',
   noUpdate: 'Muutoksia ei tallennettu',
-  toCreate: 'LUO'
+  toCreate: 'LUO',
+  actions: ''
 }
 
 export default fin

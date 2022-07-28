@@ -6,9 +6,7 @@ import 'react-toastify/dist/ReactToastify.css';
    Button, 
    Separator, 
    Input, 
-   InputLabelContainer, 
    Wrapper, 
-   FloatingLabel, 
    Container,
    LoaderSpinner
 } from '../../components'
@@ -53,38 +51,31 @@ function Create() {
          <LoaderSpinner />
       ) : (
          <Wrapper create >
-            <InputLabelContainer x={310}>
                <Input
                   onChange={handleNewDragon} 
                   id='name'
                   type='text'
-                  placeholder={handleLanguage('exName')} 
+                  placeHolder={handleLanguage('exName')} 
+                  label={handleLanguage('createName')}
                   value={newDragon.name}
                   create
                />
-               <FloatingLabel text={handleLanguage('createName')}/>
-               <Separator y={23}/>
-            </InputLabelContainer>
-            <InputLabelContainer x={310}>
                <Input 
                   onChange={handleNewDragon} 
                   id='type'
                   type='text'
-                  placeholder={handleLanguage('exRed')} 
+                  placeHolder={handleLanguage('exRed')} 
+                  label={handleLanguage('createType')}
                   value={newDragon.type} 
                   create
                />
-               <FloatingLabel text={handleLanguage('createType')}/>
-               <Separator y={23}/>
-            </InputLabelContainer>
             <Separator />
             <Button 
                onClick={createNewDragon} 
                type= 'buttom'
                text={handleLanguage('toCreate')} 
-               x={310} 
                custom
-            />
+            /> 
          </Wrapper>
       )}
       </Container>

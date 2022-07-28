@@ -66,7 +66,7 @@ function UpdateModal(
 
   return (
     <UpdateModalContainer
-      closeTimeoutMS={2000}
+      closeTimeoutMS={300}
       isOpen={updateModal}
       onRequestClose={() => handleCancelButton()}
       style={{
@@ -102,6 +102,7 @@ function UpdateModal(
             type='text'
             value={updatedDragon.newName}
             update_modal
+            y={1}
           />
         </DragonsRecipe>
         <DragonsRecipe>
@@ -111,6 +112,7 @@ function UpdateModal(
             type='text'
             value={updatedDragon.newType}
             update_modal
+            y={1}
           />
         </DragonsRecipe>
         <ButtonBox>

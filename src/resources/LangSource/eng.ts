@@ -22,7 +22,8 @@ const eng: any = {
   deleteSuccess: 'Dragon delete successfull!',
   updateSuccess: 'Dragon modified successfull',
   noUpdate: 'No changes made!',
-  toCreate: 'CREATE'
+  toCreate: 'CREATE',
+  actions: 'Actions'
 }
 
 export default eng

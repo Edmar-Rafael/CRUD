@@ -40,12 +40,12 @@ function DeleteModal(
   return (
     
     <ModalContainer 
-      closeTimeoutMS={2000}
+      closeTimeoutMS={300}
       isOpen={deleteModal} 
       onRequestClose={() => setDeleteModal(false)}
       style={{overlay: {
         background: '#00000077',
-        backdropFilter: 'blur(2px)'
+        /* backdropFilter: 'blur(2px)' */
       }}}
     >
       <ModalMessage>
@@ -55,9 +55,7 @@ function DeleteModal(
         <ModalcloseButtom>
           < Button 
             onClick={() => setDeleteModal(false)}
-            x={17} 
-            y={17}  
-            custom
+            close_delete_modal
           >
             <Icons isModalOpen={deleteModal} faIcon={faTimes} fa_times />
           </Button>

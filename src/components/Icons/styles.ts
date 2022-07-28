@@ -49,7 +49,7 @@ export const IconContainer = styled(FontAwesomeIcon)<IconContainerProps>`
   &.fa_search{
     position: absolute;
     font-size: 18px;
-    transform: translate(10px, 20px);
+    transform: translate(-495px, 16px);
   }
 
   &.fa_chevron{
@@ -64,7 +64,7 @@ export const IconContainer = styled(FontAwesomeIcon)<IconContainerProps>`
   }
 
   &.fa_arrow{
-    padding-left: ${({toLeft}) => toLeft ? 4 : 0}px;
+    padding: 0 4px 0 4px;
     color: black;
     font-size: 14px;
   }

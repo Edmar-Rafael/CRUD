@@ -8,3 +8,5 @@ export const LoginContainer = styled.form`
    width: 100%;
    height: 350px;
 `
+
+export const Box = styled.div``

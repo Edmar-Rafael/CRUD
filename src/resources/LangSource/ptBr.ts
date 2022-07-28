@@ -22,7 +22,8 @@ const ptBr: any = {
   deleteSuccess: 'Dragão deletado com sucesso!',
   updateSuccess: 'Dragão modificado com sucesso!',
   noUpdate: 'Nenhuma alteração realizada!',
-  toCreate: 'CRIAR'
+  toCreate: 'CRIAR',
+  actions: 'Ações'
 }
 
 export default ptBr

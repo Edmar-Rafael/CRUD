@@ -16,6 +16,8 @@ function Icons(props: IconsProps) {
         props.fa_chevron ? 'fa_chevron' : '' ||
         props.fa_arrow ? 'fa_arrow' : ''
       } 
+      isFaEyeSlash={props.isFaEyeSlash}
+      isModalOpen={props.isModalOpen}
       toLeft={props.toLeft}
       show={props.show}
       drop={props.drop}

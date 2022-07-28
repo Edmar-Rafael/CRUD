@@ -4,10 +4,8 @@ import { requestDragons } from '../../store/ducks/dragonsList'
 import { 
    Button, 
    Container, 
-   FloatingLabel, 
    Icons, 
    Input, 
-   InputLabelContainer, 
    Separator, 
    SkeletonLoading 
 } from '../../components'
@@ -26,7 +24,7 @@ import { DragonsListProps, useAppDispatch, useAppSelector } from '../../@types/t
 
 
 function DragonsList() {
-   const [searchTerm, setSearchTerm] = useState('')
+   const [searchTerm, setSearchTerm] = useState<string>('')
    const [isClicked, setIsClicked] = useState(false)
    const [chunk, setChunk] = useState(5);
    
@@ -61,17 +59,15 @@ function DragonsList() {
       <Container list>
          <Separator y={80}/>
          <ListContainer>
-            <InputLabelContainer search>
-               <Input 
-                  onChange={delayedDebounce}
-                  type={'text'} 
-                  placeholder={handleLanguage('searchByName')}
-                  search_dragon
-               />
-               <FloatingLabel text={handleLanguage('search')} search/>
-               <Icons faIcon={faSearch} fa_search/>
-               <Separator y={23}/>
-            </InputLabelContainer>
+            <Input 
+               onChange={delayedDebounce}
+               type={'text'} 
+               placeHolder={handleLanguage('searchByName')}
+               label={handleLanguage('search')}
+               search_dragon
+               search_label
+            />
+            <Icons faIcon={faSearch} fa_search/>
             <DragonsHeader >
                <RecipeContainer >
                   <Recipe >{handleLanguage('date')}</Recipe>
@@ -82,20 +78,24 @@ function DragonsList() {
                <RecipeContainer>
                   <Recipe>{handleLanguage('type')}</Recipe>
                </RecipeContainer>
+               <RecipeContainer flexEnd>
+                  <Recipe>{handleLanguage('actions')}</Recipe>
+               </RecipeContainer>
             </DragonsHeader>
-            {loading ? (
+            { loading ? (
                <SkeletonLoading />
             ) : (
                dragonsData && filteredDragon
                .slice(chunk - 5, chunk)
                .map(dragon =>
-               <Dragons 
-                  key={dragon.id}
-                  isClicked={isClicked}
-                  setIsClicked={setIsClicked}
-                  item={dragon}
-               />
-            ))}
+                  <Dragons 
+                     key={dragon.id}
+                     isClicked={isClicked}
+                     setIsClicked={setIsClicked}
+                     item={dragon}
+                  />
+               )
+            )}
          </ListContainer>
          <ListFooter>
             <ListFooterButtonBox>
