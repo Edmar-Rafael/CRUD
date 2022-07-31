@@ -3,7 +3,6 @@ import { Separator } from '..'
 import { InputContainer, InputLabelBox, Label } from "./styles";
 
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
-  home?: boolean;
   update_modal?: boolean;
   create?: boolean;
   search_dragon?: boolean;
@@ -22,7 +21,6 @@ function Input({...props}: InputProps) {
     <InputLabelBox x={props.x} >
       <InputContainer 
         className={
-          props.home ? 'home' : '' ||
           props.update_modal ? 'update_modal' : '' || 
           props.create ? 'create' : '' ||
           props.search_dragon ? 'search_dragon' : '' ||

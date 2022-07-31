@@ -1,6 +1,7 @@
 import React from 'react'
 import { ButtonProps } from '../../@types/types'
 import { ButtonContainer, ButtonText } from './styles'
+import { PulsingButton } from '..'
 
 
 function Button(props: ButtonProps) {
@@ -24,6 +25,7 @@ function Button(props: ButtonProps) {
          toLeft={props.toLeft}
          x={props.x} 
       >
+         <PulsingButton />
          <ButtonText>{props.text}</ButtonText> 
          {props.children}
       </ButtonContainer>

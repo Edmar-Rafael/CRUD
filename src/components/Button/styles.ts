@@ -23,6 +23,7 @@ export const ButtonContainer = styled.button<ButtonContainerProps>`
    border: none;
    position: relative;
    box-shadow: ${Colors.boxShadow};
+   overflow: hidden;
    transition: all 0.3s; 
    cursor: pointer;
 

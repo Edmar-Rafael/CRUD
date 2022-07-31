@@ -7,9 +7,10 @@ import {
   Input, 
   Container, 
   Icons, 
-  LanguageToggle, 
+  LanguageToggle,
+  PulsingButton
 } from '../../components'
-import { Box, LoginContainer } from './styles'
+import { LoginContainer } from './styles'
 import { toast, ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons'
@@ -52,42 +53,40 @@ function Home() {
          <Separator y={20}/>      
          <Wrapper>
             <LoginContainer onSubmit={handleSubmit}>
-                  <Input 
-                     onChange={handleChange}
-                     id='name'
-                     type={'text'}
-                     placeHolder='test' 
-                     label={handleLanguage('name')}
-                     value={user.name}
-                  />
-                  <Input 
-                     onChange={handleChange}
-                     id='password'
-                     type={maskType ? '' : 'password'}
-                     placeHolder='test' 
-                     label={handleLanguage('password')}
-                     value={user.password}
-                     home
-                  />
-                  <Button 
-                     onClick={() => setMaskType(!maskType)} 
-                     type='submit'
-                     mask
-                  >
-                     <Icons 
-                        isFaEyeSlash={maskType} 
-                        faIcon={maskType ? faEyeSlash : faEye}
-                        fa_eye_slash
-                     />
-                  </Button>
+               <Input 
+                  onChange={handleChange}
+                  id='name'
+                  type={'text'}
+                  placeHolder={'test'} 
+                  label={handleLanguage('name')}
+                  value={user.name}
+               />
+               <Input 
+                  onChange={handleChange}
+                  id='password'
+                  type={maskType ? '' : 'password'}
+                  placeHolder={'test'} 
+                  label={handleLanguage('password')}
+                  value={user.password}
+               />
                <Separator />
                <Button 
-                  onClick={handleSubmit}
                   text={handleLanguage('toConfirm')} 
-                  type='button'
+                  type='submit'
                   custom
                />
             </LoginContainer>
+            <Button 
+               onClick={() => setMaskType(!maskType)} 
+               type='button'
+               mask
+            >
+               <Icons 
+                  isFaEyeSlash={maskType} 
+                  faIcon={maskType ? faEyeSlash : faEye}
+                  fa_eye_slash
+               />
+            </Button>
          </Wrapper>
       </Container>
    )
