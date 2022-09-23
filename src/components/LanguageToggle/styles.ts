@@ -20,7 +20,7 @@ export const BorderToggle = styled.div<{selectedLang: boolean}>`
   border-radius: 6px;
   background-color: ${({selectedLang}) => selectedLang ? 'blue' : ''};
   border: ${({selectedLang}) => selectedLang ? `3px solid blue` : '3px solid transparent'};
-  transition: all .3s;
+  transition: all .3s linear;
 `
 
 export const Drop = styled.div<{show: boolean}>`
@@ -37,7 +37,7 @@ export const Drop = styled.div<{show: boolean}>`
   box-shadow: ${Colors.boxShadow};
   position: fixed;
   z-index: 19;
-  transition: all .3s;
+  transition: all .3s linear;
 `
 
 export const ArrowBox = styled.div`

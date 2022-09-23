@@ -1,13 +1,13 @@
 import React from 'react'
 import { ButtonProps } from '../../@types/types'
 import { ButtonContainer, ButtonText } from './styles'
-import { PulsingButton } from '..'
 
 
 function Button(props: ButtonProps) {
+
    return (
       <ButtonContainer 
-         onClick={props.onClick && props.onClick}
+         onClick={props.onClick && props.onClick} 
          className={
             props.custom ? 'custom' : '' || 
             props.navi_bar ? 'navi_bar' : '' ||
@@ -23,9 +23,7 @@ function Button(props: ButtonProps) {
          }
          selectedLang={props.selectedLang}
          toLeft={props.toLeft}
-         x={props.x} 
       >
-         <PulsingButton />
          <ButtonText>{props.text}</ButtonText> 
          {props.children}
       </ButtonContainer>

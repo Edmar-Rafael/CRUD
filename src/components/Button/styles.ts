@@ -2,9 +2,7 @@ import styled from 'styled-components'
 import Colors from '../../resources/Colors'
 
 type ButtonContainerProps = {
-   x?: number;
    y?: number;
-   bordRad?: number;
    toLeft?: boolean;
    show?: boolean;
    selectedLang?: boolean
@@ -16,23 +14,21 @@ export const ButtonContainer = styled.button<ButtonContainerProps>`
    align-items: center;
    justify-content: center;
    height: ${({y}) => y || 35}px;
-   background: ${Colors.background};
-   border-radius: ${({bordRad}) => bordRad || 5}px;
+   border-radius: 4px;
+   border: none;
+   background-color: ${Colors.background};
    color: white;
    font-weight: 700;
-   border: none;
    position: relative;
    box-shadow: ${Colors.boxShadow};
-   overflow: hidden;
    transition: all 0.3s; 
    cursor: pointer;
 
-   &:hover {
+   &:hover{
       filter: brightness(0.9);
    }
 
    &.custom {
-      width: 90%;
       color: black;
       background-color: white;
 
@@ -61,12 +57,13 @@ export const ButtonContainer = styled.button<ButtonContainerProps>`
    }
 
    &.mask {
-      position: absolute;
-      height: 21px;
-      width: 23px;
+      width: fit-content;
+      height: fit-content;
       padding: 0;
       box-shadow: none;
-      transform: translate(110px, 5px);
+      position: absolute;
+
+      transform: translate(115px, 4px)
    }
 
    &.edit{
@@ -99,7 +96,6 @@ export const ButtonContainer = styled.button<ButtonContainerProps>`
       @media(max-width: 800px){
          width: 29px;
          height: 29px;
-         border-radius: 5px;
       }
    }
 

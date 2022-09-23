@@ -6,6 +6,7 @@ export const ContainerBox = styled.div`
    display: flex;
    flex-direction: column;
    align-items: center;
+   position: relative;
 
    &.list{
       min-height: 656px;

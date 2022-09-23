@@ -3,12 +3,12 @@ import { useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
    import { 
-   Button, 
    Separator, 
    Input, 
    Wrapper, 
    Container,
-   LoaderSpinner
+   LoaderSpinner,
+   AnimatedButton
 } from '../../components'
 import { requestCreateDragon } from '../../store/ducks/creating';
 import handleLanguage from '../../resources/LangSource';
@@ -70,7 +70,7 @@ function Create() {
                   create
                />
             <Separator />
-            <Button 
+            <AnimatedButton
                onClick={createNewDragon} 
                type= 'buttom'
                text={handleLanguage('toCreate')} 

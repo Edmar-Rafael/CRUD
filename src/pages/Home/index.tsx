@@ -1,4 +1,4 @@
-import React, { FormEvent, useState } from 'react'
+import React, { ChangeEvent, FormEvent, useState } from 'react'
 import { EMAIL, JWT, PASSWORD } from '../../config'
 import { 
   Wrapper, 
@@ -8,7 +8,7 @@ import {
   Container, 
   Icons, 
   LanguageToggle,
-  PulsingButton
+  AnimatedButton
 } from '../../components'
 import { LoginContainer } from './styles'
 import { toast, ToastContainer } from 'react-toastify'
@@ -40,7 +40,7 @@ function Home() {
       }
    }
    
-   function handleChange(event: React.ChangeEvent<HTMLInputElement>) {
+   function handleChange(event: ChangeEvent<HTMLInputElement>) {
       const {id, value} = event.target
       setUser({...user, [id]: value})
    }
@@ -70,11 +70,7 @@ function Home() {
                   value={user.password}
                />
                <Separator />
-               <Button 
-                  text={handleLanguage('toConfirm')} 
-                  type='submit'
-                  custom
-               />
+               <AnimatedButton text={handleLanguage('toConfirm')}/>
             </LoginContainer>
             <Button 
                onClick={() => setMaskType(!maskType)} 

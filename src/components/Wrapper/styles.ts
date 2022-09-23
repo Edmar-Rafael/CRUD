@@ -13,7 +13,6 @@ export const WrapperContainer = styled.div`
    transition: all .3s;
    background-color: ${Colors.background};
 
-
    &:hover{
       border-color: ${Colors.dragons};
    }
